@@ -1,0 +1,18 @@
+{
+  "name": "contentcore-backend",
+  "version": "1.0.0",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "^1.1.22",
+    "@elysiajs/cors": "^1.1.1",
+    "mongodb": "^6.10.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}
