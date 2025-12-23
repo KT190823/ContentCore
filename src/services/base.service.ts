@@ -3,10 +3,12 @@ import { prisma } from '../utils/prisma';
 export abstract class BaseService<T = any> {
     protected abstract modelName: string;
 
-    async getAll(where?: any, options?: { orderBy?: any; include?: any }) {
+    async getAll(where?: any, options?: { take?: number; skip?: number; orderBy?: any; include?: any }) {
         const model = (prisma as any)[this.modelName];
         return await model.findMany({
             where: where || {},
+            take: options?.take,
+            skip: options?.skip,
             orderBy: options?.orderBy || { createdAt: 'desc' },
             include: options?.include
         });
