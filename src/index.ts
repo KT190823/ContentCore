@@ -10,18 +10,24 @@ import { userRoutes } from './routes/user';
 import { keywordsRoutes } from './routes/keywords';
 import { dashboardRoutes } from './routes/dashboard';
 import { pricingRoutes } from './routes/pricing';
+import { facebookPostsRoutes } from './routes/facebook-posts';
+import { channelsRoutes } from './routes/channels';
+import { trendingRoutes } from './routes/trending';
+import { aiRoutes } from './routes/ai';
+import { authRoutes } from './routes/auth';
+import { authMiddleware } from './middlewares/auth';
 
 const PORT = process.env.PORT || 5444;
 
 const app = new Elysia()
   // Add CORS support
   .use(cors({
-    origin: true, // Allow all origins in development
+    origin: process.env.WEBAPP_URI,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization', 'a-token']
   }))
-  
+
   // Add Swagger documentation
   .use(swagger({
     documentation: {
@@ -34,11 +40,12 @@ const app = new Elysia()
         { name: 'Posts', description: 'Posts management endpoints' },
         { name: 'Cron', description: 'Scheduled jobs endpoints' },
         { name: 'User', description: 'User management endpoints' },
-        { name: 'Keywords', description: 'Keywords management endpoints' }
+        { name: 'Keywords', description: 'Keywords management endpoints' },
+        { name: 'Facebook Posts', description: 'Facebook posts management endpoints' }
       ]
     }
   }))
-  
+
   // Health check endpoint
   .get('/', () => ({
     message: 'Zenith Social YouTube Manager API',
@@ -46,36 +53,51 @@ const app = new Elysia()
     status: 'healthy',
     timestamp: new Date().toISOString()
   }))
-  
+
   // API routes
-  .group('/api', (app) => 
+  .group('/api', (app) =>
     app
-      .use(postsRoutes)
+      .use(authRoutes)
       .use(cronRoutes)
-      .use(userRoutes)
-      .use(keywordsRoutes)
-      .use(dashboardRoutes)
-      .use(pricingRoutes)
+      .group('', (app) =>
+        app
+          .use(authMiddleware)
+          .onBeforeHandle(({ user, set }: { user: any, set: any }) => {
+            if (!user) {
+              set.status = 401;
+              return { error: 'Unauthorized: Invalid or missing token' };
+            }
+          })
+          .use(postsRoutes)
+          .use(userRoutes)
+          .use(keywordsRoutes)
+          .use(dashboardRoutes)
+          .use(pricingRoutes)
+          .use(facebookPostsRoutes)
+          .use(channelsRoutes)
+          .use(trendingRoutes)
+          .use(aiRoutes)
+      )
   )
-  
+
   // Error handling
   .onError(({ code, error, set }) => {
     console.error('Error:', error);
-    
+
     if (code === 'NOT_FOUND') {
       set.status = 404;
       return { error: 'Route not found' };
     }
-    
+
     if (code === 'VALIDATION') {
       set.status = 400;
       return { error: 'Validation error', details: error.message };
     }
-    
+
     set.status = 500;
     return { error: 'Internal server error' };
   })
-  
+
   .listen(PORT);
 
 console.log(`

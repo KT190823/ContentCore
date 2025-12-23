@@ -1,41 +1,26 @@
 import { Elysia, t } from 'elysia';
-import { prisma } from '../utils/prisma';
+import { PostService } from '../services';
+import { UserHelper } from '../utils/user-helper';
 
 export const postsRoutes = new Elysia({ prefix: '/posts' })
   // GET all posts
-  .get('/', async ({ query }) => {
+  .get('/', async (context) => {
     try {
-      const { userId, status } = query;
+      const { user } = await UserHelper.fromContext(context);
+      const { status } = context.query;
 
-      if (!userId) {
-        return {
-          error: 'User ID is required',
-          status: 400
-        };
-      }
-
-      const where: any = { userId };
-      if (status) {
-        where.processStatus = status;
-      }
-
-      const posts = await prisma.post.findMany({
-        where,
-        orderBy: { createdAt: 'desc' },
-        include: {
-          user: {
-            select: {
-              name: true,
-              email: true,
-              image: true
-            }
-          }
-        }
-      });
-
+      const posts = await PostService.getAll(user.id, status);
       return { posts };
     } catch (error) {
       console.error('Error fetching posts:', error);
+
+      if ((error as Error).message.includes('token')) {
+        return {
+          error: (error as Error).message,
+          status: 401
+        };
+      }
+
       return {
         error: 'Failed to fetch posts',
         status: 500
@@ -43,16 +28,25 @@ export const postsRoutes = new Elysia({ prefix: '/posts' })
     }
   }, {
     query: t.Object({
-      userId: t.String(),
       status: t.Optional(t.String())
     })
   })
-  
+
   // CREATE a new post
-  .post('/', async ({ body }) => {
+  .post('/', async (context) => {
     try {
-      const {
-        userId,
+      const { user } = await UserHelper.fromContext(context);
+      const { title, description, thumbnailUrl, videoUrl, status, scheduledAt, tags, videoType } = context.body;
+
+      if (!title) {
+        return {
+          error: 'Title is required',
+          status: 400
+        };
+      }
+
+      const post = await PostService.create({
+        userId: user.id,
         title,
         description,
         thumbnailUrl,
@@ -61,41 +55,19 @@ export const postsRoutes = new Elysia({ prefix: '/posts' })
         scheduledAt,
         tags,
         videoType
-      } = body;
-
-      if (!userId || !title) {
-        return {
-          error: 'User ID and title are required',
-          status: 400
-        };
-      }
-
-      const post = await prisma.post.create({
-        data: {
-          userId,
-          title,
-          description,
-          thumbnailUrl,
-          videoUrl,
-          videoType,
-          processStatus: status || 'draft',
-          scheduledAt: scheduledAt ? new Date(scheduledAt) : null,
-          tags: tags || []
-        },
-        include: {
-          user: {
-            select: {
-              name: true,
-              email: true,
-              image: true
-            }
-          }
-        }
       });
 
       return { post, status: 201 };
     } catch (error) {
       console.error('Error creating post:', error);
+
+      if ((error as Error).message.includes('token')) {
+        return {
+          error: (error as Error).message,
+          status: 401
+        };
+      }
+
       return {
         error: 'Failed to create post',
         status: 500
@@ -103,7 +75,6 @@ export const postsRoutes = new Elysia({ prefix: '/posts' })
     }
   }, {
     body: t.Object({
-      userId: t.String(),
       title: t.String(),
       description: t.Optional(t.String()),
       thumbnailUrl: t.Optional(t.String()),
@@ -122,22 +93,12 @@ export const postsRoutes = new Elysia({ prefix: '/posts' })
       }))
     })
   })
-  
+
   // GET a single post by ID
-  .get('/:id', async ({ params }) => {
+  .get('/:id', async (context) => {
     try {
-      const post = await prisma.post.findUnique({
-        where: { id: params.id },
-        include: {
-          user: {
-            select: {
-              name: true,
-              email: true,
-              image: true
-            }
-          }
-        }
-      });
+      const { user } = await UserHelper.fromContext(context);
+      const post = await PostService.get(context.params.id);
 
       if (!post) {
         return {
@@ -146,24 +107,39 @@ export const postsRoutes = new Elysia({ prefix: '/posts' })
         };
       }
 
+      // Verify ownership
+      if (post.userId !== user.id) {
+        return {
+          error: 'Unauthorized to access this post',
+          status: 403
+        };
+      }
+
       return { post };
     } catch (error) {
       console.error('Error fetching post:', error);
+
+      if ((error as Error).message.includes('token')) {
+        return {
+          error: (error as Error).message,
+          status: 401
+        };
+      }
+
       return {
         error: 'Failed to fetch post',
         status: 500
       };
     }
   })
-  
-  // UPDATE a post
-  .patch('/:id', async ({ params, body }) => {
-    try {
-      // Check if post exists
-      const existingPost = await prisma.post.findUnique({
-        where: { id: params.id }
-      });
 
+  // UPDATE a post
+  .patch('/:id', async (context) => {
+    try {
+      const { user } = await UserHelper.fromContext(context);
+
+      // Check ownership first
+      const existingPost = await PostService.get(context.params.id);
       if (!existingPost) {
         return {
           error: 'Post not found',
@@ -171,37 +147,32 @@ export const postsRoutes = new Elysia({ prefix: '/posts' })
         };
       }
 
-      // Prepare update data
-      const updateData: any = {};
-      
-      if (body.title !== undefined) updateData.title = body.title;
-      if (body.description !== undefined) updateData.description = body.description;
-      if (body.thumbnailUrl !== undefined) updateData.thumbnailUrl = body.thumbnailUrl;
-      if (body.videoUrl !== undefined) updateData.videoUrl = body.videoUrl;
-      if (body.status !== undefined) updateData.processStatus = body.status;
-      if (body.videoType !== undefined) updateData.videoType = body.videoType;
-      if (body.tags !== undefined) updateData.tags = body.tags;
-      if (body.scheduledAt !== undefined) {
-        updateData.scheduledAt = body.scheduledAt ? new Date(body.scheduledAt) : null;
+      if (existingPost.userId !== user.id) {
+        return {
+          error: 'Unauthorized to update this post',
+          status: 403
+        };
       }
 
-      const post = await prisma.post.update({
-        where: { id: params.id },
-        data: updateData,
-        include: {
-          user: {
-            select: {
-              name: true,
-              email: true,
-              image: true
-            }
-          }
-        }
-      });
-
+      const post = await PostService.update(context.params.id, context.body);
       return { post };
     } catch (error) {
       console.error('Error updating post:', error);
+
+      if ((error as Error).message.includes('token')) {
+        return {
+          error: (error as Error).message,
+          status: 401
+        };
+      }
+
+      if ((error as any).code === 'P2025') {
+        return {
+          error: 'Post not found',
+          status: 404
+        };
+      }
+
       return {
         error: 'Failed to update post',
         status: 500
@@ -227,30 +198,48 @@ export const postsRoutes = new Elysia({ prefix: '/posts' })
       }))
     })
   })
-  
-  // DELETE a post
-  .delete('/:id', async ({ params }) => {
-    try {
-      // Check if post exists
-      const post = await prisma.post.findUnique({
-        where: { id: params.id }
-      });
 
-      if (!post) {
+  // DELETE a post
+  .delete('/:id', async (context) => {
+    try {
+      const { user } = await UserHelper.fromContext(context);
+
+      // Check ownership first
+      const existingPost = await PostService.get(context.params.id);
+      if (!existingPost) {
         return {
           error: 'Post not found',
           status: 404
         };
       }
 
-      // Delete the post from database
-      await prisma.post.delete({
-        where: { id: params.id }
-      });
+      if (existingPost.userId !== user.id) {
+        return {
+          error: 'Unauthorized to delete this post',
+          status: 403
+        };
+      }
 
+      const instance = new PostService();
+      await instance.delete(context.params.id);
       return { success: true };
     } catch (error) {
       console.error('Error deleting post:', error);
+
+      if ((error as Error).message.includes('token')) {
+        return {
+          error: (error as Error).message,
+          status: 401
+        };
+      }
+
+      if ((error as any).code === 'P2025') {
+        return {
+          error: 'Post not found',
+          status: 404
+        };
+      }
+
       return {
         error: 'Failed to delete post',
         status: 500

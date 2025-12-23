@@ -3,7 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma/client"
+  output   = "."
 }
 
 datasource db {
@@ -60,6 +60,7 @@ model User {
   refreshTokens   RefreshToken[]
   pricingHistory  PricingPlanHistory[]
   generateHistory GenerateHistory[]
+  facebookPosts   FacebookPost[]
 
   pricingPlan PricingPlan? @relation(fields: [pricingPlanId], references: [id])
 }
@@ -152,6 +153,23 @@ model Post {
   tags          String[] // Array of tags/keywords
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model FacebookPost {
+  id             String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String     @db.ObjectId
+  title          String
+  content        String?
+  imageUrl       String?
+  videoUrl       String?
+  status         PostStatus @default(draft)
+  scheduledAt    DateTime?
+  publishedAt    DateTime?
+  facebookPostId String? // ID from Facebook after publishing
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

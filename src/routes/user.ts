@@ -1,6 +1,5 @@
 import { Elysia, t } from 'elysia';
-import { prisma } from '../utils/prisma';
-import bcrypt from 'bcryptjs';
+import { UserService } from '../services';
 
 export const userRoutes = new Elysia({ prefix: '/user' })
   // GET user profile
@@ -15,42 +14,7 @@ export const userRoutes = new Elysia({ prefix: '/user' })
         };
       }
 
-      const user = await prisma.user.findUnique({
-        where: { email },
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          image: true,
-          createdAt: true,
-          credit: true,
-          creditUsed: true,
-          capacity: true,
-          capacityUsed: true,
-          pricingPlanId: true,
-          pricingPlan: {
-            select: {
-              id: true,
-              name: true,
-              price: true,
-              currency: true,
-              credit: true,
-              capacity: true,
-              features: true
-            }
-          },
-          channels: {
-            select: {
-              id: true,
-              platform: true,
-              channelId: true,
-              channelName: true,
-              channelImage: true,
-              createdAt: true
-            }
-          }
-        }
-      });
+      const user = await UserService.getProfileByEmail(email);
 
       if (!user) {
         return {
@@ -72,11 +36,11 @@ export const userRoutes = new Elysia({ prefix: '/user' })
       email: t.String()
     })
   })
-  
+
   // UPDATE user profile
   .patch('/', async ({ body }) => {
     try {
-      const { email, name, image, password } = body;
+      const { email } = body;
 
       if (!email) {
         return {
@@ -85,32 +49,16 @@ export const userRoutes = new Elysia({ prefix: '/user' })
         };
       }
 
-      const updateData: any = {};
-      if (name !== undefined) updateData.name = name;
-      if (image !== undefined) updateData.image = image;
-      if (password !== undefined) {
-        updateData.password = await bcrypt.hash(password, 10);
-      }
-
-      const user = await prisma.user.update({
-        where: { email },
-        data: updateData,
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          image: true,
-          createdAt: true,
-          credit: true,
-          creditUsed: true,
-          capacity: true,
-          capacityUsed: true
-        }
-      });
-
+      const user = await UserService.updateProfile(email, body);
       return { user };
     } catch (error) {
       console.error('Error updating user:', error);
+      if ((error as any).code === 'P2025') {
+        return {
+          error: 'User not found',
+          status: 404
+        };
+      }
       return {
         error: 'Failed to update user',
         status: 500
@@ -122,5 +70,68 @@ export const userRoutes = new Elysia({ prefix: '/user' })
       name: t.Optional(t.String()),
       image: t.Optional(t.String()),
       password: t.Optional(t.String())
+    })
+  })
+
+  // REGISTER a new user
+  .post('/register', async ({ body }) => {
+    try {
+      const user = await UserService.register(body);
+      return { user, status: 201 };
+    } catch (error) {
+      console.error('Error registering user:', error);
+      return {
+        error: (error as Error).message || 'Failed to register',
+        status: 400
+      };
+    }
+  }, {
+    body: t.Object({
+      email: t.String(),
+      password: t.Optional(t.String()),
+      name: t.Optional(t.String()),
+      image: t.Optional(t.String())
+    })
+  })
+
+  // USE CREDITS
+  .post('/credits/use', async ({ body }) => {
+    try {
+      const { userId, amount, input, output } = body;
+      const result = await UserService.useCredits(userId, amount, input, output);
+      return result;
+    } catch (error) {
+      console.error('Error using credits:', error);
+      return {
+        error: (error as Error).message || 'Failed to use credits',
+        status: 500
+      };
+    }
+  }, {
+    body: t.Object({
+      userId: t.String(),
+      amount: t.Number(),
+      input: t.String(),
+      output: t.String()
+    })
+  })
+
+  // ADD STORAGE
+  .post('/storage/add', async ({ body }) => {
+    try {
+      const { userId, sizeInMB } = body;
+      const result = await UserService.addStorage(userId, sizeInMB);
+      return { user: result };
+    } catch (error) {
+      console.error('Error adding storage:', error);
+      return {
+        error: 'Failed to add storage',
+        status: 500
+      };
+    }
+  }, {
+    body: t.Object({
+      userId: t.String(),
+      sizeInMB: t.Number()
     })
   });
