@@ -4,18 +4,21 @@ import { swagger } from '@elysiajs/swagger';
 import 'dotenv/config';
 
 // Import routes
-import { postsRoutes } from './routes/posts';
-import { cronRoutes, startScheduler } from './routes/cron';
+import { youtubePostsRoutes } from './routes/youtube-posts';
 import { userRoutes } from './routes/user';
 import { keywordsRoutes } from './routes/keywords';
 import { dashboardRoutes } from './routes/dashboard';
 import { pricingRoutes } from './routes/pricing';
+import { pricingHistoryRoutes } from './routes/pricing-history';
 import { facebookPostsRoutes } from './routes/facebook-posts';
 import { channelsRoutes } from './routes/channels';
 import { trendingRoutes } from './routes/trending';
 import { aiRoutes } from './routes/ai';
 import { authRoutes } from './routes/auth';
 import { authMiddleware } from './middlewares/auth';
+
+// Import cron job for automatic scheduling
+import { CronJob } from './jobs/cron.job';
 
 const PORT = process.env.PORT || 5444;
 
@@ -37,11 +40,10 @@ const app = new Elysia()
         description: 'Backend API for managing YouTube content and scheduled posts'
       },
       tags: [
-        { name: 'Posts', description: 'Posts management endpoints' },
-        { name: 'Cron', description: 'Scheduled jobs endpoints' },
+        { name: 'YouTube Posts', description: 'YouTube posts management endpoints' },
+        { name: 'Facebook Posts', description: 'Facebook posts management endpoints' },
         { name: 'User', description: 'User management endpoints' },
-        { name: 'Keywords', description: 'Keywords management endpoints' },
-        { name: 'Facebook Posts', description: 'Facebook posts management endpoints' }
+        { name: 'Keywords', description: 'Keywords management endpoints' }
       ]
     }
   }))
@@ -58,7 +60,6 @@ const app = new Elysia()
   .group('/api', (app) =>
     app
       .use(authRoutes)
-      .use(cronRoutes)
       .group('', (app) =>
         app
           .use(authMiddleware)
@@ -68,11 +69,12 @@ const app = new Elysia()
               return { error: 'Unauthorized: Invalid or missing token' };
             }
           })
-          .use(postsRoutes)
+          .use(youtubePostsRoutes)
           .use(userRoutes)
           .use(keywordsRoutes)
           .use(dashboardRoutes)
           .use(pricingRoutes)
+          .use(pricingHistoryRoutes)
           .use(facebookPostsRoutes)
           .use(channelsRoutes)
           .use(trendingRoutes)
@@ -105,25 +107,9 @@ console.log(`
 
 📚 API Documentation: http://localhost:${PORT}/swagger
 🏥 Health Check: http://localhost:${PORT}/
-
-Available Routes:
-  - GET    /api/posts
-  - POST   /api/posts
-  - GET    /api/posts/:id
-  - PATCH  /api/posts/:id
-  - DELETE /api/posts/:id
-  - GET    /api/cron/publish-scheduled
-  - POST   /api/cron/publish-scheduled
-  - POST   /api/cron/start-scheduler
-  - POST   /api/cron/stop-scheduler
-  - GET    /api/user
-  - PATCH  /api/user
-  - GET    /api/keywords
-  - POST   /api/keywords
-  - DELETE /api/keywords/:id
 `);
 
 // Start automatic scheduler (runs every 10 seconds)
 console.log('⏰ Starting automatic scheduler for scheduled posts...');
-startScheduler();
+CronJob.startScheduler();
 console.log('✅ Scheduler started successfully (checks every 10 seconds)\n');

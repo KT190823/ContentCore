@@ -10,7 +10,7 @@ export class ChannelService extends BaseService {
         userId: string;
         platform: string;
         channelId: string;
-        channelName: string;
+        channelName?: string;
         channelImage?: string;
         accessToken?: string;
         refreshToken?: string;
@@ -18,6 +18,29 @@ export class ChannelService extends BaseService {
     }) {
         // We use a composite unique key/logic. 
         // The schema has @@unique([userId, platform, channelId])
+        // Only provided fields will be updated, others will be kept as-is
+
+        // Build update object with only provided fields
+        const updateData: any = { status: 'ACTIVE' };
+        if (data.channelName !== undefined) updateData.channelName = data.channelName;
+        if (data.channelImage !== undefined) updateData.channelImage = data.channelImage;
+        if (data.accessToken !== undefined) updateData.accessToken = data.accessToken;
+        if (data.refreshToken !== undefined) updateData.refreshToken = data.refreshToken;
+        if (data.expiresAt !== undefined) updateData.expiresAt = data.expiresAt;
+
+        // Build create object with all fields
+        const createData: any = {
+            userId: data.userId,
+            platform: data.platform,
+            channelId: data.channelId,
+            channelName: data.channelName || '',
+            user: { connect: { id: data.userId } },
+            status: 'ACTIVE'
+        };
+        if (data.channelImage !== undefined) createData.channelImage = data.channelImage;
+        if (data.accessToken !== undefined) createData.accessToken = data.accessToken;
+        if (data.refreshToken !== undefined) createData.refreshToken = data.refreshToken;
+        if (data.expiresAt !== undefined) createData.expiresAt = data.expiresAt;
 
         return await prisma.channel.upsert({
             where: {
@@ -27,25 +50,8 @@ export class ChannelService extends BaseService {
                     channelId: data.channelId
                 }
             },
-            create: {
-                userId: data.userId,
-                platform: data.platform,
-                channelId: data.channelId,
-                channelName: data.channelName,
-                channelImage: data.channelImage,
-                accessToken: data.accessToken,
-                refreshToken: data.refreshToken,
-                expiresAt: data.expiresAt,
-                status: 'ACTIVE'
-            },
-            update: {
-                channelName: data.channelName,
-                channelImage: data.channelImage,
-                accessToken: data.accessToken,
-                refreshToken: data.refreshToken,
-                expiresAt: data.expiresAt,
-                status: 'ACTIVE'
-            }
+            create: createData,
+            update: updateData
         });
     }
 

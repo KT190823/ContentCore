@@ -179,7 +179,7 @@ exports.Prisma.ChannelScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.PostScalarFieldEnum = {
+exports.Prisma.PostYoutubeScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   title: 'title',
@@ -203,12 +203,19 @@ exports.Prisma.FacebookPostScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   title: 'title',
-  content: 'content',
+  description: 'description',
+  thumbnailUrl: 'thumbnailUrl',
   imageUrl: 'imageUrl',
   videoUrl: 'videoUrl',
+  videoType: 'videoType',
+  processStatus: 'processStatus',
   status: 'status',
   scheduledAt: 'scheduledAt',
   publishedAt: 'publishedAt',
+  views: 'views',
+  likes: 'likes',
+  comments: 'comments',
+  tags: 'tags',
   facebookPostId: 'facebookPostId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -343,7 +350,7 @@ exports.Prisma.ModelName = {
   Session: 'Session',
   VerificationToken: 'VerificationToken',
   Channel: 'Channel',
-  Post: 'Post',
+  PostYoutube: 'PostYoutube',
   FacebookPost: 'FacebookPost',
   TrendingVideo: 'TrendingVideo',
   Keyword: 'Keyword',

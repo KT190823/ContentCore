@@ -2,8 +2,8 @@ import { prisma } from '../utils/prisma';
 import { PostStatus, VideoType } from '../../generated/prisma/client';
 import { BaseService } from './base.service';
 
-export class PostService extends BaseService {
-    protected modelName = 'post';
+export class PostYoutubeService extends BaseService {
+    protected modelName = 'postYoutube';
 
     // Override getAll with custom logic
     static async getAll(userId: string, status?: string) {
@@ -12,7 +12,7 @@ export class PostService extends BaseService {
             where.processStatus = status;
         }
 
-        return await prisma.post.findMany({
+        return await prisma.postYoutube.findMany({
             where,
             orderBy: { createdAt: 'desc' },
             include: {
@@ -29,7 +29,7 @@ export class PostService extends BaseService {
 
     // Override get with include user info
     static async get(id: string) {
-        const instance = new PostService();
+        const instance = new PostYoutubeService();
         return await instance.get(id, {
             user: {
                 select: {
@@ -53,7 +53,7 @@ export class PostService extends BaseService {
         scheduledAt?: string;
         tags?: string[];
     }) {
-        return await prisma.post.create({
+        return await prisma.postYoutube.create({
             data: {
                 userId: data.userId,
                 title: data.title,
@@ -101,7 +101,7 @@ export class PostService extends BaseService {
             updateData.scheduledAt = data.scheduledAt ? new Date(data.scheduledAt) : null;
         }
 
-        return await prisma.post.update({
+        return await prisma.postYoutube.update({
             where: { id },
             data: updateData,
             include: {

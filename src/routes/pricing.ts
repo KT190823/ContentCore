@@ -1,15 +1,13 @@
 import { Elysia, t } from 'elysia';
+import { PricingPlanService, PricingPlanHistoryService } from '../services/pricing.service';
 import { prisma } from '../utils/prisma';
 
 export const pricingRoutes = new Elysia({ prefix: '/pricing' })
   // GET all pricing plans
   .get('/plans', async () => {
     try {
-      const plans = await prisma.pricingPlan.findMany({
-        where: { status: 'ACTIVE' },
-        orderBy: { price: 'asc' }
-      });
-      return { plans };
+      const plans = await PricingPlanService.getAllActivePlans();
+      return plans;
     } catch (error) {
       console.error('Error fetching pricing plans:', error);
       return {
@@ -21,6 +19,40 @@ export const pricingRoutes = new Elysia({ prefix: '/pricing' })
 
   // GET user's pricing history
   .get('/history', async ({ query }) => {
+    try {
+      const { userId, email } = query;
+
+      if (!userId && !email) {
+        return {
+          error: 'User ID or Email is required',
+          status: 400
+        };
+      }
+
+      let history;
+      if (email) {
+        history = await PricingPlanHistoryService.getUserHistoryByEmail(email);
+      } else if (userId) {
+        history = await PricingPlanHistoryService.getUserHistory(userId);
+      }
+
+      return history;
+    } catch (error) {
+      console.error('Error fetching pricing history:', error);
+      return {
+        error: error instanceof Error ? error.message : 'Failed to fetch pricing history',
+        status: 500
+      };
+    }
+  }, {
+    query: t.Object({
+      userId: t.Optional(t.String()),
+      email: t.Optional(t.String())
+    })
+  })
+
+  // GET active subscription
+  .get('/active', async ({ query }) => {
     try {
       const { userId, email } = query;
 
@@ -42,19 +74,12 @@ export const pricingRoutes = new Elysia({ prefix: '/pricing' })
         };
       }
 
-      const history = await prisma.pricingPlanHistory.findMany({
-        where: { userId: targetUserId },
-        include: {
-          plan: true
-        },
-        orderBy: { createdAt: 'desc' }
-      });
-
-      return { history };
+      const subscription = await PricingPlanHistoryService.getActiveSubscription(targetUserId);
+      return subscription;
     } catch (error) {
-      console.error('Error fetching pricing history:', error);
+      console.error('Error fetching active subscription:', error);
       return {
-        error: 'Failed to fetch pricing history',
+        error: 'Failed to fetch active subscription',
         status: 500
       };
     }
@@ -88,59 +113,18 @@ export const pricingRoutes = new Elysia({ prefix: '/pricing' })
         };
       }
 
-      const plan = await prisma.pricingPlan.findUnique({
-        where: { id: planId }
+      const history = await PricingPlanHistoryService.subscribeToPlan({
+        userId: targetUserId,
+        planId,
+        paymentMethod,
+        transactionId
       });
 
-      if (!plan) {
-        return {
-          error: 'Plan not found',
-          status: 404
-        };
-      }
-
-      const isYearly = plan.billingCycle === 'YEARLY';
-      const monthlyCredit = isYearly ? Math.floor(plan.credit / 12) : plan.credit;
-
-      // Update the user with the new plan and credits
-      await prisma.user.update({
-        where: { id: targetUserId },
-        data: {
-          pricingPlanId: plan.id,
-          credit: monthlyCredit,
-          creditUsed: 0, // Reset usage for new plan cycle
-          capacity: plan.capacity, // Storage capacity remains the same
-          lastResetDate: new Date()
-        }
-      });
-
-      // Create history record
-      const durationDays = isYearly ? 365 : 30;
-      const expireDate = plan.name !== 'free' ? new Date(Date.now() + durationDays * 24 * 60 * 60 * 1000) : null;
-
-      const history = await prisma.pricingPlanHistory.create({
-        data: {
-          userId: targetUserId,
-          planId: plan.id,
-          price: plan.price,
-          currency: plan.currency,
-          status: 'SUCCESS',
-          paymentMethod,
-          transactionId,
-          startDate: new Date(),
-          endDate: expireDate,
-          expireAt: expireDate
-        },
-        include: {
-          plan: true
-        }
-      });
-
-      return { history, status: 201 };
+      return history;
     } catch (error) {
       console.error('Error subscribing to plan:', error);
       return {
-        error: 'Failed to subscribe to plan',
+        error: error instanceof Error ? error.message : 'Failed to subscribe to plan',
         status: 500
       };
     }
@@ -177,50 +161,12 @@ export const pricingRoutes = new Elysia({ prefix: '/pricing' })
         };
       }
 
-      // Find the free plan
-      const freePlan = await prisma.pricingPlan.findFirst({
-        where: { name: 'free', billingCycle: 'MONTHLY' }
-      });
-
-      if (!freePlan) {
-        return {
-          error: 'Free plan not found',
-          status: 404
-        };
-      }
-
-      // Update user to free plan
-      await prisma.user.update({
-        where: { id: targetUserId },
-        data: {
-          pricingPlanId: freePlan.id,
-          credit: freePlan.credit,
-          creditUsed: 0,
-          capacity: freePlan.capacity,
-          lastResetDate: new Date()
-        }
-      });
-
-      // Create history record for cancellation
-      await prisma.pricingPlanHistory.create({
-        data: {
-          userId: targetUserId,
-          planId: freePlan.id,
-          price: 0,
-          currency: 'VND',
-          status: 'SUCCESS',
-          paymentMethod: 'system',
-          transactionId: 'cancel-revert-free',
-          startDate: new Date(),
-          expireAt: null // Free plan doesn't expire
-        }
-      });
-
-      return { success: true, message: 'Subscription cancelled and reverted to free plan' };
+      const result = await PricingPlanHistoryService.cancelSubscription(targetUserId);
+      return result;
     } catch (error) {
       console.error('Error cancelling subscription:', error);
       return {
-        error: 'Failed to cancel subscription',
+        error: error instanceof Error ? error.message : 'Failed to cancel subscription',
         status: 500
       };
     }

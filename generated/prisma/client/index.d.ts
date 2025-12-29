@@ -39,10 +39,10 @@ export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTok
  */
 export type Channel = $Result.DefaultSelection<Prisma.$ChannelPayload>
 /**
- * Model Post
+ * Model PostYoutube
  * 
  */
-export type Post = $Result.DefaultSelection<Prisma.$PostPayload>
+export type PostYoutube = $Result.DefaultSelection<Prisma.$PostYoutubePayload>
 /**
  * Model FacebookPost
  * 
@@ -295,14 +295,14 @@ export class PrismaClient<
   get channel(): Prisma.ChannelDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.post`: Exposes CRUD operations for the **Post** model.
+   * `prisma.postYoutube`: Exposes CRUD operations for the **PostYoutube** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Posts
-    * const posts = await prisma.post.findMany()
+    * // Fetch zero or more PostYoutubes
+    * const postYoutubes = await prisma.postYoutube.findMany()
     * ```
     */
-  get post(): Prisma.PostDelegate<ExtArgs, ClientOptions>;
+  get postYoutube(): Prisma.PostYoutubeDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.facebookPost`: Exposes CRUD operations for the **FacebookPost** model.
@@ -819,7 +819,7 @@ export namespace Prisma {
     Session: 'Session',
     VerificationToken: 'VerificationToken',
     Channel: 'Channel',
-    Post: 'Post',
+    PostYoutube: 'PostYoutube',
     FacebookPost: 'FacebookPost',
     TrendingVideo: 'TrendingVideo',
     Keyword: 'Keyword',
@@ -845,7 +845,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "account" | "session" | "verificationToken" | "channel" | "post" | "facebookPost" | "trendingVideo" | "keyword" | "refreshToken" | "pricingPlan" | "pricingPlanHistory" | "generateHistory"
+      modelProps: "user" | "account" | "session" | "verificationToken" | "channel" | "postYoutube" | "facebookPost" | "trendingVideo" | "keyword" | "refreshToken" | "pricingPlan" | "pricingPlanHistory" | "generateHistory"
       txIsolationLevel: never
     }
     model: {
@@ -1219,77 +1219,77 @@ export namespace Prisma {
           }
         }
       }
-      Post: {
-        payload: Prisma.$PostPayload<ExtArgs>
-        fields: Prisma.PostFieldRefs
+      PostYoutube: {
+        payload: Prisma.$PostYoutubePayload<ExtArgs>
+        fields: Prisma.PostYoutubeFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PostFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload> | null
+            args: Prisma.PostYoutubeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostYoutubePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PostFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.PostYoutubeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostYoutubePayload>
           }
           findFirst: {
-            args: Prisma.PostFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload> | null
+            args: Prisma.PostYoutubeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostYoutubePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PostFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.PostYoutubeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostYoutubePayload>
           }
           findMany: {
-            args: Prisma.PostFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
+            args: Prisma.PostYoutubeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostYoutubePayload>[]
           }
           create: {
-            args: Prisma.PostCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.PostYoutubeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostYoutubePayload>
           }
           createMany: {
-            args: Prisma.PostCreateManyArgs<ExtArgs>
+            args: Prisma.PostYoutubeCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.PostDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.PostYoutubeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostYoutubePayload>
           }
           update: {
-            args: Prisma.PostUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.PostYoutubeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostYoutubePayload>
           }
           deleteMany: {
-            args: Prisma.PostDeleteManyArgs<ExtArgs>
+            args: Prisma.PostYoutubeDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PostUpdateManyArgs<ExtArgs>
+            args: Prisma.PostYoutubeUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.PostUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+            args: Prisma.PostYoutubeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostYoutubePayload>
           }
           aggregate: {
-            args: Prisma.PostAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePost>
+            args: Prisma.PostYoutubeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePostYoutube>
           }
           groupBy: {
-            args: Prisma.PostGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PostGroupByOutputType>[]
+            args: Prisma.PostYoutubeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PostYoutubeGroupByOutputType>[]
           }
           findRaw: {
-            args: Prisma.PostFindRawArgs<ExtArgs>
+            args: Prisma.PostYoutubeFindRawArgs<ExtArgs>
             result: JsonObject
           }
           aggregateRaw: {
-            args: Prisma.PostAggregateRawArgs<ExtArgs>
+            args: Prisma.PostYoutubeAggregateRawArgs<ExtArgs>
             result: JsonObject
           }
           count: {
-            args: Prisma.PostCountArgs<ExtArgs>
-            result: $Utils.Optional<PostCountAggregateOutputType> | number
+            args: Prisma.PostYoutubeCountArgs<ExtArgs>
+            result: $Utils.Optional<PostYoutubeCountAggregateOutputType> | number
           }
         }
       }
@@ -1895,7 +1895,7 @@ export namespace Prisma {
     session?: SessionOmit
     verificationToken?: VerificationTokenOmit
     channel?: ChannelOmit
-    post?: PostOmit
+    postYoutube?: PostYoutubeOmit
     facebookPost?: FacebookPostOmit
     trendingVideo?: TrendingVideoOmit
     keyword?: KeywordOmit
@@ -1985,7 +1985,7 @@ export namespace Prisma {
   export type UserCountOutputType = {
     accounts: number
     sessions: number
-    posts: number
+    youtubePosts: number
     channels: number
     keywords: number
     refreshTokens: number
@@ -1997,7 +1997,7 @@ export namespace Prisma {
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
-    posts?: boolean | UserCountOutputTypeCountPostsArgs
+    youtubePosts?: boolean | UserCountOutputTypeCountYoutubePostsArgs
     channels?: boolean | UserCountOutputTypeCountChannelsArgs
     keywords?: boolean | UserCountOutputTypeCountKeywordsArgs
     refreshTokens?: boolean | UserCountOutputTypeCountRefreshTokensArgs
@@ -2034,8 +2034,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PostWhereInput
+  export type UserCountOutputTypeCountYoutubePostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PostYoutubeWhereInput
   }
 
   /**
@@ -2417,7 +2417,7 @@ export namespace Prisma {
     lastResetDate?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
-    posts?: boolean | User$postsArgs<ExtArgs>
+    youtubePosts?: boolean | User$youtubePostsArgs<ExtArgs>
     channels?: boolean | User$channelsArgs<ExtArgs>
     keywords?: boolean | User$keywordsArgs<ExtArgs>
     refreshTokens?: boolean | User$refreshTokensArgs<ExtArgs>
@@ -2452,7 +2452,7 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
-    posts?: boolean | User$postsArgs<ExtArgs>
+    youtubePosts?: boolean | User$youtubePostsArgs<ExtArgs>
     channels?: boolean | User$channelsArgs<ExtArgs>
     keywords?: boolean | User$keywordsArgs<ExtArgs>
     refreshTokens?: boolean | User$refreshTokensArgs<ExtArgs>
@@ -2468,7 +2468,7 @@ export namespace Prisma {
     objects: {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
-      posts: Prisma.$PostPayload<ExtArgs>[]
+      youtubePosts: Prisma.$PostYoutubePayload<ExtArgs>[]
       channels: Prisma.$ChannelPayload<ExtArgs>[]
       keywords: Prisma.$KeywordPayload<ExtArgs>[]
       refreshTokens: Prisma.$RefreshTokenPayload<ExtArgs>[]
@@ -2858,7 +2858,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    posts<T extends User$postsArgs<ExtArgs> = {}>(args?: Subset<T, User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    youtubePosts<T extends User$youtubePostsArgs<ExtArgs> = {}>(args?: Subset<T, User$youtubePostsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostYoutubePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     channels<T extends User$channelsArgs<ExtArgs> = {}>(args?: Subset<T, User$channelsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChannelPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     keywords<T extends User$keywordsArgs<ExtArgs> = {}>(args?: Subset<T, User$keywordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KeywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     refreshTokens<T extends User$refreshTokensArgs<ExtArgs> = {}>(args?: Subset<T, User$refreshTokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RefreshTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -3328,27 +3328,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.posts
+   * User.youtubePosts
    */
-  export type User$postsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$youtubePostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
-    where?: PostWhereInput
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
-    cursor?: PostWhereUniqueInput
+    include?: PostYoutubeInclude<ExtArgs> | null
+    where?: PostYoutubeWhereInput
+    orderBy?: PostYoutubeOrderByWithRelationInput | PostYoutubeOrderByWithRelationInput[]
+    cursor?: PostYoutubeWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: PostYoutubeScalarFieldEnum | PostYoutubeScalarFieldEnum[]
   }
 
   /**
@@ -7602,30 +7602,30 @@ export namespace Prisma {
 
 
   /**
-   * Model Post
+   * Model PostYoutube
    */
 
-  export type AggregatePost = {
-    _count: PostCountAggregateOutputType | null
-    _avg: PostAvgAggregateOutputType | null
-    _sum: PostSumAggregateOutputType | null
-    _min: PostMinAggregateOutputType | null
-    _max: PostMaxAggregateOutputType | null
+  export type AggregatePostYoutube = {
+    _count: PostYoutubeCountAggregateOutputType | null
+    _avg: PostYoutubeAvgAggregateOutputType | null
+    _sum: PostYoutubeSumAggregateOutputType | null
+    _min: PostYoutubeMinAggregateOutputType | null
+    _max: PostYoutubeMaxAggregateOutputType | null
   }
 
-  export type PostAvgAggregateOutputType = {
+  export type PostYoutubeAvgAggregateOutputType = {
     views: number | null
     likes: number | null
     comments: number | null
   }
 
-  export type PostSumAggregateOutputType = {
+  export type PostYoutubeSumAggregateOutputType = {
     views: number | null
     likes: number | null
     comments: number | null
   }
 
-  export type PostMinAggregateOutputType = {
+  export type PostYoutubeMinAggregateOutputType = {
     id: string | null
     userId: string | null
     title: string | null
@@ -7644,7 +7644,7 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type PostMaxAggregateOutputType = {
+  export type PostYoutubeMaxAggregateOutputType = {
     id: string | null
     userId: string | null
     title: string | null
@@ -7663,7 +7663,7 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type PostCountAggregateOutputType = {
+  export type PostYoutubeCountAggregateOutputType = {
     id: number
     userId: number
     title: number
@@ -7685,19 +7685,19 @@ export namespace Prisma {
   }
 
 
-  export type PostAvgAggregateInputType = {
+  export type PostYoutubeAvgAggregateInputType = {
     views?: true
     likes?: true
     comments?: true
   }
 
-  export type PostSumAggregateInputType = {
+  export type PostYoutubeSumAggregateInputType = {
     views?: true
     likes?: true
     comments?: true
   }
 
-  export type PostMinAggregateInputType = {
+  export type PostYoutubeMinAggregateInputType = {
     id?: true
     userId?: true
     title?: true
@@ -7716,7 +7716,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type PostMaxAggregateInputType = {
+  export type PostYoutubeMaxAggregateInputType = {
     id?: true
     userId?: true
     title?: true
@@ -7735,7 +7735,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type PostCountAggregateInputType = {
+  export type PostYoutubeCountAggregateInputType = {
     id?: true
     userId?: true
     title?: true
@@ -7756,93 +7756,93 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type PostAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Post to aggregate.
+     * Filter which PostYoutube to aggregate.
      */
-    where?: PostWhereInput
+    where?: PostYoutubeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of PostYoutubes to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: PostYoutubeOrderByWithRelationInput | PostYoutubeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: PostYoutubeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` PostYoutubes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` PostYoutubes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Posts
+     * Count returned PostYoutubes
     **/
-    _count?: true | PostCountAggregateInputType
+    _count?: true | PostYoutubeCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: PostAvgAggregateInputType
+    _avg?: PostYoutubeAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: PostSumAggregateInputType
+    _sum?: PostYoutubeSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PostMinAggregateInputType
+    _min?: PostYoutubeMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PostMaxAggregateInputType
+    _max?: PostYoutubeMaxAggregateInputType
   }
 
-  export type GetPostAggregateType<T extends PostAggregateArgs> = {
-        [P in keyof T & keyof AggregatePost]: P extends '_count' | 'count'
+  export type GetPostYoutubeAggregateType<T extends PostYoutubeAggregateArgs> = {
+        [P in keyof T & keyof AggregatePostYoutube]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePost[P]>
-      : GetScalarType<T[P], AggregatePost[P]>
+        : GetScalarType<T[P], AggregatePostYoutube[P]>
+      : GetScalarType<T[P], AggregatePostYoutube[P]>
   }
 
 
 
 
-  export type PostGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PostWhereInput
-    orderBy?: PostOrderByWithAggregationInput | PostOrderByWithAggregationInput[]
-    by: PostScalarFieldEnum[] | PostScalarFieldEnum
-    having?: PostScalarWhereWithAggregatesInput
+  export type PostYoutubeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PostYoutubeWhereInput
+    orderBy?: PostYoutubeOrderByWithAggregationInput | PostYoutubeOrderByWithAggregationInput[]
+    by: PostYoutubeScalarFieldEnum[] | PostYoutubeScalarFieldEnum
+    having?: PostYoutubeScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PostCountAggregateInputType | true
-    _avg?: PostAvgAggregateInputType
-    _sum?: PostSumAggregateInputType
-    _min?: PostMinAggregateInputType
-    _max?: PostMaxAggregateInputType
+    _count?: PostYoutubeCountAggregateInputType | true
+    _avg?: PostYoutubeAvgAggregateInputType
+    _sum?: PostYoutubeSumAggregateInputType
+    _min?: PostYoutubeMinAggregateInputType
+    _max?: PostYoutubeMaxAggregateInputType
   }
 
-  export type PostGroupByOutputType = {
+  export type PostYoutubeGroupByOutputType = {
     id: string
     userId: string
     title: string
@@ -7860,28 +7860,28 @@ export namespace Prisma {
     tags: string[]
     createdAt: Date
     updatedAt: Date
-    _count: PostCountAggregateOutputType | null
-    _avg: PostAvgAggregateOutputType | null
-    _sum: PostSumAggregateOutputType | null
-    _min: PostMinAggregateOutputType | null
-    _max: PostMaxAggregateOutputType | null
+    _count: PostYoutubeCountAggregateOutputType | null
+    _avg: PostYoutubeAvgAggregateOutputType | null
+    _sum: PostYoutubeSumAggregateOutputType | null
+    _min: PostYoutubeMinAggregateOutputType | null
+    _max: PostYoutubeMaxAggregateOutputType | null
   }
 
-  type GetPostGroupByPayload<T extends PostGroupByArgs> = Prisma.PrismaPromise<
+  type GetPostYoutubeGroupByPayload<T extends PostYoutubeGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PostGroupByOutputType, T['by']> &
+      PickEnumerable<PostYoutubeGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PostGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof PostYoutubeGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PostGroupByOutputType[P]>
-            : GetScalarType<T[P], PostGroupByOutputType[P]>
+              : GetScalarType<T[P], PostYoutubeGroupByOutputType[P]>
+            : GetScalarType<T[P], PostYoutubeGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PostYoutubeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
     title?: boolean
@@ -7900,11 +7900,11 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["post"]>
+  }, ExtArgs["result"]["postYoutube"]>
 
 
 
-  export type PostSelectScalar = {
+  export type PostYoutubeSelectScalar = {
     id?: boolean
     userId?: boolean
     title?: boolean
@@ -7924,13 +7924,13 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "description" | "thumbnailUrl" | "videoUrl" | "videoType" | "processStatus" | "status" | "scheduledAt" | "publishedAt" | "views" | "likes" | "comments" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
-  export type PostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "description" | "thumbnailUrl" | "videoUrl" | "videoType" | "processStatus" | "status" | "scheduledAt" | "publishedAt" | "views" | "likes" | "comments" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["postYoutube"]>
+  export type PostYoutubeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
-  export type $PostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Post"
+  export type $PostYoutubePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PostYoutube"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
     }
@@ -7952,143 +7952,143 @@ export namespace Prisma {
       tags: string[]
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["post"]>
+    }, ExtArgs["result"]["postYoutube"]>
     composites: {}
   }
 
-  type PostGetPayload<S extends boolean | null | undefined | PostDefaultArgs> = $Result.GetResult<Prisma.$PostPayload, S>
+  type PostYoutubeGetPayload<S extends boolean | null | undefined | PostYoutubeDefaultArgs> = $Result.GetResult<Prisma.$PostYoutubePayload, S>
 
-  type PostCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PostFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PostCountAggregateInputType | true
+  type PostYoutubeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PostYoutubeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PostYoutubeCountAggregateInputType | true
     }
 
-  export interface PostDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Post'], meta: { name: 'Post' } }
+  export interface PostYoutubeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PostYoutube'], meta: { name: 'PostYoutube' } }
     /**
-     * Find zero or one Post that matches the filter.
-     * @param {PostFindUniqueArgs} args - Arguments to find a Post
+     * Find zero or one PostYoutube that matches the filter.
+     * @param {PostYoutubeFindUniqueArgs} args - Arguments to find a PostYoutube
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findUnique({
+     * // Get one PostYoutube
+     * const postYoutube = await prisma.postYoutube.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends PostFindUniqueArgs>(args: SelectSubset<T, PostFindUniqueArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends PostYoutubeFindUniqueArgs>(args: SelectSubset<T, PostYoutubeFindUniqueArgs<ExtArgs>>): Prisma__PostYoutubeClient<$Result.GetResult<Prisma.$PostYoutubePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Post that matches the filter or throw an error with `error.code='P2025'`
+     * Find one PostYoutube that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {PostFindUniqueOrThrowArgs} args - Arguments to find a Post
+     * @param {PostYoutubeFindUniqueOrThrowArgs} args - Arguments to find a PostYoutube
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findUniqueOrThrow({
+     * // Get one PostYoutube
+     * const postYoutube = await prisma.postYoutube.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends PostFindUniqueOrThrowArgs>(args: SelectSubset<T, PostFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends PostYoutubeFindUniqueOrThrowArgs>(args: SelectSubset<T, PostYoutubeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PostYoutubeClient<$Result.GetResult<Prisma.$PostYoutubePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Post that matches the filter.
+     * Find the first PostYoutube that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindFirstArgs} args - Arguments to find a Post
+     * @param {PostYoutubeFindFirstArgs} args - Arguments to find a PostYoutube
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findFirst({
+     * // Get one PostYoutube
+     * const postYoutube = await prisma.postYoutube.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends PostFindFirstArgs>(args?: SelectSubset<T, PostFindFirstArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends PostYoutubeFindFirstArgs>(args?: SelectSubset<T, PostYoutubeFindFirstArgs<ExtArgs>>): Prisma__PostYoutubeClient<$Result.GetResult<Prisma.$PostYoutubePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Post that matches the filter or
+     * Find the first PostYoutube that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindFirstOrThrowArgs} args - Arguments to find a Post
+     * @param {PostYoutubeFindFirstOrThrowArgs} args - Arguments to find a PostYoutube
      * @example
-     * // Get one Post
-     * const post = await prisma.post.findFirstOrThrow({
+     * // Get one PostYoutube
+     * const postYoutube = await prisma.postYoutube.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends PostFindFirstOrThrowArgs>(args?: SelectSubset<T, PostFindFirstOrThrowArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends PostYoutubeFindFirstOrThrowArgs>(args?: SelectSubset<T, PostYoutubeFindFirstOrThrowArgs<ExtArgs>>): Prisma__PostYoutubeClient<$Result.GetResult<Prisma.$PostYoutubePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Posts that matches the filter.
+     * Find zero or more PostYoutubes that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {PostYoutubeFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Posts
-     * const posts = await prisma.post.findMany()
+     * // Get all PostYoutubes
+     * const postYoutubes = await prisma.postYoutube.findMany()
      * 
-     * // Get first 10 Posts
-     * const posts = await prisma.post.findMany({ take: 10 })
+     * // Get first 10 PostYoutubes
+     * const postYoutubes = await prisma.postYoutube.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const postWithIdOnly = await prisma.post.findMany({ select: { id: true } })
+     * const postYoutubeWithIdOnly = await prisma.postYoutube.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends PostFindManyArgs>(args?: SelectSubset<T, PostFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends PostYoutubeFindManyArgs>(args?: SelectSubset<T, PostYoutubeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostYoutubePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Post.
-     * @param {PostCreateArgs} args - Arguments to create a Post.
+     * Create a PostYoutube.
+     * @param {PostYoutubeCreateArgs} args - Arguments to create a PostYoutube.
      * @example
-     * // Create one Post
-     * const Post = await prisma.post.create({
+     * // Create one PostYoutube
+     * const PostYoutube = await prisma.postYoutube.create({
      *   data: {
-     *     // ... data to create a Post
+     *     // ... data to create a PostYoutube
      *   }
      * })
      * 
      */
-    create<T extends PostCreateArgs>(args: SelectSubset<T, PostCreateArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends PostYoutubeCreateArgs>(args: SelectSubset<T, PostYoutubeCreateArgs<ExtArgs>>): Prisma__PostYoutubeClient<$Result.GetResult<Prisma.$PostYoutubePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Posts.
-     * @param {PostCreateManyArgs} args - Arguments to create many Posts.
+     * Create many PostYoutubes.
+     * @param {PostYoutubeCreateManyArgs} args - Arguments to create many PostYoutubes.
      * @example
-     * // Create many Posts
-     * const post = await prisma.post.createMany({
+     * // Create many PostYoutubes
+     * const postYoutube = await prisma.postYoutube.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends PostCreateManyArgs>(args?: SelectSubset<T, PostCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends PostYoutubeCreateManyArgs>(args?: SelectSubset<T, PostYoutubeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Post.
-     * @param {PostDeleteArgs} args - Arguments to delete one Post.
+     * Delete a PostYoutube.
+     * @param {PostYoutubeDeleteArgs} args - Arguments to delete one PostYoutube.
      * @example
-     * // Delete one Post
-     * const Post = await prisma.post.delete({
+     * // Delete one PostYoutube
+     * const PostYoutube = await prisma.postYoutube.delete({
      *   where: {
-     *     // ... filter to delete one Post
+     *     // ... filter to delete one PostYoutube
      *   }
      * })
      * 
      */
-    delete<T extends PostDeleteArgs>(args: SelectSubset<T, PostDeleteArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends PostYoutubeDeleteArgs>(args: SelectSubset<T, PostYoutubeDeleteArgs<ExtArgs>>): Prisma__PostYoutubeClient<$Result.GetResult<Prisma.$PostYoutubePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Post.
-     * @param {PostUpdateArgs} args - Arguments to update one Post.
+     * Update one PostYoutube.
+     * @param {PostYoutubeUpdateArgs} args - Arguments to update one PostYoutube.
      * @example
-     * // Update one Post
-     * const post = await prisma.post.update({
+     * // Update one PostYoutube
+     * const postYoutube = await prisma.postYoutube.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -8098,30 +8098,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends PostUpdateArgs>(args: SelectSubset<T, PostUpdateArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends PostYoutubeUpdateArgs>(args: SelectSubset<T, PostYoutubeUpdateArgs<ExtArgs>>): Prisma__PostYoutubeClient<$Result.GetResult<Prisma.$PostYoutubePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Posts.
-     * @param {PostDeleteManyArgs} args - Arguments to filter Posts to delete.
+     * Delete zero or more PostYoutubes.
+     * @param {PostYoutubeDeleteManyArgs} args - Arguments to filter PostYoutubes to delete.
      * @example
-     * // Delete a few Posts
-     * const { count } = await prisma.post.deleteMany({
+     * // Delete a few PostYoutubes
+     * const { count } = await prisma.postYoutube.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends PostDeleteManyArgs>(args?: SelectSubset<T, PostDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends PostYoutubeDeleteManyArgs>(args?: SelectSubset<T, PostYoutubeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Posts.
+     * Update zero or more PostYoutubes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {PostYoutubeUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Posts
-     * const post = await prisma.post.updateMany({
+     * // Update many PostYoutubes
+     * const postYoutube = await prisma.postYoutube.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -8131,79 +8131,79 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends PostUpdateManyArgs>(args: SelectSubset<T, PostUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends PostYoutubeUpdateManyArgs>(args: SelectSubset<T, PostYoutubeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Post.
-     * @param {PostUpsertArgs} args - Arguments to update or create a Post.
+     * Create or update one PostYoutube.
+     * @param {PostYoutubeUpsertArgs} args - Arguments to update or create a PostYoutube.
      * @example
-     * // Update or create a Post
-     * const post = await prisma.post.upsert({
+     * // Update or create a PostYoutube
+     * const postYoutube = await prisma.postYoutube.upsert({
      *   create: {
-     *     // ... data to create a Post
+     *     // ... data to create a PostYoutube
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Post we want to update
+     *     // ... the filter for the PostYoutube we want to update
      *   }
      * })
      */
-    upsert<T extends PostUpsertArgs>(args: SelectSubset<T, PostUpsertArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends PostYoutubeUpsertArgs>(args: SelectSubset<T, PostYoutubeUpsertArgs<ExtArgs>>): Prisma__PostYoutubeClient<$Result.GetResult<Prisma.$PostYoutubePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Posts that matches the filter.
-     * @param {PostFindRawArgs} args - Select which filters you would like to apply.
+     * Find zero or more PostYoutubes that matches the filter.
+     * @param {PostYoutubeFindRawArgs} args - Select which filters you would like to apply.
      * @example
-     * const post = await prisma.post.findRaw({
+     * const postYoutube = await prisma.postYoutube.findRaw({
      *   filter: { age: { $gt: 25 } }
      * })
      */
-    findRaw(args?: PostFindRawArgs): Prisma.PrismaPromise<JsonObject>
+    findRaw(args?: PostYoutubeFindRawArgs): Prisma.PrismaPromise<JsonObject>
 
     /**
-     * Perform aggregation operations on a Post.
-     * @param {PostAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * Perform aggregation operations on a PostYoutube.
+     * @param {PostYoutubeAggregateRawArgs} args - Select which aggregations you would like to apply.
      * @example
-     * const post = await prisma.post.aggregateRaw({
+     * const postYoutube = await prisma.postYoutube.aggregateRaw({
      *   pipeline: [
      *     { $match: { status: "registered" } },
      *     { $group: { _id: "$country", total: { $sum: 1 } } }
      *   ]
      * })
      */
-    aggregateRaw(args?: PostAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+    aggregateRaw(args?: PostYoutubeAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
 
 
     /**
-     * Count the number of Posts.
+     * Count the number of PostYoutubes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostCountArgs} args - Arguments to filter Posts to count.
+     * @param {PostYoutubeCountArgs} args - Arguments to filter PostYoutubes to count.
      * @example
-     * // Count the number of Posts
-     * const count = await prisma.post.count({
+     * // Count the number of PostYoutubes
+     * const count = await prisma.postYoutube.count({
      *   where: {
-     *     // ... the filter for the Posts we want to count
+     *     // ... the filter for the PostYoutubes we want to count
      *   }
      * })
     **/
-    count<T extends PostCountArgs>(
-      args?: Subset<T, PostCountArgs>,
+    count<T extends PostYoutubeCountArgs>(
+      args?: Subset<T, PostYoutubeCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PostCountAggregateOutputType>
+          : GetScalarType<T['select'], PostYoutubeCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Post.
+     * Allows you to perform aggregations operations on a PostYoutube.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {PostYoutubeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -8223,13 +8223,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PostAggregateArgs>(args: Subset<T, PostAggregateArgs>): Prisma.PrismaPromise<GetPostAggregateType<T>>
+    aggregate<T extends PostYoutubeAggregateArgs>(args: Subset<T, PostYoutubeAggregateArgs>): Prisma.PrismaPromise<GetPostYoutubeAggregateType<T>>
 
     /**
-     * Group by Post.
+     * Group by PostYoutube.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostGroupByArgs} args - Group by arguments.
+     * @param {PostYoutubeGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -8244,14 +8244,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends PostGroupByArgs,
+      T extends PostYoutubeGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PostGroupByArgs['orderBy'] }
-        : { orderBy?: PostGroupByArgs['orderBy'] },
+        ? { orderBy: PostYoutubeGroupByArgs['orderBy'] }
+        : { orderBy?: PostYoutubeGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -8300,20 +8300,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, PostGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPostGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, PostYoutubeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPostYoutubeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Post model
+   * Fields of the PostYoutube model
    */
-  readonly fields: PostFieldRefs;
+  readonly fields: PostYoutubeFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Post.
+   * The delegate class that acts as a "Promise-like" for PostYoutube.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__PostClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__PostYoutubeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -8342,371 +8342,371 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Post model
+   * Fields of the PostYoutube model
    */
-  interface PostFieldRefs {
-    readonly id: FieldRef<"Post", 'String'>
-    readonly userId: FieldRef<"Post", 'String'>
-    readonly title: FieldRef<"Post", 'String'>
-    readonly description: FieldRef<"Post", 'String'>
-    readonly thumbnailUrl: FieldRef<"Post", 'String'>
-    readonly videoUrl: FieldRef<"Post", 'String'>
-    readonly videoType: FieldRef<"Post", 'VideoType'>
-    readonly processStatus: FieldRef<"Post", 'PostStatus'>
-    readonly status: FieldRef<"Post", 'Status'>
-    readonly scheduledAt: FieldRef<"Post", 'DateTime'>
-    readonly publishedAt: FieldRef<"Post", 'DateTime'>
-    readonly views: FieldRef<"Post", 'Int'>
-    readonly likes: FieldRef<"Post", 'Int'>
-    readonly comments: FieldRef<"Post", 'Int'>
-    readonly tags: FieldRef<"Post", 'String[]'>
-    readonly createdAt: FieldRef<"Post", 'DateTime'>
-    readonly updatedAt: FieldRef<"Post", 'DateTime'>
+  interface PostYoutubeFieldRefs {
+    readonly id: FieldRef<"PostYoutube", 'String'>
+    readonly userId: FieldRef<"PostYoutube", 'String'>
+    readonly title: FieldRef<"PostYoutube", 'String'>
+    readonly description: FieldRef<"PostYoutube", 'String'>
+    readonly thumbnailUrl: FieldRef<"PostYoutube", 'String'>
+    readonly videoUrl: FieldRef<"PostYoutube", 'String'>
+    readonly videoType: FieldRef<"PostYoutube", 'VideoType'>
+    readonly processStatus: FieldRef<"PostYoutube", 'PostStatus'>
+    readonly status: FieldRef<"PostYoutube", 'Status'>
+    readonly scheduledAt: FieldRef<"PostYoutube", 'DateTime'>
+    readonly publishedAt: FieldRef<"PostYoutube", 'DateTime'>
+    readonly views: FieldRef<"PostYoutube", 'Int'>
+    readonly likes: FieldRef<"PostYoutube", 'Int'>
+    readonly comments: FieldRef<"PostYoutube", 'Int'>
+    readonly tags: FieldRef<"PostYoutube", 'String[]'>
+    readonly createdAt: FieldRef<"PostYoutube", 'DateTime'>
+    readonly updatedAt: FieldRef<"PostYoutube", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Post findUnique
+   * PostYoutube findUnique
    */
-  export type PostFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: PostYoutubeInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which PostYoutube to fetch.
      */
-    where: PostWhereUniqueInput
+    where: PostYoutubeWhereUniqueInput
   }
 
   /**
-   * Post findUniqueOrThrow
+   * PostYoutube findUniqueOrThrow
    */
-  export type PostFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: PostYoutubeInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which PostYoutube to fetch.
      */
-    where: PostWhereUniqueInput
+    where: PostYoutubeWhereUniqueInput
   }
 
   /**
-   * Post findFirst
+   * PostYoutube findFirst
    */
-  export type PostFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: PostYoutubeInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which PostYoutube to fetch.
      */
-    where?: PostWhereInput
+    where?: PostYoutubeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of PostYoutubes to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: PostYoutubeOrderByWithRelationInput | PostYoutubeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Posts.
+     * Sets the position for searching for PostYoutubes.
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: PostYoutubeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` PostYoutubes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` PostYoutubes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Posts.
+     * Filter by unique combinations of PostYoutubes.
      */
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: PostYoutubeScalarFieldEnum | PostYoutubeScalarFieldEnum[]
   }
 
   /**
-   * Post findFirstOrThrow
+   * PostYoutube findFirstOrThrow
    */
-  export type PostFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: PostYoutubeInclude<ExtArgs> | null
     /**
-     * Filter, which Post to fetch.
+     * Filter, which PostYoutube to fetch.
      */
-    where?: PostWhereInput
+    where?: PostYoutubeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of PostYoutubes to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: PostYoutubeOrderByWithRelationInput | PostYoutubeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Posts.
+     * Sets the position for searching for PostYoutubes.
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: PostYoutubeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` PostYoutubes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` PostYoutubes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Posts.
+     * Filter by unique combinations of PostYoutubes.
      */
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: PostYoutubeScalarFieldEnum | PostYoutubeScalarFieldEnum[]
   }
 
   /**
-   * Post findMany
+   * PostYoutube findMany
    */
-  export type PostFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: PostYoutubeInclude<ExtArgs> | null
     /**
-     * Filter, which Posts to fetch.
+     * Filter, which PostYoutubes to fetch.
      */
-    where?: PostWhereInput
+    where?: PostYoutubeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of PostYoutubes to fetch.
      */
-    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    orderBy?: PostYoutubeOrderByWithRelationInput | PostYoutubeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Posts.
+     * Sets the position for listing PostYoutubes.
      */
-    cursor?: PostWhereUniqueInput
+    cursor?: PostYoutubeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Posts from the position of the cursor.
+     * Take `±n` PostYoutubes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Posts.
+     * Skip the first `n` PostYoutubes.
      */
     skip?: number
-    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+    distinct?: PostYoutubeScalarFieldEnum | PostYoutubeScalarFieldEnum[]
   }
 
   /**
-   * Post create
+   * PostYoutube create
    */
-  export type PostCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: PostYoutubeInclude<ExtArgs> | null
     /**
-     * The data needed to create a Post.
+     * The data needed to create a PostYoutube.
      */
-    data: XOR<PostCreateInput, PostUncheckedCreateInput>
+    data: XOR<PostYoutubeCreateInput, PostYoutubeUncheckedCreateInput>
   }
 
   /**
-   * Post createMany
+   * PostYoutube createMany
    */
-  export type PostCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Posts.
+     * The data used to create many PostYoutubes.
      */
-    data: PostCreateManyInput | PostCreateManyInput[]
+    data: PostYoutubeCreateManyInput | PostYoutubeCreateManyInput[]
   }
 
   /**
-   * Post update
+   * PostYoutube update
    */
-  export type PostUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: PostYoutubeInclude<ExtArgs> | null
     /**
-     * The data needed to update a Post.
+     * The data needed to update a PostYoutube.
      */
-    data: XOR<PostUpdateInput, PostUncheckedUpdateInput>
+    data: XOR<PostYoutubeUpdateInput, PostYoutubeUncheckedUpdateInput>
     /**
-     * Choose, which Post to update.
+     * Choose, which PostYoutube to update.
      */
-    where: PostWhereUniqueInput
+    where: PostYoutubeWhereUniqueInput
   }
 
   /**
-   * Post updateMany
+   * PostYoutube updateMany
    */
-  export type PostUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Posts.
+     * The data used to update PostYoutubes.
      */
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyInput>
+    data: XOR<PostYoutubeUpdateManyMutationInput, PostYoutubeUncheckedUpdateManyInput>
     /**
-     * Filter which Posts to update
+     * Filter which PostYoutubes to update
      */
-    where?: PostWhereInput
+    where?: PostYoutubeWhereInput
     /**
-     * Limit how many Posts to update.
+     * Limit how many PostYoutubes to update.
      */
     limit?: number
   }
 
   /**
-   * Post upsert
+   * PostYoutube upsert
    */
-  export type PostUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: PostYoutubeInclude<ExtArgs> | null
     /**
-     * The filter to search for the Post to update in case it exists.
+     * The filter to search for the PostYoutube to update in case it exists.
      */
-    where: PostWhereUniqueInput
+    where: PostYoutubeWhereUniqueInput
     /**
-     * In case the Post found by the `where` argument doesn't exist, create a new Post with this data.
+     * In case the PostYoutube found by the `where` argument doesn't exist, create a new PostYoutube with this data.
      */
-    create: XOR<PostCreateInput, PostUncheckedCreateInput>
+    create: XOR<PostYoutubeCreateInput, PostYoutubeUncheckedCreateInput>
     /**
-     * In case the Post was found with the provided `where` argument, update it with this data.
+     * In case the PostYoutube was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<PostUpdateInput, PostUncheckedUpdateInput>
+    update: XOR<PostYoutubeUpdateInput, PostYoutubeUncheckedUpdateInput>
   }
 
   /**
-   * Post delete
+   * PostYoutube delete
    */
-  export type PostDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: PostYoutubeInclude<ExtArgs> | null
     /**
-     * Filter which Post to delete.
+     * Filter which PostYoutube to delete.
      */
-    where: PostWhereUniqueInput
+    where: PostYoutubeWhereUniqueInput
   }
 
   /**
-   * Post deleteMany
+   * PostYoutube deleteMany
    */
-  export type PostDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Posts to delete
+     * Filter which PostYoutubes to delete
      */
-    where?: PostWhereInput
+    where?: PostYoutubeWhereInput
     /**
-     * Limit how many Posts to delete.
+     * Limit how many PostYoutubes to delete.
      */
     limit?: number
   }
 
   /**
-   * Post findRaw
+   * PostYoutube findRaw
    */
-  export type PostFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
      */
@@ -8718,9 +8718,9 @@ export namespace Prisma {
   }
 
   /**
-   * Post aggregateRaw
+   * PostYoutube aggregateRaw
    */
-  export type PostAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
      */
@@ -8732,21 +8732,21 @@ export namespace Prisma {
   }
 
   /**
-   * Post without action
+   * PostYoutube without action
    */
-  export type PostDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostYoutubeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Post
+     * Select specific fields to fetch from the PostYoutube
      */
-    select?: PostSelect<ExtArgs> | null
+    select?: PostYoutubeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Post
+     * Omit specific fields from the PostYoutube
      */
-    omit?: PostOmit<ExtArgs> | null
+    omit?: PostYoutubeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PostInclude<ExtArgs> | null
+    include?: PostYoutubeInclude<ExtArgs> | null
   }
 
 
@@ -8756,20 +8756,40 @@ export namespace Prisma {
 
   export type AggregateFacebookPost = {
     _count: FacebookPostCountAggregateOutputType | null
+    _avg: FacebookPostAvgAggregateOutputType | null
+    _sum: FacebookPostSumAggregateOutputType | null
     _min: FacebookPostMinAggregateOutputType | null
     _max: FacebookPostMaxAggregateOutputType | null
+  }
+
+  export type FacebookPostAvgAggregateOutputType = {
+    views: number | null
+    likes: number | null
+    comments: number | null
+  }
+
+  export type FacebookPostSumAggregateOutputType = {
+    views: number | null
+    likes: number | null
+    comments: number | null
   }
 
   export type FacebookPostMinAggregateOutputType = {
     id: string | null
     userId: string | null
     title: string | null
-    content: string | null
+    description: string | null
+    thumbnailUrl: string | null
     imageUrl: string | null
     videoUrl: string | null
-    status: $Enums.PostStatus | null
+    videoType: $Enums.VideoType | null
+    processStatus: $Enums.PostStatus | null
+    status: $Enums.Status | null
     scheduledAt: Date | null
     publishedAt: Date | null
+    views: number | null
+    likes: number | null
+    comments: number | null
     facebookPostId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -8779,12 +8799,18 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     title: string | null
-    content: string | null
+    description: string | null
+    thumbnailUrl: string | null
     imageUrl: string | null
     videoUrl: string | null
-    status: $Enums.PostStatus | null
+    videoType: $Enums.VideoType | null
+    processStatus: $Enums.PostStatus | null
+    status: $Enums.Status | null
     scheduledAt: Date | null
     publishedAt: Date | null
+    views: number | null
+    likes: number | null
+    comments: number | null
     facebookPostId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -8794,12 +8820,19 @@ export namespace Prisma {
     id: number
     userId: number
     title: number
-    content: number
+    description: number
+    thumbnailUrl: number
     imageUrl: number
     videoUrl: number
+    videoType: number
+    processStatus: number
     status: number
     scheduledAt: number
     publishedAt: number
+    views: number
+    likes: number
+    comments: number
+    tags: number
     facebookPostId: number
     createdAt: number
     updatedAt: number
@@ -8807,16 +8840,34 @@ export namespace Prisma {
   }
 
 
+  export type FacebookPostAvgAggregateInputType = {
+    views?: true
+    likes?: true
+    comments?: true
+  }
+
+  export type FacebookPostSumAggregateInputType = {
+    views?: true
+    likes?: true
+    comments?: true
+  }
+
   export type FacebookPostMinAggregateInputType = {
     id?: true
     userId?: true
     title?: true
-    content?: true
+    description?: true
+    thumbnailUrl?: true
     imageUrl?: true
     videoUrl?: true
+    videoType?: true
+    processStatus?: true
     status?: true
     scheduledAt?: true
     publishedAt?: true
+    views?: true
+    likes?: true
+    comments?: true
     facebookPostId?: true
     createdAt?: true
     updatedAt?: true
@@ -8826,12 +8877,18 @@ export namespace Prisma {
     id?: true
     userId?: true
     title?: true
-    content?: true
+    description?: true
+    thumbnailUrl?: true
     imageUrl?: true
     videoUrl?: true
+    videoType?: true
+    processStatus?: true
     status?: true
     scheduledAt?: true
     publishedAt?: true
+    views?: true
+    likes?: true
+    comments?: true
     facebookPostId?: true
     createdAt?: true
     updatedAt?: true
@@ -8841,12 +8898,19 @@ export namespace Prisma {
     id?: true
     userId?: true
     title?: true
-    content?: true
+    description?: true
+    thumbnailUrl?: true
     imageUrl?: true
     videoUrl?: true
+    videoType?: true
+    processStatus?: true
     status?: true
     scheduledAt?: true
     publishedAt?: true
+    views?: true
+    likes?: true
+    comments?: true
+    tags?: true
     facebookPostId?: true
     createdAt?: true
     updatedAt?: true
@@ -8891,6 +8955,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: FacebookPostAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FacebookPostSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: FacebookPostMinAggregateInputType
@@ -8921,6 +8997,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: FacebookPostCountAggregateInputType | true
+    _avg?: FacebookPostAvgAggregateInputType
+    _sum?: FacebookPostSumAggregateInputType
     _min?: FacebookPostMinAggregateInputType
     _max?: FacebookPostMaxAggregateInputType
   }
@@ -8929,16 +9007,25 @@ export namespace Prisma {
     id: string
     userId: string
     title: string
-    content: string | null
+    description: string | null
+    thumbnailUrl: string | null
     imageUrl: string | null
     videoUrl: string | null
-    status: $Enums.PostStatus
+    videoType: $Enums.VideoType | null
+    processStatus: $Enums.PostStatus
+    status: $Enums.Status
     scheduledAt: Date | null
     publishedAt: Date | null
+    views: number
+    likes: number
+    comments: number
+    tags: string[]
     facebookPostId: string | null
     createdAt: Date
     updatedAt: Date
     _count: FacebookPostCountAggregateOutputType | null
+    _avg: FacebookPostAvgAggregateOutputType | null
+    _sum: FacebookPostSumAggregateOutputType | null
     _min: FacebookPostMinAggregateOutputType | null
     _max: FacebookPostMaxAggregateOutputType | null
   }
@@ -8961,12 +9048,19 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     title?: boolean
-    content?: boolean
+    description?: boolean
+    thumbnailUrl?: boolean
     imageUrl?: boolean
     videoUrl?: boolean
+    videoType?: boolean
+    processStatus?: boolean
     status?: boolean
     scheduledAt?: boolean
     publishedAt?: boolean
+    views?: boolean
+    likes?: boolean
+    comments?: boolean
+    tags?: boolean
     facebookPostId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -8979,18 +9073,25 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     title?: boolean
-    content?: boolean
+    description?: boolean
+    thumbnailUrl?: boolean
     imageUrl?: boolean
     videoUrl?: boolean
+    videoType?: boolean
+    processStatus?: boolean
     status?: boolean
     scheduledAt?: boolean
     publishedAt?: boolean
+    views?: boolean
+    likes?: boolean
+    comments?: boolean
+    tags?: boolean
     facebookPostId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type FacebookPostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "content" | "imageUrl" | "videoUrl" | "status" | "scheduledAt" | "publishedAt" | "facebookPostId" | "createdAt" | "updatedAt", ExtArgs["result"]["facebookPost"]>
+  export type FacebookPostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "description" | "thumbnailUrl" | "imageUrl" | "videoUrl" | "videoType" | "processStatus" | "status" | "scheduledAt" | "publishedAt" | "views" | "likes" | "comments" | "tags" | "facebookPostId" | "createdAt" | "updatedAt", ExtArgs["result"]["facebookPost"]>
   export type FacebookPostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -9004,12 +9105,19 @@ export namespace Prisma {
       id: string
       userId: string
       title: string
-      content: string | null
+      description: string | null
+      thumbnailUrl: string | null
       imageUrl: string | null
       videoUrl: string | null
-      status: $Enums.PostStatus
+      videoType: $Enums.VideoType | null
+      processStatus: $Enums.PostStatus
+      status: $Enums.Status
       scheduledAt: Date | null
       publishedAt: Date | null
+      views: number
+      likes: number
+      comments: number
+      tags: string[]
       facebookPostId: string | null
       createdAt: Date
       updatedAt: Date
@@ -9409,12 +9517,19 @@ export namespace Prisma {
     readonly id: FieldRef<"FacebookPost", 'String'>
     readonly userId: FieldRef<"FacebookPost", 'String'>
     readonly title: FieldRef<"FacebookPost", 'String'>
-    readonly content: FieldRef<"FacebookPost", 'String'>
+    readonly description: FieldRef<"FacebookPost", 'String'>
+    readonly thumbnailUrl: FieldRef<"FacebookPost", 'String'>
     readonly imageUrl: FieldRef<"FacebookPost", 'String'>
     readonly videoUrl: FieldRef<"FacebookPost", 'String'>
-    readonly status: FieldRef<"FacebookPost", 'PostStatus'>
+    readonly videoType: FieldRef<"FacebookPost", 'VideoType'>
+    readonly processStatus: FieldRef<"FacebookPost", 'PostStatus'>
+    readonly status: FieldRef<"FacebookPost", 'Status'>
     readonly scheduledAt: FieldRef<"FacebookPost", 'DateTime'>
     readonly publishedAt: FieldRef<"FacebookPost", 'DateTime'>
+    readonly views: FieldRef<"FacebookPost", 'Int'>
+    readonly likes: FieldRef<"FacebookPost", 'Int'>
+    readonly comments: FieldRef<"FacebookPost", 'Int'>
+    readonly tags: FieldRef<"FacebookPost", 'String[]'>
     readonly facebookPostId: FieldRef<"FacebookPost", 'String'>
     readonly createdAt: FieldRef<"FacebookPost", 'DateTime'>
     readonly updatedAt: FieldRef<"FacebookPost", 'DateTime'>
@@ -16274,7 +16389,7 @@ export namespace Prisma {
   export type ChannelScalarFieldEnum = (typeof ChannelScalarFieldEnum)[keyof typeof ChannelScalarFieldEnum]
 
 
-  export const PostScalarFieldEnum: {
+  export const PostYoutubeScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
     title: 'title',
@@ -16294,19 +16409,26 @@ export namespace Prisma {
     updatedAt: 'updatedAt'
   };
 
-  export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
+  export type PostYoutubeScalarFieldEnum = (typeof PostYoutubeScalarFieldEnum)[keyof typeof PostYoutubeScalarFieldEnum]
 
 
   export const FacebookPostScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
     title: 'title',
-    content: 'content',
+    description: 'description',
+    thumbnailUrl: 'thumbnailUrl',
     imageUrl: 'imageUrl',
     videoUrl: 'videoUrl',
+    videoType: 'videoType',
+    processStatus: 'processStatus',
     status: 'status',
     scheduledAt: 'scheduledAt',
     publishedAt: 'publishedAt',
+    views: 'views',
+    likes: 'likes',
+    comments: 'comments',
+    tags: 'tags',
     facebookPostId: 'facebookPostId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -16599,7 +16721,7 @@ export namespace Prisma {
     lastResetDate?: DateTimeNullableFilter<"User"> | Date | string | null
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
-    posts?: PostListRelationFilter
+    youtubePosts?: PostYoutubeListRelationFilter
     channels?: ChannelListRelationFilter
     keywords?: KeywordListRelationFilter
     refreshTokens?: RefreshTokenListRelationFilter
@@ -16627,7 +16749,7 @@ export namespace Prisma {
     lastResetDate?: SortOrder
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
-    posts?: PostOrderByRelationAggregateInput
+    youtubePosts?: PostYoutubeOrderByRelationAggregateInput
     channels?: ChannelOrderByRelationAggregateInput
     keywords?: KeywordOrderByRelationAggregateInput
     refreshTokens?: RefreshTokenOrderByRelationAggregateInput
@@ -16658,7 +16780,7 @@ export namespace Prisma {
     lastResetDate?: DateTimeNullableFilter<"User"> | Date | string | null
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
-    posts?: PostListRelationFilter
+    youtubePosts?: PostYoutubeListRelationFilter
     channels?: ChannelListRelationFilter
     keywords?: KeywordListRelationFilter
     refreshTokens?: RefreshTokenListRelationFilter
@@ -17009,31 +17131,31 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Channel"> | Date | string
   }
 
-  export type PostWhereInput = {
-    AND?: PostWhereInput | PostWhereInput[]
-    OR?: PostWhereInput[]
-    NOT?: PostWhereInput | PostWhereInput[]
-    id?: StringFilter<"Post"> | string
-    userId?: StringFilter<"Post"> | string
-    title?: StringFilter<"Post"> | string
-    description?: StringNullableFilter<"Post"> | string | null
-    thumbnailUrl?: StringNullableFilter<"Post"> | string | null
-    videoUrl?: StringNullableFilter<"Post"> | string | null
-    videoType?: EnumVideoTypeNullableFilter<"Post"> | $Enums.VideoType | null
-    processStatus?: EnumPostStatusFilter<"Post"> | $Enums.PostStatus
-    status?: EnumStatusFilter<"Post"> | $Enums.Status
-    scheduledAt?: DateTimeNullableFilter<"Post"> | Date | string | null
-    publishedAt?: DateTimeNullableFilter<"Post"> | Date | string | null
-    views?: IntFilter<"Post"> | number
-    likes?: IntFilter<"Post"> | number
-    comments?: IntFilter<"Post"> | number
-    tags?: StringNullableListFilter<"Post">
-    createdAt?: DateTimeFilter<"Post"> | Date | string
-    updatedAt?: DateTimeFilter<"Post"> | Date | string
+  export type PostYoutubeWhereInput = {
+    AND?: PostYoutubeWhereInput | PostYoutubeWhereInput[]
+    OR?: PostYoutubeWhereInput[]
+    NOT?: PostYoutubeWhereInput | PostYoutubeWhereInput[]
+    id?: StringFilter<"PostYoutube"> | string
+    userId?: StringFilter<"PostYoutube"> | string
+    title?: StringFilter<"PostYoutube"> | string
+    description?: StringNullableFilter<"PostYoutube"> | string | null
+    thumbnailUrl?: StringNullableFilter<"PostYoutube"> | string | null
+    videoUrl?: StringNullableFilter<"PostYoutube"> | string | null
+    videoType?: EnumVideoTypeNullableFilter<"PostYoutube"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFilter<"PostYoutube"> | $Enums.PostStatus
+    status?: EnumStatusFilter<"PostYoutube"> | $Enums.Status
+    scheduledAt?: DateTimeNullableFilter<"PostYoutube"> | Date | string | null
+    publishedAt?: DateTimeNullableFilter<"PostYoutube"> | Date | string | null
+    views?: IntFilter<"PostYoutube"> | number
+    likes?: IntFilter<"PostYoutube"> | number
+    comments?: IntFilter<"PostYoutube"> | number
+    tags?: StringNullableListFilter<"PostYoutube">
+    createdAt?: DateTimeFilter<"PostYoutube"> | Date | string
+    updatedAt?: DateTimeFilter<"PostYoutube"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type PostOrderByWithRelationInput = {
+  export type PostYoutubeOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
@@ -17054,31 +17176,31 @@ export namespace Prisma {
     user?: UserOrderByWithRelationInput
   }
 
-  export type PostWhereUniqueInput = Prisma.AtLeast<{
+  export type PostYoutubeWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: PostWhereInput | PostWhereInput[]
-    OR?: PostWhereInput[]
-    NOT?: PostWhereInput | PostWhereInput[]
-    userId?: StringFilter<"Post"> | string
-    title?: StringFilter<"Post"> | string
-    description?: StringNullableFilter<"Post"> | string | null
-    thumbnailUrl?: StringNullableFilter<"Post"> | string | null
-    videoUrl?: StringNullableFilter<"Post"> | string | null
-    videoType?: EnumVideoTypeNullableFilter<"Post"> | $Enums.VideoType | null
-    processStatus?: EnumPostStatusFilter<"Post"> | $Enums.PostStatus
-    status?: EnumStatusFilter<"Post"> | $Enums.Status
-    scheduledAt?: DateTimeNullableFilter<"Post"> | Date | string | null
-    publishedAt?: DateTimeNullableFilter<"Post"> | Date | string | null
-    views?: IntFilter<"Post"> | number
-    likes?: IntFilter<"Post"> | number
-    comments?: IntFilter<"Post"> | number
-    tags?: StringNullableListFilter<"Post">
-    createdAt?: DateTimeFilter<"Post"> | Date | string
-    updatedAt?: DateTimeFilter<"Post"> | Date | string
+    AND?: PostYoutubeWhereInput | PostYoutubeWhereInput[]
+    OR?: PostYoutubeWhereInput[]
+    NOT?: PostYoutubeWhereInput | PostYoutubeWhereInput[]
+    userId?: StringFilter<"PostYoutube"> | string
+    title?: StringFilter<"PostYoutube"> | string
+    description?: StringNullableFilter<"PostYoutube"> | string | null
+    thumbnailUrl?: StringNullableFilter<"PostYoutube"> | string | null
+    videoUrl?: StringNullableFilter<"PostYoutube"> | string | null
+    videoType?: EnumVideoTypeNullableFilter<"PostYoutube"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFilter<"PostYoutube"> | $Enums.PostStatus
+    status?: EnumStatusFilter<"PostYoutube"> | $Enums.Status
+    scheduledAt?: DateTimeNullableFilter<"PostYoutube"> | Date | string | null
+    publishedAt?: DateTimeNullableFilter<"PostYoutube"> | Date | string | null
+    views?: IntFilter<"PostYoutube"> | number
+    likes?: IntFilter<"PostYoutube"> | number
+    comments?: IntFilter<"PostYoutube"> | number
+    tags?: StringNullableListFilter<"PostYoutube">
+    createdAt?: DateTimeFilter<"PostYoutube"> | Date | string
+    updatedAt?: DateTimeFilter<"PostYoutube"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
-  export type PostOrderByWithAggregationInput = {
+  export type PostYoutubeOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
@@ -17096,34 +17218,34 @@ export namespace Prisma {
     tags?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: PostCountOrderByAggregateInput
-    _avg?: PostAvgOrderByAggregateInput
-    _max?: PostMaxOrderByAggregateInput
-    _min?: PostMinOrderByAggregateInput
-    _sum?: PostSumOrderByAggregateInput
+    _count?: PostYoutubeCountOrderByAggregateInput
+    _avg?: PostYoutubeAvgOrderByAggregateInput
+    _max?: PostYoutubeMaxOrderByAggregateInput
+    _min?: PostYoutubeMinOrderByAggregateInput
+    _sum?: PostYoutubeSumOrderByAggregateInput
   }
 
-  export type PostScalarWhereWithAggregatesInput = {
-    AND?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
-    OR?: PostScalarWhereWithAggregatesInput[]
-    NOT?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Post"> | string
-    userId?: StringWithAggregatesFilter<"Post"> | string
-    title?: StringWithAggregatesFilter<"Post"> | string
-    description?: StringNullableWithAggregatesFilter<"Post"> | string | null
-    thumbnailUrl?: StringNullableWithAggregatesFilter<"Post"> | string | null
-    videoUrl?: StringNullableWithAggregatesFilter<"Post"> | string | null
-    videoType?: EnumVideoTypeNullableWithAggregatesFilter<"Post"> | $Enums.VideoType | null
-    processStatus?: EnumPostStatusWithAggregatesFilter<"Post"> | $Enums.PostStatus
-    status?: EnumStatusWithAggregatesFilter<"Post"> | $Enums.Status
-    scheduledAt?: DateTimeNullableWithAggregatesFilter<"Post"> | Date | string | null
-    publishedAt?: DateTimeNullableWithAggregatesFilter<"Post"> | Date | string | null
-    views?: IntWithAggregatesFilter<"Post"> | number
-    likes?: IntWithAggregatesFilter<"Post"> | number
-    comments?: IntWithAggregatesFilter<"Post"> | number
-    tags?: StringNullableListFilter<"Post">
-    createdAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
+  export type PostYoutubeScalarWhereWithAggregatesInput = {
+    AND?: PostYoutubeScalarWhereWithAggregatesInput | PostYoutubeScalarWhereWithAggregatesInput[]
+    OR?: PostYoutubeScalarWhereWithAggregatesInput[]
+    NOT?: PostYoutubeScalarWhereWithAggregatesInput | PostYoutubeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PostYoutube"> | string
+    userId?: StringWithAggregatesFilter<"PostYoutube"> | string
+    title?: StringWithAggregatesFilter<"PostYoutube"> | string
+    description?: StringNullableWithAggregatesFilter<"PostYoutube"> | string | null
+    thumbnailUrl?: StringNullableWithAggregatesFilter<"PostYoutube"> | string | null
+    videoUrl?: StringNullableWithAggregatesFilter<"PostYoutube"> | string | null
+    videoType?: EnumVideoTypeNullableWithAggregatesFilter<"PostYoutube"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusWithAggregatesFilter<"PostYoutube"> | $Enums.PostStatus
+    status?: EnumStatusWithAggregatesFilter<"PostYoutube"> | $Enums.Status
+    scheduledAt?: DateTimeNullableWithAggregatesFilter<"PostYoutube"> | Date | string | null
+    publishedAt?: DateTimeNullableWithAggregatesFilter<"PostYoutube"> | Date | string | null
+    views?: IntWithAggregatesFilter<"PostYoutube"> | number
+    likes?: IntWithAggregatesFilter<"PostYoutube"> | number
+    comments?: IntWithAggregatesFilter<"PostYoutube"> | number
+    tags?: StringNullableListFilter<"PostYoutube">
+    createdAt?: DateTimeWithAggregatesFilter<"PostYoutube"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PostYoutube"> | Date | string
   }
 
   export type FacebookPostWhereInput = {
@@ -17133,12 +17255,19 @@ export namespace Prisma {
     id?: StringFilter<"FacebookPost"> | string
     userId?: StringFilter<"FacebookPost"> | string
     title?: StringFilter<"FacebookPost"> | string
-    content?: StringNullableFilter<"FacebookPost"> | string | null
+    description?: StringNullableFilter<"FacebookPost"> | string | null
+    thumbnailUrl?: StringNullableFilter<"FacebookPost"> | string | null
     imageUrl?: StringNullableFilter<"FacebookPost"> | string | null
     videoUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    status?: EnumPostStatusFilter<"FacebookPost"> | $Enums.PostStatus
+    videoType?: EnumVideoTypeNullableFilter<"FacebookPost"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFilter<"FacebookPost"> | $Enums.PostStatus
+    status?: EnumStatusFilter<"FacebookPost"> | $Enums.Status
     scheduledAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
     publishedAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
+    views?: IntFilter<"FacebookPost"> | number
+    likes?: IntFilter<"FacebookPost"> | number
+    comments?: IntFilter<"FacebookPost"> | number
+    tags?: StringNullableListFilter<"FacebookPost">
     facebookPostId?: StringNullableFilter<"FacebookPost"> | string | null
     createdAt?: DateTimeFilter<"FacebookPost"> | Date | string
     updatedAt?: DateTimeFilter<"FacebookPost"> | Date | string
@@ -17149,12 +17278,19 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
-    content?: SortOrder
+    description?: SortOrder
+    thumbnailUrl?: SortOrder
     imageUrl?: SortOrder
     videoUrl?: SortOrder
+    videoType?: SortOrder
+    processStatus?: SortOrder
     status?: SortOrder
     scheduledAt?: SortOrder
     publishedAt?: SortOrder
+    views?: SortOrder
+    likes?: SortOrder
+    comments?: SortOrder
+    tags?: SortOrder
     facebookPostId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -17168,12 +17304,19 @@ export namespace Prisma {
     NOT?: FacebookPostWhereInput | FacebookPostWhereInput[]
     userId?: StringFilter<"FacebookPost"> | string
     title?: StringFilter<"FacebookPost"> | string
-    content?: StringNullableFilter<"FacebookPost"> | string | null
+    description?: StringNullableFilter<"FacebookPost"> | string | null
+    thumbnailUrl?: StringNullableFilter<"FacebookPost"> | string | null
     imageUrl?: StringNullableFilter<"FacebookPost"> | string | null
     videoUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    status?: EnumPostStatusFilter<"FacebookPost"> | $Enums.PostStatus
+    videoType?: EnumVideoTypeNullableFilter<"FacebookPost"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFilter<"FacebookPost"> | $Enums.PostStatus
+    status?: EnumStatusFilter<"FacebookPost"> | $Enums.Status
     scheduledAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
     publishedAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
+    views?: IntFilter<"FacebookPost"> | number
+    likes?: IntFilter<"FacebookPost"> | number
+    comments?: IntFilter<"FacebookPost"> | number
+    tags?: StringNullableListFilter<"FacebookPost">
     facebookPostId?: StringNullableFilter<"FacebookPost"> | string | null
     createdAt?: DateTimeFilter<"FacebookPost"> | Date | string
     updatedAt?: DateTimeFilter<"FacebookPost"> | Date | string
@@ -17184,18 +17327,27 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
-    content?: SortOrder
+    description?: SortOrder
+    thumbnailUrl?: SortOrder
     imageUrl?: SortOrder
     videoUrl?: SortOrder
+    videoType?: SortOrder
+    processStatus?: SortOrder
     status?: SortOrder
     scheduledAt?: SortOrder
     publishedAt?: SortOrder
+    views?: SortOrder
+    likes?: SortOrder
+    comments?: SortOrder
+    tags?: SortOrder
     facebookPostId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: FacebookPostCountOrderByAggregateInput
+    _avg?: FacebookPostAvgOrderByAggregateInput
     _max?: FacebookPostMaxOrderByAggregateInput
     _min?: FacebookPostMinOrderByAggregateInput
+    _sum?: FacebookPostSumOrderByAggregateInput
   }
 
   export type FacebookPostScalarWhereWithAggregatesInput = {
@@ -17205,12 +17357,19 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"FacebookPost"> | string
     userId?: StringWithAggregatesFilter<"FacebookPost"> | string
     title?: StringWithAggregatesFilter<"FacebookPost"> | string
-    content?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
+    description?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
+    thumbnailUrl?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
     imageUrl?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
     videoUrl?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
-    status?: EnumPostStatusWithAggregatesFilter<"FacebookPost"> | $Enums.PostStatus
+    videoType?: EnumVideoTypeNullableWithAggregatesFilter<"FacebookPost"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusWithAggregatesFilter<"FacebookPost"> | $Enums.PostStatus
+    status?: EnumStatusWithAggregatesFilter<"FacebookPost"> | $Enums.Status
     scheduledAt?: DateTimeNullableWithAggregatesFilter<"FacebookPost"> | Date | string | null
     publishedAt?: DateTimeNullableWithAggregatesFilter<"FacebookPost"> | Date | string | null
+    views?: IntWithAggregatesFilter<"FacebookPost"> | number
+    likes?: IntWithAggregatesFilter<"FacebookPost"> | number
+    comments?: IntWithAggregatesFilter<"FacebookPost"> | number
+    tags?: StringNullableListFilter<"FacebookPost">
     facebookPostId?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"FacebookPost"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"FacebookPost"> | Date | string
@@ -17741,7 +17900,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeCreateNestedManyWithoutUserInput
     channels?: ChannelCreateNestedManyWithoutUserInput
     keywords?: KeywordCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
@@ -17769,7 +17928,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeUncheckedCreateNestedManyWithoutUserInput
     channels?: ChannelUncheckedCreateNestedManyWithoutUserInput
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
@@ -17794,7 +17953,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUpdateManyWithoutUserNestedInput
     channels?: ChannelUpdateManyWithoutUserNestedInput
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
@@ -17821,7 +17980,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUncheckedUpdateManyWithoutUserNestedInput
     channels?: ChannelUncheckedUpdateManyWithoutUserNestedInput
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
@@ -18191,7 +18350,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostCreateInput = {
+  export type PostYoutubeCreateInput = {
     id?: string
     title: string
     description?: string | null
@@ -18205,71 +18364,13 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: PostCreatetagsInput | string[]
+    tags?: PostYoutubeCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutPostsInput
+    user: UserCreateNestedOneWithoutYoutubePostsInput
   }
 
-  export type PostUncheckedCreateInput = {
-    id?: string
-    userId: string
-    title: string
-    description?: string | null
-    thumbnailUrl?: string | null
-    videoUrl?: string | null
-    videoType?: $Enums.VideoType | null
-    processStatus?: $Enums.PostStatus
-    status?: $Enums.Status
-    scheduledAt?: Date | string | null
-    publishedAt?: Date | string | null
-    views?: number
-    likes?: number
-    comments?: number
-    tags?: PostCreatetagsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type PostUpdateInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
-    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
-    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
-    scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    views?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
-    comments?: IntFieldUpdateOperationsInput | number
-    tags?: PostUpdatetagsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutPostsNestedInput
-  }
-
-  export type PostUncheckedUpdateInput = {
-    userId?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
-    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
-    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
-    scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    views?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
-    comments?: IntFieldUpdateOperationsInput | number
-    tags?: PostUpdatetagsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PostCreateManyInput = {
+  export type PostYoutubeUncheckedCreateInput = {
     id?: string
     userId: string
     title: string
@@ -18284,12 +18385,12 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: PostCreatetagsInput | string[]
+    tags?: PostYoutubeCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type PostUpdateManyMutationInput = {
+  export type PostYoutubeUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -18302,12 +18403,13 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: PostUpdatetagsInput | string[]
+    tags?: PostYoutubeUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutYoutubePostsNestedInput
   }
 
-  export type PostUncheckedUpdateManyInput = {
+  export type PostYoutubeUncheckedUpdateInput = {
     userId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -18321,7 +18423,64 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: PostUpdatetagsInput | string[]
+    tags?: PostYoutubeUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PostYoutubeCreateManyInput = {
+    id?: string
+    userId: string
+    title: string
+    description?: string | null
+    thumbnailUrl?: string | null
+    videoUrl?: string | null
+    videoType?: $Enums.VideoType | null
+    processStatus?: $Enums.PostStatus
+    status?: $Enums.Status
+    scheduledAt?: Date | string | null
+    publishedAt?: Date | string | null
+    views?: number
+    likes?: number
+    comments?: number
+    tags?: PostYoutubeCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PostYoutubeUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    likes?: IntFieldUpdateOperationsInput | number
+    comments?: IntFieldUpdateOperationsInput | number
+    tags?: PostYoutubeUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PostYoutubeUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    likes?: IntFieldUpdateOperationsInput | number
+    comments?: IntFieldUpdateOperationsInput | number
+    tags?: PostYoutubeUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18329,12 +18488,19 @@ export namespace Prisma {
   export type FacebookPostCreateInput = {
     id?: string
     title: string
-    content?: string | null
+    description?: string | null
+    thumbnailUrl?: string | null
     imageUrl?: string | null
     videoUrl?: string | null
-    status?: $Enums.PostStatus
+    videoType?: $Enums.VideoType | null
+    processStatus?: $Enums.PostStatus
+    status?: $Enums.Status
     scheduledAt?: Date | string | null
     publishedAt?: Date | string | null
+    views?: number
+    likes?: number
+    comments?: number
+    tags?: FacebookPostCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -18345,12 +18511,19 @@ export namespace Prisma {
     id?: string
     userId: string
     title: string
-    content?: string | null
+    description?: string | null
+    thumbnailUrl?: string | null
     imageUrl?: string | null
     videoUrl?: string | null
-    status?: $Enums.PostStatus
+    videoType?: $Enums.VideoType | null
+    processStatus?: $Enums.PostStatus
+    status?: $Enums.Status
     scheduledAt?: Date | string | null
     publishedAt?: Date | string | null
+    views?: number
+    likes?: number
+    comments?: number
+    tags?: FacebookPostCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -18358,12 +18531,19 @@ export namespace Prisma {
 
   export type FacebookPostUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    likes?: IntFieldUpdateOperationsInput | number
+    comments?: IntFieldUpdateOperationsInput | number
+    tags?: FacebookPostUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18373,12 +18553,19 @@ export namespace Prisma {
   export type FacebookPostUncheckedUpdateInput = {
     userId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    likes?: IntFieldUpdateOperationsInput | number
+    comments?: IntFieldUpdateOperationsInput | number
+    tags?: FacebookPostUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18388,12 +18575,19 @@ export namespace Prisma {
     id?: string
     userId: string
     title: string
-    content?: string | null
+    description?: string | null
+    thumbnailUrl?: string | null
     imageUrl?: string | null
     videoUrl?: string | null
-    status?: $Enums.PostStatus
+    videoType?: $Enums.VideoType | null
+    processStatus?: $Enums.PostStatus
+    status?: $Enums.Status
     scheduledAt?: Date | string | null
     publishedAt?: Date | string | null
+    views?: number
+    likes?: number
+    comments?: number
+    tags?: FacebookPostCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -18401,12 +18595,19 @@ export namespace Prisma {
 
   export type FacebookPostUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    likes?: IntFieldUpdateOperationsInput | number
+    comments?: IntFieldUpdateOperationsInput | number
+    tags?: FacebookPostUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18415,12 +18616,19 @@ export namespace Prisma {
   export type FacebookPostUncheckedUpdateManyInput = {
     userId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    likes?: IntFieldUpdateOperationsInput | number
+    comments?: IntFieldUpdateOperationsInput | number
+    tags?: FacebookPostUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -19056,10 +19264,10 @@ export namespace Prisma {
     none?: SessionWhereInput
   }
 
-  export type PostListRelationFilter = {
-    every?: PostWhereInput
-    some?: PostWhereInput
-    none?: PostWhereInput
+  export type PostYoutubeListRelationFilter = {
+    every?: PostYoutubeWhereInput
+    some?: PostYoutubeWhereInput
+    none?: PostYoutubeWhereInput
   }
 
   export type ChannelListRelationFilter = {
@@ -19111,7 +19319,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type PostOrderByRelationAggregateInput = {
+  export type PostYoutubeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19521,7 +19729,7 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
-  export type PostCountOrderByAggregateInput = {
+  export type PostYoutubeCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
@@ -19541,13 +19749,13 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type PostAvgOrderByAggregateInput = {
+  export type PostYoutubeAvgOrderByAggregateInput = {
     views?: SortOrder
     likes?: SortOrder
     comments?: SortOrder
   }
 
-  export type PostMaxOrderByAggregateInput = {
+  export type PostYoutubeMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
@@ -19566,7 +19774,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type PostMinOrderByAggregateInput = {
+  export type PostYoutubeMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
@@ -19585,7 +19793,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type PostSumOrderByAggregateInput = {
+  export type PostYoutubeSumOrderByAggregateInput = {
     views?: SortOrder
     likes?: SortOrder
     comments?: SortOrder
@@ -19616,27 +19824,46 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
-    content?: SortOrder
+    description?: SortOrder
+    thumbnailUrl?: SortOrder
     imageUrl?: SortOrder
     videoUrl?: SortOrder
+    videoType?: SortOrder
+    processStatus?: SortOrder
     status?: SortOrder
     scheduledAt?: SortOrder
     publishedAt?: SortOrder
+    views?: SortOrder
+    likes?: SortOrder
+    comments?: SortOrder
+    tags?: SortOrder
     facebookPostId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type FacebookPostAvgOrderByAggregateInput = {
+    views?: SortOrder
+    likes?: SortOrder
+    comments?: SortOrder
   }
 
   export type FacebookPostMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
-    content?: SortOrder
+    description?: SortOrder
+    thumbnailUrl?: SortOrder
     imageUrl?: SortOrder
     videoUrl?: SortOrder
+    videoType?: SortOrder
+    processStatus?: SortOrder
     status?: SortOrder
     scheduledAt?: SortOrder
     publishedAt?: SortOrder
+    views?: SortOrder
+    likes?: SortOrder
+    comments?: SortOrder
     facebookPostId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -19646,15 +19873,27 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
-    content?: SortOrder
+    description?: SortOrder
+    thumbnailUrl?: SortOrder
     imageUrl?: SortOrder
     videoUrl?: SortOrder
+    videoType?: SortOrder
+    processStatus?: SortOrder
     status?: SortOrder
     scheduledAt?: SortOrder
     publishedAt?: SortOrder
+    views?: SortOrder
+    likes?: SortOrder
+    comments?: SortOrder
     facebookPostId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type FacebookPostSumOrderByAggregateInput = {
+    views?: SortOrder
+    likes?: SortOrder
+    comments?: SortOrder
   }
 
   export type TrendingVideoCountOrderByAggregateInput = {
@@ -20022,11 +20261,11 @@ export namespace Prisma {
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
-  export type PostCreateNestedManyWithoutUserInput = {
-    create?: XOR<PostCreateWithoutUserInput, PostUncheckedCreateWithoutUserInput> | PostCreateWithoutUserInput[] | PostUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutUserInput | PostCreateOrConnectWithoutUserInput[]
-    createMany?: PostCreateManyUserInputEnvelope
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
+  export type PostYoutubeCreateNestedManyWithoutUserInput = {
+    create?: XOR<PostYoutubeCreateWithoutUserInput, PostYoutubeUncheckedCreateWithoutUserInput> | PostYoutubeCreateWithoutUserInput[] | PostYoutubeUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PostYoutubeCreateOrConnectWithoutUserInput | PostYoutubeCreateOrConnectWithoutUserInput[]
+    createMany?: PostYoutubeCreateManyUserInputEnvelope
+    connect?: PostYoutubeWhereUniqueInput | PostYoutubeWhereUniqueInput[]
   }
 
   export type ChannelCreateNestedManyWithoutUserInput = {
@@ -20091,11 +20330,11 @@ export namespace Prisma {
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
-  export type PostUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<PostCreateWithoutUserInput, PostUncheckedCreateWithoutUserInput> | PostCreateWithoutUserInput[] | PostUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutUserInput | PostCreateOrConnectWithoutUserInput[]
-    createMany?: PostCreateManyUserInputEnvelope
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
+  export type PostYoutubeUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PostYoutubeCreateWithoutUserInput, PostYoutubeUncheckedCreateWithoutUserInput> | PostYoutubeCreateWithoutUserInput[] | PostYoutubeUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PostYoutubeCreateOrConnectWithoutUserInput | PostYoutubeCreateOrConnectWithoutUserInput[]
+    createMany?: PostYoutubeCreateManyUserInputEnvelope
+    connect?: PostYoutubeWhereUniqueInput | PostYoutubeWhereUniqueInput[]
   }
 
   export type ChannelUncheckedCreateNestedManyWithoutUserInput = {
@@ -20198,18 +20437,18 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
-  export type PostUpdateManyWithoutUserNestedInput = {
-    create?: XOR<PostCreateWithoutUserInput, PostUncheckedCreateWithoutUserInput> | PostCreateWithoutUserInput[] | PostUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutUserInput | PostCreateOrConnectWithoutUserInput[]
-    upsert?: PostUpsertWithWhereUniqueWithoutUserInput | PostUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: PostCreateManyUserInputEnvelope
-    set?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    disconnect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    delete?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    update?: PostUpdateWithWhereUniqueWithoutUserInput | PostUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: PostUpdateManyWithWhereWithoutUserInput | PostUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  export type PostYoutubeUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PostYoutubeCreateWithoutUserInput, PostYoutubeUncheckedCreateWithoutUserInput> | PostYoutubeCreateWithoutUserInput[] | PostYoutubeUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PostYoutubeCreateOrConnectWithoutUserInput | PostYoutubeCreateOrConnectWithoutUserInput[]
+    upsert?: PostYoutubeUpsertWithWhereUniqueWithoutUserInput | PostYoutubeUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PostYoutubeCreateManyUserInputEnvelope
+    set?: PostYoutubeWhereUniqueInput | PostYoutubeWhereUniqueInput[]
+    disconnect?: PostYoutubeWhereUniqueInput | PostYoutubeWhereUniqueInput[]
+    delete?: PostYoutubeWhereUniqueInput | PostYoutubeWhereUniqueInput[]
+    connect?: PostYoutubeWhereUniqueInput | PostYoutubeWhereUniqueInput[]
+    update?: PostYoutubeUpdateWithWhereUniqueWithoutUserInput | PostYoutubeUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PostYoutubeUpdateManyWithWhereWithoutUserInput | PostYoutubeUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PostYoutubeScalarWhereInput | PostYoutubeScalarWhereInput[]
   }
 
   export type ChannelUpdateManyWithoutUserNestedInput = {
@@ -20334,18 +20573,18 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
-  export type PostUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<PostCreateWithoutUserInput, PostUncheckedCreateWithoutUserInput> | PostCreateWithoutUserInput[] | PostUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PostCreateOrConnectWithoutUserInput | PostCreateOrConnectWithoutUserInput[]
-    upsert?: PostUpsertWithWhereUniqueWithoutUserInput | PostUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: PostCreateManyUserInputEnvelope
-    set?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    disconnect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    delete?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
-    update?: PostUpdateWithWhereUniqueWithoutUserInput | PostUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: PostUpdateManyWithWhereWithoutUserInput | PostUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  export type PostYoutubeUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PostYoutubeCreateWithoutUserInput, PostYoutubeUncheckedCreateWithoutUserInput> | PostYoutubeCreateWithoutUserInput[] | PostYoutubeUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PostYoutubeCreateOrConnectWithoutUserInput | PostYoutubeCreateOrConnectWithoutUserInput[]
+    upsert?: PostYoutubeUpsertWithWhereUniqueWithoutUserInput | PostYoutubeUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PostYoutubeCreateManyUserInputEnvelope
+    set?: PostYoutubeWhereUniqueInput | PostYoutubeWhereUniqueInput[]
+    disconnect?: PostYoutubeWhereUniqueInput | PostYoutubeWhereUniqueInput[]
+    delete?: PostYoutubeWhereUniqueInput | PostYoutubeWhereUniqueInput[]
+    connect?: PostYoutubeWhereUniqueInput | PostYoutubeWhereUniqueInput[]
+    update?: PostYoutubeUpdateWithWhereUniqueWithoutUserInput | PostYoutubeUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PostYoutubeUpdateManyWithWhereWithoutUserInput | PostYoutubeUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PostYoutubeScalarWhereInput | PostYoutubeScalarWhereInput[]
   }
 
   export type ChannelUncheckedUpdateManyWithoutUserNestedInput = {
@@ -20483,13 +20722,13 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutChannelsInput, UserUpdateWithoutChannelsInput>, UserUncheckedUpdateWithoutChannelsInput>
   }
 
-  export type PostCreatetagsInput = {
+  export type PostYoutubeCreatetagsInput = {
     set: string[]
   }
 
-  export type UserCreateNestedOneWithoutPostsInput = {
-    create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput
+  export type UserCreateNestedOneWithoutYoutubePostsInput = {
+    create?: XOR<UserCreateWithoutYoutubePostsInput, UserUncheckedCreateWithoutYoutubePostsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutYoutubePostsInput
     connect?: UserWhereUniqueInput
   }
 
@@ -20502,23 +20741,32 @@ export namespace Prisma {
     set?: $Enums.PostStatus
   }
 
-  export type PostUpdatetagsInput = {
+  export type PostYoutubeUpdatetagsInput = {
     set?: string[]
     push?: string | string[]
   }
 
-  export type UserUpdateOneRequiredWithoutPostsNestedInput = {
-    create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPostsInput
-    upsert?: UserUpsertWithoutPostsInput
+  export type UserUpdateOneRequiredWithoutYoutubePostsNestedInput = {
+    create?: XOR<UserCreateWithoutYoutubePostsInput, UserUncheckedCreateWithoutYoutubePostsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutYoutubePostsInput
+    upsert?: UserUpsertWithoutYoutubePostsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPostsInput, UserUpdateWithoutPostsInput>, UserUncheckedUpdateWithoutPostsInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutYoutubePostsInput, UserUpdateWithoutYoutubePostsInput>, UserUncheckedUpdateWithoutYoutubePostsInput>
+  }
+
+  export type FacebookPostCreatetagsInput = {
+    set: string[]
   }
 
   export type UserCreateNestedOneWithoutFacebookPostsInput = {
     create?: XOR<UserCreateWithoutFacebookPostsInput, UserUncheckedCreateWithoutFacebookPostsInput>
     connectOrCreate?: UserCreateOrConnectWithoutFacebookPostsInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type FacebookPostUpdatetagsInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type UserUpdateOneRequiredWithoutFacebookPostsNestedInput = {
@@ -21074,7 +21322,7 @@ export namespace Prisma {
     data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
   }
 
-  export type PostCreateWithoutUserInput = {
+  export type PostYoutubeCreateWithoutUserInput = {
     id?: string
     title: string
     description?: string | null
@@ -21088,12 +21336,12 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: PostCreatetagsInput | string[]
+    tags?: PostYoutubeCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type PostUncheckedCreateWithoutUserInput = {
+  export type PostYoutubeUncheckedCreateWithoutUserInput = {
     id?: string
     title: string
     description?: string | null
@@ -21107,18 +21355,18 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: PostCreatetagsInput | string[]
+    tags?: PostYoutubeCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type PostCreateOrConnectWithoutUserInput = {
-    where: PostWhereUniqueInput
-    create: XOR<PostCreateWithoutUserInput, PostUncheckedCreateWithoutUserInput>
+  export type PostYoutubeCreateOrConnectWithoutUserInput = {
+    where: PostYoutubeWhereUniqueInput
+    create: XOR<PostYoutubeCreateWithoutUserInput, PostYoutubeUncheckedCreateWithoutUserInput>
   }
 
-  export type PostCreateManyUserInputEnvelope = {
-    data: PostCreateManyUserInput | PostCreateManyUserInput[]
+  export type PostYoutubeCreateManyUserInputEnvelope = {
+    data: PostYoutubeCreateManyUserInput | PostYoutubeCreateManyUserInput[]
   }
 
   export type ChannelCreateWithoutUserInput = {
@@ -21289,12 +21537,19 @@ export namespace Prisma {
   export type FacebookPostCreateWithoutUserInput = {
     id?: string
     title: string
-    content?: string | null
+    description?: string | null
+    thumbnailUrl?: string | null
     imageUrl?: string | null
     videoUrl?: string | null
-    status?: $Enums.PostStatus
+    videoType?: $Enums.VideoType | null
+    processStatus?: $Enums.PostStatus
+    status?: $Enums.Status
     scheduledAt?: Date | string | null
     publishedAt?: Date | string | null
+    views?: number
+    likes?: number
+    comments?: number
+    tags?: FacebookPostCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -21303,12 +21558,19 @@ export namespace Prisma {
   export type FacebookPostUncheckedCreateWithoutUserInput = {
     id?: string
     title: string
-    content?: string | null
+    description?: string | null
+    thumbnailUrl?: string | null
     imageUrl?: string | null
     videoUrl?: string | null
-    status?: $Enums.PostStatus
+    videoType?: $Enums.VideoType | null
+    processStatus?: $Enums.PostStatus
+    status?: $Enums.Status
     scheduledAt?: Date | string | null
     publishedAt?: Date | string | null
+    views?: number
+    likes?: number
+    comments?: number
+    tags?: FacebookPostCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -21422,43 +21684,43 @@ export namespace Prisma {
     status?: EnumStatusFilter<"Session"> | $Enums.Status
   }
 
-  export type PostUpsertWithWhereUniqueWithoutUserInput = {
-    where: PostWhereUniqueInput
-    update: XOR<PostUpdateWithoutUserInput, PostUncheckedUpdateWithoutUserInput>
-    create: XOR<PostCreateWithoutUserInput, PostUncheckedCreateWithoutUserInput>
+  export type PostYoutubeUpsertWithWhereUniqueWithoutUserInput = {
+    where: PostYoutubeWhereUniqueInput
+    update: XOR<PostYoutubeUpdateWithoutUserInput, PostYoutubeUncheckedUpdateWithoutUserInput>
+    create: XOR<PostYoutubeCreateWithoutUserInput, PostYoutubeUncheckedCreateWithoutUserInput>
   }
 
-  export type PostUpdateWithWhereUniqueWithoutUserInput = {
-    where: PostWhereUniqueInput
-    data: XOR<PostUpdateWithoutUserInput, PostUncheckedUpdateWithoutUserInput>
+  export type PostYoutubeUpdateWithWhereUniqueWithoutUserInput = {
+    where: PostYoutubeWhereUniqueInput
+    data: XOR<PostYoutubeUpdateWithoutUserInput, PostYoutubeUncheckedUpdateWithoutUserInput>
   }
 
-  export type PostUpdateManyWithWhereWithoutUserInput = {
-    where: PostScalarWhereInput
-    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyWithoutUserInput>
+  export type PostYoutubeUpdateManyWithWhereWithoutUserInput = {
+    where: PostYoutubeScalarWhereInput
+    data: XOR<PostYoutubeUpdateManyMutationInput, PostYoutubeUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type PostScalarWhereInput = {
-    AND?: PostScalarWhereInput | PostScalarWhereInput[]
-    OR?: PostScalarWhereInput[]
-    NOT?: PostScalarWhereInput | PostScalarWhereInput[]
-    id?: StringFilter<"Post"> | string
-    userId?: StringFilter<"Post"> | string
-    title?: StringFilter<"Post"> | string
-    description?: StringNullableFilter<"Post"> | string | null
-    thumbnailUrl?: StringNullableFilter<"Post"> | string | null
-    videoUrl?: StringNullableFilter<"Post"> | string | null
-    videoType?: EnumVideoTypeNullableFilter<"Post"> | $Enums.VideoType | null
-    processStatus?: EnumPostStatusFilter<"Post"> | $Enums.PostStatus
-    status?: EnumStatusFilter<"Post"> | $Enums.Status
-    scheduledAt?: DateTimeNullableFilter<"Post"> | Date | string | null
-    publishedAt?: DateTimeNullableFilter<"Post"> | Date | string | null
-    views?: IntFilter<"Post"> | number
-    likes?: IntFilter<"Post"> | number
-    comments?: IntFilter<"Post"> | number
-    tags?: StringNullableListFilter<"Post">
-    createdAt?: DateTimeFilter<"Post"> | Date | string
-    updatedAt?: DateTimeFilter<"Post"> | Date | string
+  export type PostYoutubeScalarWhereInput = {
+    AND?: PostYoutubeScalarWhereInput | PostYoutubeScalarWhereInput[]
+    OR?: PostYoutubeScalarWhereInput[]
+    NOT?: PostYoutubeScalarWhereInput | PostYoutubeScalarWhereInput[]
+    id?: StringFilter<"PostYoutube"> | string
+    userId?: StringFilter<"PostYoutube"> | string
+    title?: StringFilter<"PostYoutube"> | string
+    description?: StringNullableFilter<"PostYoutube"> | string | null
+    thumbnailUrl?: StringNullableFilter<"PostYoutube"> | string | null
+    videoUrl?: StringNullableFilter<"PostYoutube"> | string | null
+    videoType?: EnumVideoTypeNullableFilter<"PostYoutube"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFilter<"PostYoutube"> | $Enums.PostStatus
+    status?: EnumStatusFilter<"PostYoutube"> | $Enums.Status
+    scheduledAt?: DateTimeNullableFilter<"PostYoutube"> | Date | string | null
+    publishedAt?: DateTimeNullableFilter<"PostYoutube"> | Date | string | null
+    views?: IntFilter<"PostYoutube"> | number
+    likes?: IntFilter<"PostYoutube"> | number
+    comments?: IntFilter<"PostYoutube"> | number
+    tags?: StringNullableListFilter<"PostYoutube">
+    createdAt?: DateTimeFilter<"PostYoutube"> | Date | string
+    updatedAt?: DateTimeFilter<"PostYoutube"> | Date | string
   }
 
   export type ChannelUpsertWithWhereUniqueWithoutUserInput = {
@@ -21644,12 +21906,19 @@ export namespace Prisma {
     id?: StringFilter<"FacebookPost"> | string
     userId?: StringFilter<"FacebookPost"> | string
     title?: StringFilter<"FacebookPost"> | string
-    content?: StringNullableFilter<"FacebookPost"> | string | null
+    description?: StringNullableFilter<"FacebookPost"> | string | null
+    thumbnailUrl?: StringNullableFilter<"FacebookPost"> | string | null
     imageUrl?: StringNullableFilter<"FacebookPost"> | string | null
     videoUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    status?: EnumPostStatusFilter<"FacebookPost"> | $Enums.PostStatus
+    videoType?: EnumVideoTypeNullableFilter<"FacebookPost"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFilter<"FacebookPost"> | $Enums.PostStatus
+    status?: EnumStatusFilter<"FacebookPost"> | $Enums.Status
     scheduledAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
     publishedAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
+    views?: IntFilter<"FacebookPost"> | number
+    likes?: IntFilter<"FacebookPost"> | number
+    comments?: IntFilter<"FacebookPost"> | number
+    tags?: StringNullableListFilter<"FacebookPost">
     facebookPostId?: StringNullableFilter<"FacebookPost"> | string | null
     createdAt?: DateTimeFilter<"FacebookPost"> | Date | string
     updatedAt?: DateTimeFilter<"FacebookPost"> | Date | string
@@ -21712,7 +21981,7 @@ export namespace Prisma {
     capacityUsed?: number
     lastResetDate?: Date | string | null
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeCreateNestedManyWithoutUserInput
     channels?: ChannelCreateNestedManyWithoutUserInput
     keywords?: KeywordCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
@@ -21739,7 +22008,7 @@ export namespace Prisma {
     capacityUsed?: number
     lastResetDate?: Date | string | null
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeUncheckedCreateNestedManyWithoutUserInput
     channels?: ChannelUncheckedCreateNestedManyWithoutUserInput
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
@@ -21779,7 +22048,7 @@ export namespace Prisma {
     capacityUsed?: IntFieldUpdateOperationsInput | number
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUpdateManyWithoutUserNestedInput
     channels?: ChannelUpdateManyWithoutUserNestedInput
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
@@ -21805,7 +22074,7 @@ export namespace Prisma {
     capacityUsed?: IntFieldUpdateOperationsInput | number
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUncheckedUpdateManyWithoutUserNestedInput
     channels?: ChannelUncheckedUpdateManyWithoutUserNestedInput
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
@@ -21830,7 +22099,7 @@ export namespace Prisma {
     capacityUsed?: number
     lastResetDate?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeCreateNestedManyWithoutUserInput
     channels?: ChannelCreateNestedManyWithoutUserInput
     keywords?: KeywordCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
@@ -21857,7 +22126,7 @@ export namespace Prisma {
     capacityUsed?: number
     lastResetDate?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeUncheckedCreateNestedManyWithoutUserInput
     channels?: ChannelUncheckedCreateNestedManyWithoutUserInput
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
@@ -21897,7 +22166,7 @@ export namespace Prisma {
     capacityUsed?: IntFieldUpdateOperationsInput | number
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUpdateManyWithoutUserNestedInput
     channels?: ChannelUpdateManyWithoutUserNestedInput
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
@@ -21923,7 +22192,7 @@ export namespace Prisma {
     capacityUsed?: IntFieldUpdateOperationsInput | number
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUncheckedUpdateManyWithoutUserNestedInput
     channels?: ChannelUncheckedUpdateManyWithoutUserNestedInput
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
@@ -21949,7 +22218,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeCreateNestedManyWithoutUserInput
     keywords?: KeywordCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
@@ -21976,7 +22245,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeUncheckedCreateNestedManyWithoutUserInput
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
@@ -22016,7 +22285,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUpdateManyWithoutUserNestedInput
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
@@ -22042,7 +22311,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUncheckedUpdateManyWithoutUserNestedInput
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
@@ -22050,7 +22319,7 @@ export namespace Prisma {
     facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserCreateWithoutPostsInput = {
+  export type UserCreateWithoutYoutubePostsInput = {
     id?: string
     name?: string | null
     email: string
@@ -22076,7 +22345,7 @@ export namespace Prisma {
     pricingPlan?: PricingPlanCreateNestedOneWithoutUsersInput
   }
 
-  export type UserUncheckedCreateWithoutPostsInput = {
+  export type UserUncheckedCreateWithoutYoutubePostsInput = {
     id?: string
     name?: string | null
     email: string
@@ -22102,23 +22371,23 @@ export namespace Prisma {
     facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutPostsInput = {
+  export type UserCreateOrConnectWithoutYoutubePostsInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
+    create: XOR<UserCreateWithoutYoutubePostsInput, UserUncheckedCreateWithoutYoutubePostsInput>
   }
 
-  export type UserUpsertWithoutPostsInput = {
-    update: XOR<UserUpdateWithoutPostsInput, UserUncheckedUpdateWithoutPostsInput>
-    create: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
+  export type UserUpsertWithoutYoutubePostsInput = {
+    update: XOR<UserUpdateWithoutYoutubePostsInput, UserUncheckedUpdateWithoutYoutubePostsInput>
+    create: XOR<UserCreateWithoutYoutubePostsInput, UserUncheckedCreateWithoutYoutubePostsInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutPostsInput = {
+  export type UserUpdateToOneWithWhereWithoutYoutubePostsInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutPostsInput, UserUncheckedUpdateWithoutPostsInput>
+    data: XOR<UserUpdateWithoutYoutubePostsInput, UserUncheckedUpdateWithoutYoutubePostsInput>
   }
 
-  export type UserUpdateWithoutPostsInput = {
+  export type UserUpdateWithoutYoutubePostsInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -22143,7 +22412,7 @@ export namespace Prisma {
     pricingPlan?: PricingPlanUpdateOneWithoutUsersNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutPostsInput = {
+  export type UserUncheckedUpdateWithoutYoutubePostsInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -22185,7 +22454,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeCreateNestedManyWithoutUserInput
     channels?: ChannelCreateNestedManyWithoutUserInput
     keywords?: KeywordCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
@@ -22212,7 +22481,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeUncheckedCreateNestedManyWithoutUserInput
     channels?: ChannelUncheckedCreateNestedManyWithoutUserInput
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
@@ -22252,7 +22521,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUpdateManyWithoutUserNestedInput
     channels?: ChannelUpdateManyWithoutUserNestedInput
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
@@ -22278,7 +22547,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUncheckedUpdateManyWithoutUserNestedInput
     channels?: ChannelUncheckedUpdateManyWithoutUserNestedInput
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
@@ -22303,7 +22572,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeCreateNestedManyWithoutUserInput
     channels?: ChannelCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
@@ -22330,7 +22599,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeUncheckedCreateNestedManyWithoutUserInput
     channels?: ChannelUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
@@ -22370,7 +22639,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUpdateManyWithoutUserNestedInput
     channels?: ChannelUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
@@ -22396,7 +22665,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUncheckedUpdateManyWithoutUserNestedInput
     channels?: ChannelUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
@@ -22421,7 +22690,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeCreateNestedManyWithoutUserInput
     channels?: ChannelCreateNestedManyWithoutUserInput
     keywords?: KeywordCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
@@ -22448,7 +22717,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeUncheckedCreateNestedManyWithoutUserInput
     channels?: ChannelUncheckedCreateNestedManyWithoutUserInput
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
@@ -22488,7 +22757,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUpdateManyWithoutUserNestedInput
     channels?: ChannelUpdateManyWithoutUserNestedInput
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
@@ -22514,7 +22783,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUncheckedUpdateManyWithoutUserNestedInput
     channels?: ChannelUncheckedUpdateManyWithoutUserNestedInput
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
@@ -22539,7 +22808,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeCreateNestedManyWithoutUserInput
     channels?: ChannelCreateNestedManyWithoutUserInput
     keywords?: KeywordCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
@@ -22565,7 +22834,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeUncheckedCreateNestedManyWithoutUserInput
     channels?: ChannelUncheckedCreateNestedManyWithoutUserInput
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
@@ -22694,7 +22963,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeCreateNestedManyWithoutUserInput
     channels?: ChannelCreateNestedManyWithoutUserInput
     keywords?: KeywordCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
@@ -22721,7 +22990,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeUncheckedCreateNestedManyWithoutUserInput
     channels?: ChannelUncheckedCreateNestedManyWithoutUserInput
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
@@ -22798,7 +23067,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUpdateManyWithoutUserNestedInput
     channels?: ChannelUpdateManyWithoutUserNestedInput
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
@@ -22824,7 +23093,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUncheckedUpdateManyWithoutUserNestedInput
     channels?: ChannelUncheckedUpdateManyWithoutUserNestedInput
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
@@ -22890,7 +23159,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
-    posts?: PostCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeCreateNestedManyWithoutUserInput
     channels?: ChannelCreateNestedManyWithoutUserInput
     keywords?: KeywordCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
@@ -22917,7 +23186,7 @@ export namespace Prisma {
     lastResetDate?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    youtubePosts?: PostYoutubeUncheckedCreateNestedManyWithoutUserInput
     channels?: ChannelUncheckedCreateNestedManyWithoutUserInput
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
@@ -22957,7 +23226,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUpdateManyWithoutUserNestedInput
     channels?: ChannelUpdateManyWithoutUserNestedInput
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
@@ -22983,7 +23252,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUncheckedUpdateManyWithoutUserNestedInput
     channels?: ChannelUncheckedUpdateManyWithoutUserNestedInput
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
@@ -23013,7 +23282,7 @@ export namespace Prisma {
     status?: $Enums.Status
   }
 
-  export type PostCreateManyUserInput = {
+  export type PostYoutubeCreateManyUserInput = {
     id?: string
     title: string
     description?: string | null
@@ -23027,7 +23296,7 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: PostCreatetagsInput | string[]
+    tags?: PostYoutubeCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -23095,12 +23364,19 @@ export namespace Prisma {
   export type FacebookPostCreateManyUserInput = {
     id?: string
     title: string
-    content?: string | null
+    description?: string | null
+    thumbnailUrl?: string | null
     imageUrl?: string | null
     videoUrl?: string | null
-    status?: $Enums.PostStatus
+    videoType?: $Enums.VideoType | null
+    processStatus?: $Enums.PostStatus
+    status?: $Enums.Status
     scheduledAt?: Date | string | null
     publishedAt?: Date | string | null
+    views?: number
+    likes?: number
+    comments?: number
+    tags?: FacebookPostCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -23166,7 +23442,7 @@ export namespace Prisma {
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
   }
 
-  export type PostUpdateWithoutUserInput = {
+  export type PostYoutubeUpdateWithoutUserInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23179,12 +23455,12 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: PostUpdatetagsInput | string[]
+    tags?: PostYoutubeUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUncheckedUpdateWithoutUserInput = {
+  export type PostYoutubeUncheckedUpdateWithoutUserInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23197,12 +23473,12 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: PostUpdatetagsInput | string[]
+    tags?: PostYoutubeUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PostUncheckedUpdateManyWithoutUserInput = {
+  export type PostYoutubeUncheckedUpdateManyWithoutUserInput = {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23215,7 +23491,7 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: PostUpdatetagsInput | string[]
+    tags?: PostYoutubeUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23387,12 +23663,19 @@ export namespace Prisma {
 
   export type FacebookPostUpdateWithoutUserInput = {
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    likes?: IntFieldUpdateOperationsInput | number
+    comments?: IntFieldUpdateOperationsInput | number
+    tags?: FacebookPostUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -23400,12 +23683,19 @@ export namespace Prisma {
 
   export type FacebookPostUncheckedUpdateWithoutUserInput = {
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    likes?: IntFieldUpdateOperationsInput | number
+    comments?: IntFieldUpdateOperationsInput | number
+    tags?: FacebookPostUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -23413,12 +23703,19 @@ export namespace Prisma {
 
   export type FacebookPostUncheckedUpdateManyWithoutUserInput = {
     title?: StringFieldUpdateOperationsInput | string
-    content?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     scheduledAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    likes?: IntFieldUpdateOperationsInput | number
+    comments?: IntFieldUpdateOperationsInput | number
+    tags?: FacebookPostUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -23473,7 +23770,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
-    posts?: PostUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUpdateManyWithoutUserNestedInput
     channels?: ChannelUpdateManyWithoutUserNestedInput
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
@@ -23498,7 +23795,7 @@ export namespace Prisma {
     lastResetDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    youtubePosts?: PostYoutubeUncheckedUpdateManyWithoutUserNestedInput
     channels?: ChannelUncheckedUpdateManyWithoutUserNestedInput
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput

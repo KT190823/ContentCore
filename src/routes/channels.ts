@@ -11,7 +11,7 @@ export const channelsRoutes = new Elysia({ prefix: '/channels' })
 
             const instance = new ChannelService();
             const channels = await instance.getAll({ userId: user.id, ...(platform && { platform }) });
-            return { channels };
+            return channels;
         } catch (error) {
             console.error('Error fetching channels:', error);
 
@@ -39,19 +39,26 @@ export const channelsRoutes = new Elysia({ prefix: '/channels' })
             const { user } = await UserHelper.fromContext(context);
             const { platform, channelId, channelName, channelImage, accessToken, refreshToken, expiresAt } = context.body;
 
+            if (!platform || !channelId) {
+                return {
+                    error: 'Platform and channelId are required',
+                    status: 400
+                };
+            }
+
             const data = {
                 userId: user.id,
                 platform,
                 channelId,
-                channelName,
-                channelImage,
-                accessToken,
-                refreshToken,
-                expiresAt: expiresAt ? new Date(expiresAt) : undefined
+                ...(channelName && { channelName }),
+                ...(channelImage && { channelImage }),
+                ...(accessToken && { accessToken }),
+                ...(refreshToken && { refreshToken }),
+                ...(expiresAt && { expiresAt: new Date(expiresAt) })
             };
 
             const result = await ChannelService.upsert(data);
-            return { channel: result, status: 200 };
+            return result;
         } catch (error) {
             console.error('Error upserting channel:', error);
 
@@ -71,7 +78,7 @@ export const channelsRoutes = new Elysia({ prefix: '/channels' })
         body: t.Object({
             platform: t.String(),
             channelId: t.String(),
-            channelName: t.String(),
+            channelName: t.Optional(t.String()),
             channelImage: t.Optional(t.String()),
             accessToken: t.Optional(t.String()),
             refreshToken: t.Optional(t.String()),

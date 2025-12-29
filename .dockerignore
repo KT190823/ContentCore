@@ -1,0 +1,12 @@
+node_modules
+.git
+.env
+dist
+generated
+bun.lock
+README.md
+Dockerfile
+dist
+.dockerignore
+.vscode
+.agent/

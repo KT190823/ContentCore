@@ -9,7 +9,7 @@ export const keywordsRoutes = new Elysia({ prefix: '/keywords' })
     try {
       const { user } = await UserHelper.fromContext(context);
       const keywords = await KeywordService.getAll(user.id);
-      return { keywords };
+      return keywords;
     } catch (error) {
       console.error('Error fetching keywords:', error);
 
@@ -41,7 +41,7 @@ export const keywordsRoutes = new Elysia({ prefix: '/keywords' })
       }
 
       const newKeyword = await KeywordService.create(user.id, keyword, category);
-      return { keyword: newKeyword, status: 201 };
+      return newKeyword;
     } catch (error) {
       console.error('Error creating keyword:', error);
 

@@ -23,7 +23,7 @@ export const userRoutes = new Elysia({ prefix: '/user' })
         };
       }
 
-      return { user };
+      return user;
     } catch (error) {
       console.error('Error fetching user:', error);
       return {
@@ -50,7 +50,7 @@ export const userRoutes = new Elysia({ prefix: '/user' })
       }
 
       const user = await UserService.updateProfile(email, body);
-      return { user };
+      return user;
     } catch (error) {
       console.error('Error updating user:', error);
       if ((error as any).code === 'P2025') {
@@ -77,7 +77,7 @@ export const userRoutes = new Elysia({ prefix: '/user' })
   .post('/register', async ({ body }) => {
     try {
       const user = await UserService.register(body);
-      return { user, status: 201 };
+      return user;
     } catch (error) {
       console.error('Error registering user:', error);
       return {
@@ -121,7 +121,7 @@ export const userRoutes = new Elysia({ prefix: '/user' })
     try {
       const { userId, sizeInMB } = body;
       const result = await UserService.addStorage(userId, sizeInMB);
-      return { user: result };
+      return result;
     } catch (error) {
       console.error('Error adding storage:', error);
       return {

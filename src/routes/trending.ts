@@ -7,7 +7,7 @@ export const trendingRoutes = new Elysia({ prefix: '/trending' })
         try {
             const { category, platform } = query;
             const data = await TrendingService.getTrending(category, platform);
-            return { data };
+            return data;
         } catch (error) {
             console.error('Error fetching trending data:', error);
             return {
@@ -27,7 +27,7 @@ export const trendingRoutes = new Elysia({ prefix: '/trending' })
         try {
             const { data } = body;
             const result = await TrendingService.updateTrending(data);
-            return { success: true, count: result.length };
+            return result;
         } catch (error) {
             console.error('Error updating trending data:', error);
             return {
