@@ -96,6 +96,7 @@ export const facebookPostsRoutes = new Elysia({ prefix: '/facebook-posts' })
         })
     })
 
+
     // GET a single facebook post by ID
     .get('/:id', async (context) => {
         try {
