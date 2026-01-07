@@ -21,7 +21,7 @@ import { authMiddleware } from './middlewares/auth';
 // Import cron job for automatic scheduling
 import { CronJob } from './jobs/cron.job';
 
-const PORT = process.env.PORT || 5444;
+const PORT = process.env.PORT || 3000;
 
 const app = new Elysia()
   // Add CORS support
@@ -103,7 +103,10 @@ const app = new Elysia()
     return { error: 'Internal server error' };
   })
 
-  .listen(PORT);
+  .listen({
+    port: PORT as number,
+    hostname: '0.0.0.0'
+  });
 
 console.log(`
 🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}

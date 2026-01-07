@@ -35,5 +35,5 @@ COPY package.json .
 
 # run the app
 USER bun
-EXPOSE 5444/tcp
+EXPOSE 3000/tcp
 ENTRYPOINT [ "bun", "run", "dist/index.js" ]
