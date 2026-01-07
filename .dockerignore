@@ -3,10 +3,8 @@ node_modules
 .env
 dist
 generated
-bun.lock
 README.md
 Dockerfile
-dist
 .dockerignore
 .vscode
 .agent/
