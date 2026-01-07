@@ -16,43 +16,45 @@ export class ChannelService extends BaseService {
         refreshToken?: string;
         expiresAt?: Date;
     }) {
-        // We use a composite unique key/logic. 
-        // The schema has @@unique([userId, platform, channelId])
-        // Only provided fields will be updated, others will be kept as-is
-
-        // Build update object with only provided fields
-        const updateData: any = { status: 'ACTIVE' };
-        if (data.channelName !== undefined) updateData.channelName = data.channelName;
-        if (data.channelImage !== undefined) updateData.channelImage = data.channelImage;
-        if (data.accessToken !== undefined) updateData.accessToken = data.accessToken;
-        if (data.refreshToken !== undefined) updateData.refreshToken = data.refreshToken;
-        if (data.expiresAt !== undefined) updateData.expiresAt = data.expiresAt;
-
-        // Build create object with all fields
-        const createData: any = {
-            userId: data.userId,
-            platform: data.platform,
-            channelId: data.channelId,
-            channelName: data.channelName || '',
-            user: { connect: { id: data.userId } },
-            status: 'ACTIVE'
-        };
-        if (data.channelImage !== undefined) createData.channelImage = data.channelImage;
-        if (data.accessToken !== undefined) createData.accessToken = data.accessToken;
-        if (data.refreshToken !== undefined) createData.refreshToken = data.refreshToken;
-        if (data.expiresAt !== undefined) createData.expiresAt = data.expiresAt;
-
-        return await prisma.channel.upsert({
+        // Check if channel already exists
+        const existingChannel = await prisma.channel.findUnique({
             where: {
                 userId_platform_channelId: {
                     userId: data.userId,
                     platform: data.platform,
                     channelId: data.channelId
                 }
-            },
-            create: createData,
-            update: updateData
+            }
         });
+
+        const channelData: any = {
+            userId: data.userId,
+            platform: data.platform,
+            channelId: data.channelId,
+            status: 'ACTIVE' as Status
+        };
+
+        if (data.channelName !== undefined) channelData.channelName = data.channelName;
+        if (data.channelImage !== undefined) channelData.channelImage = data.channelImage;
+        if (data.accessToken !== undefined) channelData.accessToken = data.accessToken;
+        if (data.refreshToken !== undefined) channelData.refreshToken = data.refreshToken;
+        if (data.expiresAt !== undefined) channelData.expiresAt = data.expiresAt;
+
+        if (existingChannel) {
+            // Update existing channel
+            return await prisma.channel.update({
+                where: { id: existingChannel.id },
+                data: channelData
+            });
+        } else {
+            // Create new channel
+            // Ensure default channelName if missing for creation
+            if (!channelData.channelName) channelData.channelName = '';
+
+            return await prisma.channel.create({
+                data: channelData
+            });
+        }
     }
 
     // Override delete with custom authorization logic

@@ -60,7 +60,7 @@ model User {
   refreshTokens   RefreshToken[]
   pricingHistory  PricingPlanHistory[]
   generateHistory GenerateHistory[]
-  facebookPosts   FacebookPost[]
+  facebookPosts   PostFacebook[]
 
   pricingPlan PricingPlan? @relation(fields: [pricingPlanId], references: [id])
 }
@@ -151,20 +151,21 @@ model PostYoutube {
   likes         Int        @default(0)
   comments      Int        @default(0)
   tags          String[] // Array of tags/keywords
+  channelId     String?    @db.ObjectId
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model FacebookPost {
+model PostFacebook {
   id             String     @id @default(auto()) @map("_id") @db.ObjectId
   userId         String     @db.ObjectId
+  channelId      String?    @db.ObjectId
   title          String
   description    String?
   thumbnailUrl   String?
-  imageUrl       String?
-  videoUrl       String?
+  uploadedUrls   String[]   @default([]) // Array of uploaded media URLs from R2
   videoType      VideoType? @default(video)
   processStatus  PostStatus @default(draft)
   status         Status     @default(ACTIVE)

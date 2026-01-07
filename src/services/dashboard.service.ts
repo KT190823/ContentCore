@@ -32,9 +32,9 @@ export class DashboardService {
 
         // Count Facebook posts
         const [facebookTotal, facebookScheduled, facebookPublished] = await Promise.all([
-            prisma.facebookPost.count({ where: { userId: targetUserId } }),
-            prisma.facebookPost.count({ where: { userId: targetUserId, processStatus: 'scheduled' } }),
-            prisma.facebookPost.count({ where: { userId: targetUserId, processStatus: 'published' } })
+            prisma.postFacebook.count({ where: { userId: targetUserId } }),
+            prisma.postFacebook.count({ where: { userId: targetUserId, processStatus: 'scheduled' } }),
+            prisma.postFacebook.count({ where: { userId: targetUserId, processStatus: 'published' } })
         ]);
 
         // Get trending videos count
@@ -55,7 +55,7 @@ export class DashboardService {
                     createdAt: true
                 }
             }),
-            prisma.facebookPost.findMany({
+            prisma.postFacebook.findMany({
                 where: { userId: targetUserId },
                 orderBy: { createdAt: 'desc' },
                 take: 5,

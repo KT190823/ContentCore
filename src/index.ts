@@ -4,17 +4,18 @@ import { swagger } from '@elysiajs/swagger';
 import 'dotenv/config';
 
 // Import routes
-import { youtubePostsRoutes } from './routes/youtube-posts';
-import { userRoutes } from './routes/user';
-import { keywordsRoutes } from './routes/keywords';
-import { dashboardRoutes } from './routes/dashboard';
-import { pricingRoutes } from './routes/pricing';
-import { pricingHistoryRoutes } from './routes/pricing-history';
-import { facebookPostsRoutes } from './routes/facebook-posts';
-import { channelsRoutes } from './routes/channels';
-import { trendingRoutes } from './routes/trending';
-import { aiRoutes } from './routes/ai';
-import { authRoutes } from './routes/auth';
+import { youtubePostsRoutes } from './routes/youtube-posts.route';
+import { userRoutes } from './routes/user.route';
+import { keywordsRoutes } from './routes/keywords.route';
+import { dashboardRoutes } from './routes/dashboard.route';
+import { pricingRoutes } from './routes/pricing.route';
+import { pricingHistoryRoutes } from './routes/pricing-history.route';
+import { facebookPostsRoutes } from './routes/post-facebook.route';
+import { channelsRoutes } from './routes/channels.route';
+import { trendingRoutes } from './routes/trending.route';
+import { aiRoutes } from './routes/ai.route';
+import { generateHistoryRoutes } from './routes/generate-history.route';
+import { authRoutes } from './routes/auth.route';
 import { authMiddleware } from './middlewares/auth';
 
 // Import cron job for automatic scheduling
@@ -43,7 +44,8 @@ const app = new Elysia()
         { name: 'YouTube Posts', description: 'YouTube posts management endpoints' },
         { name: 'Facebook Posts', description: 'Facebook posts management endpoints' },
         { name: 'User', description: 'User management endpoints' },
-        { name: 'Keywords', description: 'Keywords management endpoints' }
+        { name: 'Keywords', description: 'Keywords management endpoints' },
+        { name: 'Generate History', description: 'AI generation history endpoints' }
       ]
     }
   }))
@@ -79,6 +81,7 @@ const app = new Elysia()
           .use(channelsRoutes)
           .use(trendingRoutes)
           .use(aiRoutes)
+          .use(generateHistoryRoutes)
       )
   )
 

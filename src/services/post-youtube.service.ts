@@ -44,6 +44,7 @@ export class PostYoutubeService extends BaseService {
     // Override create with custom logic
     static async create(data: {
         userId: string;
+        channelId?: string;
         title: string;
         description?: string;
         thumbnailUrl?: string;
@@ -56,6 +57,7 @@ export class PostYoutubeService extends BaseService {
         return await prisma.postYoutube.create({
             data: {
                 userId: data.userId,
+                channelId: data.channelId,
                 title: data.title,
                 description: data.description,
                 thumbnailUrl: data.thumbnailUrl,
@@ -63,6 +65,8 @@ export class PostYoutubeService extends BaseService {
                 videoType: data.videoType,
                 processStatus: data.status || 'draft',
                 scheduledAt: data.scheduledAt ? new Date(data.scheduledAt) : null,
+                // Automatically set publishedAt when creating with 'published' status
+                publishedAt: data.status === 'published' ? new Date() : null,
                 tags: data.tags || []
             },
             include: {
@@ -79,6 +83,7 @@ export class PostYoutubeService extends BaseService {
 
     // Override update with custom logic (field mapping: status -> processStatus)
     static async update(id: string, data: {
+        channelId?: string;
         title?: string;
         description?: string;
         thumbnailUrl?: string;
@@ -90,11 +95,18 @@ export class PostYoutubeService extends BaseService {
     }) {
         const updateData: any = {};
 
+        if (data.channelId !== undefined) updateData.channelId = data.channelId;
         if (data.title !== undefined) updateData.title = data.title;
         if (data.description !== undefined) updateData.description = data.description;
         if (data.thumbnailUrl !== undefined) updateData.thumbnailUrl = data.thumbnailUrl;
         if (data.videoUrl !== undefined) updateData.videoUrl = data.videoUrl;
-        if (data.status !== undefined) updateData.processStatus = data.status;
+        if (data.status !== undefined) {
+            updateData.processStatus = data.status;
+            // Automatically set publishedAt when status changes to 'published'
+            if (data.status === 'published') {
+                updateData.publishedAt = new Date();
+            }
+        }
         if (data.videoType !== undefined) updateData.videoType = data.videoType;
         if (data.tags !== undefined) updateData.tags = data.tags;
         if (data.scheduledAt !== undefined) {

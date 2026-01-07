@@ -280,7 +280,7 @@ export class CronJob {
             const now = new Date();
             console.log(`[JOB] Checking for scheduled Facebook posts at ${now.toISOString()}`);
 
-            const scheduledPosts = await prisma.facebookPost.findMany({
+            const scheduledPosts = await prisma.postFacebook.findMany({
                 where: {
                     processStatus: 'scheduled',
                     scheduledAt: {
@@ -307,7 +307,7 @@ export class CronJob {
             console.log(`[JOB] Found ${scheduledPosts.length} Facebook posts to publish. Setting them to 'processing'...`);
 
             const postIdsToProcess = scheduledPosts.map(p => p.id);
-            await prisma.facebookPost.updateMany({
+            await prisma.postFacebook.updateMany({
                 where: {
                     id: { in: postIdsToProcess }
                 },
@@ -328,7 +328,7 @@ export class CronJob {
                     try {
                         const channel = post.user.channels?.[0];
                         if (!channel) {
-                            await prisma.facebookPost.update({
+                            await prisma.postFacebook.update({
                                 where: { id: post.id },
                                 data: { processStatus: 'scheduled' }
                             });
@@ -338,7 +338,7 @@ export class CronJob {
 
                         let accessToken = channel.accessToken;
                         if (!accessToken) {
-                            await prisma.facebookPost.update({
+                            await prisma.postFacebook.update({
                                 where: { id: post.id },
                                 data: { processStatus: 'scheduled' }
                             });
@@ -348,7 +348,7 @@ export class CronJob {
 
                         // Check if token is expired
                         if (channel.expiresAt && new Date(channel.expiresAt) < now) {
-                            await prisma.facebookPost.update({
+                            await prisma.postFacebook.update({
                                 where: { id: post.id },
                                 data: { processStatus: 'scheduled' }
                             });
@@ -356,51 +356,151 @@ export class CronJob {
                             return;
                         }
 
-                        // Prepare Facebook post data
-                        const postData: any = {
-                            message: post.description || post.title,
-                            access_token: accessToken
+                        // Check if we have media to upload
+                        if (!post.uploadedUrls || post.uploadedUrls.length === 0) {
+                            await prisma.postFacebook.update({
+                                where: { id: post.id },
+                                data: { processStatus: 'scheduled' }
+                            });
+                            results.skipped.push({ postId: post.id, reason: 'No media URLs provided' });
+                            return;
+                        }
+
+                        const pageId = channel.channelId;
+
+                        // Format message with description and tags
+                        const formatMessage = (description: string | null, title: string, tags: string[]) => {
+                            let message = description || title;
+                            if (tags && tags.length > 0) {
+                                const hashtags = tags.map(tag => `#${tag.replace(/\s+/g, '')}`).join(' ');
+                                message = `${message}\n\n${hashtags}`;
+                            }
+                            return message;
                         };
 
-                        // Add media if available
-                        if (post.videoUrl) {
-                            postData.url = post.videoUrl;
-                        } else if (post.imageUrl) {
-                            postData.url = post.imageUrl;
+                        const messageContent = formatMessage(post.description, post.title, post.tags || []);
+
+                        // Determine if we have videos or photos
+                        const hasVideo = post.uploadedUrls.some(url =>
+                            url.match(/\.(mp4|mov|avi|wmv|flv|webm)$/i)
+                        );
+
+                        // For single media item
+                        if (post.uploadedUrls.length === 1) {
+                            const postData = new URLSearchParams();
+                            postData.append('message', messageContent);
+                            postData.append('access_token', accessToken);
+
+                            const endpoint = hasVideo
+                                ? `https://graph.facebook.com/v18.0/${pageId}/videos`
+                                : `https://graph.facebook.com/v18.0/${pageId}/photos`;
+
+                            // For videos use 'file_url', for photos use 'url'
+                            const paramName = hasVideo ? 'file_url' : 'url';
+                            postData.append(paramName, post.uploadedUrls[0]);
+
+                            const publishResponse = await fetch(endpoint, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                body: postData.toString()
+                            });
+
+                            if (!publishResponse.ok) {
+                                const errorData = await publishResponse.json();
+                                throw new Error(errorData.error?.message || 'Failed to publish to Facebook');
+                            }
+
+                            const publishData = await publishResponse.json();
+
+                            await prisma.postFacebook.update({
+                                where: { id: post.id },
+                                data: {
+                                    processStatus: 'published',
+                                    publishedAt: now,
+                                    facebookPostId: publishData.id || publishData.post_id
+                                },
+                            });
+
+                            results.published.push(post.id);
+                        } else {
+                            // For multiple photos, create a carousel/album post
+                            // Note: Facebook doesn't support multiple videos in one post
+                            if (hasVideo) {
+                                await prisma.postFacebook.update({
+                                    where: { id: post.id },
+                                    data: { processStatus: 'scheduled' }
+                                });
+                                results.skipped.push({
+                                    postId: post.id,
+                                    reason: 'Multiple videos not supported. Please use single video per post.'
+                                });
+                                return;
+                            }
+
+                            // Upload multiple photos as album
+                            const attachedMedia = [];
+
+                            // First, upload each photo and get their IDs
+                            for (const url of post.uploadedUrls) {
+                                const photoData = new URLSearchParams();
+                                photoData.append('url', url);
+                                photoData.append('access_token', accessToken);
+                                photoData.append('published', 'false'); // Don't publish yet
+
+                                const photoResponse = await fetch(
+                                    `https://graph.facebook.com/v18.0/${pageId}/photos`,
+                                    {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                        body: photoData.toString()
+                                    }
+                                );
+
+                                if (!photoResponse.ok) {
+                                    const errorData = await photoResponse.json();
+                                    throw new Error(`Failed to upload photo: ${errorData.error?.message}`);
+                                }
+
+                                const photoResult = await photoResponse.json();
+                                attachedMedia.push({ media_fbid: photoResult.id });
+                            }
+
+                            // Now create the album post with all photos
+                            const albumData = new URLSearchParams();
+                            albumData.append('message', messageContent);
+                            albumData.append('access_token', accessToken);
+                            albumData.append('attached_media', JSON.stringify(attachedMedia));
+
+                            const albumResponse = await fetch(
+                                `https://graph.facebook.com/v18.0/${pageId}/feed`,
+                                {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                    body: albumData.toString()
+                                }
+                            );
+
+                            if (!albumResponse.ok) {
+                                const errorData = await albumResponse.json();
+                                throw new Error(errorData.error?.message || 'Failed to publish album to Facebook');
+                            }
+
+                            const albumResult = await albumResponse.json();
+
+                            await prisma.postFacebook.update({
+                                where: { id: post.id },
+                                data: {
+                                    processStatus: 'published',
+                                    publishedAt: now,
+                                    facebookPostId: albumResult.id || albumResult.post_id
+                                },
+                            });
+
+                            results.published.push(post.id);
                         }
-
-                        // Publish to Facebook Page
-                        const pageId = channel.channelId;
-                        const endpoint = post.videoUrl
-                            ? `https://graph.facebook.com/v18.0/${pageId}/videos`
-                            : `https://graph.facebook.com/v18.0/${pageId}/photos`;
-
-                        const publishResponse = await fetch(endpoint, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(postData)
-                        });
-
-                        if (!publishResponse.ok) {
-                            const errorData = await publishResponse.json();
-                            throw new Error(errorData.error?.message || 'Failed to publish to Facebook');
-                        }
-
-                        const publishData = await publishResponse.json();
-
-                        await prisma.facebookPost.update({
-                            where: { id: post.id },
-                            data: {
-                                processStatus: 'published',
-                                publishedAt: now,
-                                facebookPostId: publishData.id || publishData.post_id
-                            },
-                        });
-
-                        results.published.push(post.id);
                     } catch (uploadError: any) {
                         console.error(`[JOB] Error for Facebook post ${post.id}:`, uploadError);
-                        await prisma.facebookPost.update({
+                        await prisma.postFacebook.update({
                             where: { id: post.id },
                             data: { processStatus: 'scheduled' }
                         });

@@ -44,10 +44,10 @@ export type Channel = $Result.DefaultSelection<Prisma.$ChannelPayload>
  */
 export type PostYoutube = $Result.DefaultSelection<Prisma.$PostYoutubePayload>
 /**
- * Model FacebookPost
+ * Model PostFacebook
  * 
  */
-export type FacebookPost = $Result.DefaultSelection<Prisma.$FacebookPostPayload>
+export type PostFacebook = $Result.DefaultSelection<Prisma.$PostFacebookPayload>
 /**
  * Model TrendingVideo
  * 
@@ -305,14 +305,14 @@ export class PrismaClient<
   get postYoutube(): Prisma.PostYoutubeDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.facebookPost`: Exposes CRUD operations for the **FacebookPost** model.
+   * `prisma.postFacebook`: Exposes CRUD operations for the **PostFacebook** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more FacebookPosts
-    * const facebookPosts = await prisma.facebookPost.findMany()
+    * // Fetch zero or more PostFacebooks
+    * const postFacebooks = await prisma.postFacebook.findMany()
     * ```
     */
-  get facebookPost(): Prisma.FacebookPostDelegate<ExtArgs, ClientOptions>;
+  get postFacebook(): Prisma.PostFacebookDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.trendingVideo`: Exposes CRUD operations for the **TrendingVideo** model.
@@ -820,7 +820,7 @@ export namespace Prisma {
     VerificationToken: 'VerificationToken',
     Channel: 'Channel',
     PostYoutube: 'PostYoutube',
-    FacebookPost: 'FacebookPost',
+    PostFacebook: 'PostFacebook',
     TrendingVideo: 'TrendingVideo',
     Keyword: 'Keyword',
     RefreshToken: 'RefreshToken',
@@ -845,7 +845,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "account" | "session" | "verificationToken" | "channel" | "postYoutube" | "facebookPost" | "trendingVideo" | "keyword" | "refreshToken" | "pricingPlan" | "pricingPlanHistory" | "generateHistory"
+      modelProps: "user" | "account" | "session" | "verificationToken" | "channel" | "postYoutube" | "postFacebook" | "trendingVideo" | "keyword" | "refreshToken" | "pricingPlan" | "pricingPlanHistory" | "generateHistory"
       txIsolationLevel: never
     }
     model: {
@@ -1293,77 +1293,77 @@ export namespace Prisma {
           }
         }
       }
-      FacebookPost: {
-        payload: Prisma.$FacebookPostPayload<ExtArgs>
-        fields: Prisma.FacebookPostFieldRefs
+      PostFacebook: {
+        payload: Prisma.$PostFacebookPayload<ExtArgs>
+        fields: Prisma.PostFacebookFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.FacebookPostFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FacebookPostPayload> | null
+            args: Prisma.PostFacebookFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostFacebookPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.FacebookPostFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FacebookPostPayload>
+            args: Prisma.PostFacebookFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostFacebookPayload>
           }
           findFirst: {
-            args: Prisma.FacebookPostFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FacebookPostPayload> | null
+            args: Prisma.PostFacebookFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostFacebookPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.FacebookPostFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FacebookPostPayload>
+            args: Prisma.PostFacebookFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostFacebookPayload>
           }
           findMany: {
-            args: Prisma.FacebookPostFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FacebookPostPayload>[]
+            args: Prisma.PostFacebookFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostFacebookPayload>[]
           }
           create: {
-            args: Prisma.FacebookPostCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FacebookPostPayload>
+            args: Prisma.PostFacebookCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostFacebookPayload>
           }
           createMany: {
-            args: Prisma.FacebookPostCreateManyArgs<ExtArgs>
+            args: Prisma.PostFacebookCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.FacebookPostDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FacebookPostPayload>
+            args: Prisma.PostFacebookDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostFacebookPayload>
           }
           update: {
-            args: Prisma.FacebookPostUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FacebookPostPayload>
+            args: Prisma.PostFacebookUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostFacebookPayload>
           }
           deleteMany: {
-            args: Prisma.FacebookPostDeleteManyArgs<ExtArgs>
+            args: Prisma.PostFacebookDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.FacebookPostUpdateManyArgs<ExtArgs>
+            args: Prisma.PostFacebookUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.FacebookPostUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FacebookPostPayload>
+            args: Prisma.PostFacebookUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostFacebookPayload>
           }
           aggregate: {
-            args: Prisma.FacebookPostAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateFacebookPost>
+            args: Prisma.PostFacebookAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePostFacebook>
           }
           groupBy: {
-            args: Prisma.FacebookPostGroupByArgs<ExtArgs>
-            result: $Utils.Optional<FacebookPostGroupByOutputType>[]
+            args: Prisma.PostFacebookGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PostFacebookGroupByOutputType>[]
           }
           findRaw: {
-            args: Prisma.FacebookPostFindRawArgs<ExtArgs>
+            args: Prisma.PostFacebookFindRawArgs<ExtArgs>
             result: JsonObject
           }
           aggregateRaw: {
-            args: Prisma.FacebookPostAggregateRawArgs<ExtArgs>
+            args: Prisma.PostFacebookAggregateRawArgs<ExtArgs>
             result: JsonObject
           }
           count: {
-            args: Prisma.FacebookPostCountArgs<ExtArgs>
-            result: $Utils.Optional<FacebookPostCountAggregateOutputType> | number
+            args: Prisma.PostFacebookCountArgs<ExtArgs>
+            result: $Utils.Optional<PostFacebookCountAggregateOutputType> | number
           }
         }
       }
@@ -1896,7 +1896,7 @@ export namespace Prisma {
     verificationToken?: VerificationTokenOmit
     channel?: ChannelOmit
     postYoutube?: PostYoutubeOmit
-    facebookPost?: FacebookPostOmit
+    postFacebook?: PostFacebookOmit
     trendingVideo?: TrendingVideoOmit
     keyword?: KeywordOmit
     refreshToken?: RefreshTokenOmit
@@ -2077,7 +2077,7 @@ export namespace Prisma {
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountFacebookPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FacebookPostWhereInput
+    where?: PostFacebookWhereInput
   }
 
 
@@ -2474,7 +2474,7 @@ export namespace Prisma {
       refreshTokens: Prisma.$RefreshTokenPayload<ExtArgs>[]
       pricingHistory: Prisma.$PricingPlanHistoryPayload<ExtArgs>[]
       generateHistory: Prisma.$GenerateHistoryPayload<ExtArgs>[]
-      facebookPosts: Prisma.$FacebookPostPayload<ExtArgs>[]
+      facebookPosts: Prisma.$PostFacebookPayload<ExtArgs>[]
       pricingPlan: Prisma.$PricingPlanPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -2864,7 +2864,7 @@ export namespace Prisma {
     refreshTokens<T extends User$refreshTokensArgs<ExtArgs> = {}>(args?: Subset<T, User$refreshTokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RefreshTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pricingHistory<T extends User$pricingHistoryArgs<ExtArgs> = {}>(args?: Subset<T, User$pricingHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PricingPlanHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     generateHistory<T extends User$generateHistoryArgs<ExtArgs> = {}>(args?: Subset<T, User$generateHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GenerateHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    facebookPosts<T extends User$facebookPostsArgs<ExtArgs> = {}>(args?: Subset<T, User$facebookPostsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FacebookPostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    facebookPosts<T extends User$facebookPostsArgs<ExtArgs> = {}>(args?: Subset<T, User$facebookPostsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostFacebookPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pricingPlan<T extends User$pricingPlanArgs<ExtArgs> = {}>(args?: Subset<T, User$pricingPlanArgs<ExtArgs>>): Prisma__PricingPlanClient<$Result.GetResult<Prisma.$PricingPlanPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3476,23 +3476,23 @@ export namespace Prisma {
    */
   export type User$facebookPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
-    where?: FacebookPostWhereInput
-    orderBy?: FacebookPostOrderByWithRelationInput | FacebookPostOrderByWithRelationInput[]
-    cursor?: FacebookPostWhereUniqueInput
+    include?: PostFacebookInclude<ExtArgs> | null
+    where?: PostFacebookWhereInput
+    orderBy?: PostFacebookOrderByWithRelationInput | PostFacebookOrderByWithRelationInput[]
+    cursor?: PostFacebookWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: FacebookPostScalarFieldEnum | FacebookPostScalarFieldEnum[]
+    distinct?: PostFacebookScalarFieldEnum | PostFacebookScalarFieldEnum[]
   }
 
   /**
@@ -7640,6 +7640,7 @@ export namespace Prisma {
     views: number | null
     likes: number | null
     comments: number | null
+    channelId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7659,6 +7660,7 @@ export namespace Prisma {
     views: number | null
     likes: number | null
     comments: number | null
+    channelId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7679,6 +7681,7 @@ export namespace Prisma {
     likes: number
     comments: number
     tags: number
+    channelId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -7712,6 +7715,7 @@ export namespace Prisma {
     views?: true
     likes?: true
     comments?: true
+    channelId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -7731,6 +7735,7 @@ export namespace Prisma {
     views?: true
     likes?: true
     comments?: true
+    channelId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -7751,6 +7756,7 @@ export namespace Prisma {
     likes?: true
     comments?: true
     tags?: true
+    channelId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -7858,6 +7864,7 @@ export namespace Prisma {
     likes: number
     comments: number
     tags: string[]
+    channelId: string | null
     createdAt: Date
     updatedAt: Date
     _count: PostYoutubeCountAggregateOutputType | null
@@ -7897,6 +7904,7 @@ export namespace Prisma {
     likes?: boolean
     comments?: boolean
     tags?: boolean
+    channelId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -7920,11 +7928,12 @@ export namespace Prisma {
     likes?: boolean
     comments?: boolean
     tags?: boolean
+    channelId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PostYoutubeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "description" | "thumbnailUrl" | "videoUrl" | "videoType" | "processStatus" | "status" | "scheduledAt" | "publishedAt" | "views" | "likes" | "comments" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["postYoutube"]>
+  export type PostYoutubeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "description" | "thumbnailUrl" | "videoUrl" | "videoType" | "processStatus" | "status" | "scheduledAt" | "publishedAt" | "views" | "likes" | "comments" | "tags" | "channelId" | "createdAt" | "updatedAt", ExtArgs["result"]["postYoutube"]>
   export type PostYoutubeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -7950,6 +7959,7 @@ export namespace Prisma {
       likes: number
       comments: number
       tags: string[]
+      channelId: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["postYoutube"]>
@@ -8360,6 +8370,7 @@ export namespace Prisma {
     readonly likes: FieldRef<"PostYoutube", 'Int'>
     readonly comments: FieldRef<"PostYoutube", 'Int'>
     readonly tags: FieldRef<"PostYoutube", 'String[]'>
+    readonly channelId: FieldRef<"PostYoutube", 'String'>
     readonly createdAt: FieldRef<"PostYoutube", 'DateTime'>
     readonly updatedAt: FieldRef<"PostYoutube", 'DateTime'>
   }
@@ -8751,37 +8762,36 @@ export namespace Prisma {
 
 
   /**
-   * Model FacebookPost
+   * Model PostFacebook
    */
 
-  export type AggregateFacebookPost = {
-    _count: FacebookPostCountAggregateOutputType | null
-    _avg: FacebookPostAvgAggregateOutputType | null
-    _sum: FacebookPostSumAggregateOutputType | null
-    _min: FacebookPostMinAggregateOutputType | null
-    _max: FacebookPostMaxAggregateOutputType | null
+  export type AggregatePostFacebook = {
+    _count: PostFacebookCountAggregateOutputType | null
+    _avg: PostFacebookAvgAggregateOutputType | null
+    _sum: PostFacebookSumAggregateOutputType | null
+    _min: PostFacebookMinAggregateOutputType | null
+    _max: PostFacebookMaxAggregateOutputType | null
   }
 
-  export type FacebookPostAvgAggregateOutputType = {
+  export type PostFacebookAvgAggregateOutputType = {
     views: number | null
     likes: number | null
     comments: number | null
   }
 
-  export type FacebookPostSumAggregateOutputType = {
+  export type PostFacebookSumAggregateOutputType = {
     views: number | null
     likes: number | null
     comments: number | null
   }
 
-  export type FacebookPostMinAggregateOutputType = {
+  export type PostFacebookMinAggregateOutputType = {
     id: string | null
     userId: string | null
+    channelId: string | null
     title: string | null
     description: string | null
     thumbnailUrl: string | null
-    imageUrl: string | null
-    videoUrl: string | null
     videoType: $Enums.VideoType | null
     processStatus: $Enums.PostStatus | null
     status: $Enums.Status | null
@@ -8795,14 +8805,13 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type FacebookPostMaxAggregateOutputType = {
+  export type PostFacebookMaxAggregateOutputType = {
     id: string | null
     userId: string | null
+    channelId: string | null
     title: string | null
     description: string | null
     thumbnailUrl: string | null
-    imageUrl: string | null
-    videoUrl: string | null
     videoType: $Enums.VideoType | null
     processStatus: $Enums.PostStatus | null
     status: $Enums.Status | null
@@ -8816,14 +8825,14 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type FacebookPostCountAggregateOutputType = {
+  export type PostFacebookCountAggregateOutputType = {
     id: number
     userId: number
+    channelId: number
     title: number
     description: number
     thumbnailUrl: number
-    imageUrl: number
-    videoUrl: number
+    uploadedUrls: number
     videoType: number
     processStatus: number
     status: number
@@ -8840,26 +8849,25 @@ export namespace Prisma {
   }
 
 
-  export type FacebookPostAvgAggregateInputType = {
+  export type PostFacebookAvgAggregateInputType = {
     views?: true
     likes?: true
     comments?: true
   }
 
-  export type FacebookPostSumAggregateInputType = {
+  export type PostFacebookSumAggregateInputType = {
     views?: true
     likes?: true
     comments?: true
   }
 
-  export type FacebookPostMinAggregateInputType = {
+  export type PostFacebookMinAggregateInputType = {
     id?: true
     userId?: true
+    channelId?: true
     title?: true
     description?: true
     thumbnailUrl?: true
-    imageUrl?: true
-    videoUrl?: true
     videoType?: true
     processStatus?: true
     status?: true
@@ -8873,14 +8881,13 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type FacebookPostMaxAggregateInputType = {
+  export type PostFacebookMaxAggregateInputType = {
     id?: true
     userId?: true
+    channelId?: true
     title?: true
     description?: true
     thumbnailUrl?: true
-    imageUrl?: true
-    videoUrl?: true
     videoType?: true
     processStatus?: true
     status?: true
@@ -8894,14 +8901,14 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type FacebookPostCountAggregateInputType = {
+  export type PostFacebookCountAggregateInputType = {
     id?: true
     userId?: true
+    channelId?: true
     title?: true
     description?: true
     thumbnailUrl?: true
-    imageUrl?: true
-    videoUrl?: true
+    uploadedUrls?: true
     videoType?: true
     processStatus?: true
     status?: true
@@ -8917,100 +8924,100 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type FacebookPostAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which FacebookPost to aggregate.
+     * Filter which PostFacebook to aggregate.
      */
-    where?: FacebookPostWhereInput
+    where?: PostFacebookWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of FacebookPosts to fetch.
+     * Determine the order of PostFacebooks to fetch.
      */
-    orderBy?: FacebookPostOrderByWithRelationInput | FacebookPostOrderByWithRelationInput[]
+    orderBy?: PostFacebookOrderByWithRelationInput | PostFacebookOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: FacebookPostWhereUniqueInput
+    cursor?: PostFacebookWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` FacebookPosts from the position of the cursor.
+     * Take `±n` PostFacebooks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` FacebookPosts.
+     * Skip the first `n` PostFacebooks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned FacebookPosts
+     * Count returned PostFacebooks
     **/
-    _count?: true | FacebookPostCountAggregateInputType
+    _count?: true | PostFacebookCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: FacebookPostAvgAggregateInputType
+    _avg?: PostFacebookAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: FacebookPostSumAggregateInputType
+    _sum?: PostFacebookSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: FacebookPostMinAggregateInputType
+    _min?: PostFacebookMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: FacebookPostMaxAggregateInputType
+    _max?: PostFacebookMaxAggregateInputType
   }
 
-  export type GetFacebookPostAggregateType<T extends FacebookPostAggregateArgs> = {
-        [P in keyof T & keyof AggregateFacebookPost]: P extends '_count' | 'count'
+  export type GetPostFacebookAggregateType<T extends PostFacebookAggregateArgs> = {
+        [P in keyof T & keyof AggregatePostFacebook]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateFacebookPost[P]>
-      : GetScalarType<T[P], AggregateFacebookPost[P]>
+        : GetScalarType<T[P], AggregatePostFacebook[P]>
+      : GetScalarType<T[P], AggregatePostFacebook[P]>
   }
 
 
 
 
-  export type FacebookPostGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FacebookPostWhereInput
-    orderBy?: FacebookPostOrderByWithAggregationInput | FacebookPostOrderByWithAggregationInput[]
-    by: FacebookPostScalarFieldEnum[] | FacebookPostScalarFieldEnum
-    having?: FacebookPostScalarWhereWithAggregatesInput
+  export type PostFacebookGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PostFacebookWhereInput
+    orderBy?: PostFacebookOrderByWithAggregationInput | PostFacebookOrderByWithAggregationInput[]
+    by: PostFacebookScalarFieldEnum[] | PostFacebookScalarFieldEnum
+    having?: PostFacebookScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: FacebookPostCountAggregateInputType | true
-    _avg?: FacebookPostAvgAggregateInputType
-    _sum?: FacebookPostSumAggregateInputType
-    _min?: FacebookPostMinAggregateInputType
-    _max?: FacebookPostMaxAggregateInputType
+    _count?: PostFacebookCountAggregateInputType | true
+    _avg?: PostFacebookAvgAggregateInputType
+    _sum?: PostFacebookSumAggregateInputType
+    _min?: PostFacebookMinAggregateInputType
+    _max?: PostFacebookMaxAggregateInputType
   }
 
-  export type FacebookPostGroupByOutputType = {
+  export type PostFacebookGroupByOutputType = {
     id: string
     userId: string
+    channelId: string | null
     title: string
     description: string | null
     thumbnailUrl: string | null
-    imageUrl: string | null
-    videoUrl: string | null
+    uploadedUrls: string[]
     videoType: $Enums.VideoType | null
     processStatus: $Enums.PostStatus
     status: $Enums.Status
@@ -9023,35 +9030,35 @@ export namespace Prisma {
     facebookPostId: string | null
     createdAt: Date
     updatedAt: Date
-    _count: FacebookPostCountAggregateOutputType | null
-    _avg: FacebookPostAvgAggregateOutputType | null
-    _sum: FacebookPostSumAggregateOutputType | null
-    _min: FacebookPostMinAggregateOutputType | null
-    _max: FacebookPostMaxAggregateOutputType | null
+    _count: PostFacebookCountAggregateOutputType | null
+    _avg: PostFacebookAvgAggregateOutputType | null
+    _sum: PostFacebookSumAggregateOutputType | null
+    _min: PostFacebookMinAggregateOutputType | null
+    _max: PostFacebookMaxAggregateOutputType | null
   }
 
-  type GetFacebookPostGroupByPayload<T extends FacebookPostGroupByArgs> = Prisma.PrismaPromise<
+  type GetPostFacebookGroupByPayload<T extends PostFacebookGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<FacebookPostGroupByOutputType, T['by']> &
+      PickEnumerable<PostFacebookGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof FacebookPostGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof PostFacebookGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], FacebookPostGroupByOutputType[P]>
-            : GetScalarType<T[P], FacebookPostGroupByOutputType[P]>
+              : GetScalarType<T[P], PostFacebookGroupByOutputType[P]>
+            : GetScalarType<T[P], PostFacebookGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type FacebookPostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PostFacebookSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    channelId?: boolean
     title?: boolean
     description?: boolean
     thumbnailUrl?: boolean
-    imageUrl?: boolean
-    videoUrl?: boolean
+    uploadedUrls?: boolean
     videoType?: boolean
     processStatus?: boolean
     status?: boolean
@@ -9065,18 +9072,18 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["facebookPost"]>
+  }, ExtArgs["result"]["postFacebook"]>
 
 
 
-  export type FacebookPostSelectScalar = {
+  export type PostFacebookSelectScalar = {
     id?: boolean
     userId?: boolean
+    channelId?: boolean
     title?: boolean
     description?: boolean
     thumbnailUrl?: boolean
-    imageUrl?: boolean
-    videoUrl?: boolean
+    uploadedUrls?: boolean
     videoType?: boolean
     processStatus?: boolean
     status?: boolean
@@ -9091,24 +9098,24 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type FacebookPostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "description" | "thumbnailUrl" | "imageUrl" | "videoUrl" | "videoType" | "processStatus" | "status" | "scheduledAt" | "publishedAt" | "views" | "likes" | "comments" | "tags" | "facebookPostId" | "createdAt" | "updatedAt", ExtArgs["result"]["facebookPost"]>
-  export type FacebookPostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "channelId" | "title" | "description" | "thumbnailUrl" | "uploadedUrls" | "videoType" | "processStatus" | "status" | "scheduledAt" | "publishedAt" | "views" | "likes" | "comments" | "tags" | "facebookPostId" | "createdAt" | "updatedAt", ExtArgs["result"]["postFacebook"]>
+  export type PostFacebookInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
-  export type $FacebookPostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "FacebookPost"
+  export type $PostFacebookPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PostFacebook"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
+      channelId: string | null
       title: string
       description: string | null
       thumbnailUrl: string | null
-      imageUrl: string | null
-      videoUrl: string | null
+      uploadedUrls: string[]
       videoType: $Enums.VideoType | null
       processStatus: $Enums.PostStatus
       status: $Enums.Status
@@ -9121,143 +9128,143 @@ export namespace Prisma {
       facebookPostId: string | null
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["facebookPost"]>
+    }, ExtArgs["result"]["postFacebook"]>
     composites: {}
   }
 
-  type FacebookPostGetPayload<S extends boolean | null | undefined | FacebookPostDefaultArgs> = $Result.GetResult<Prisma.$FacebookPostPayload, S>
+  type PostFacebookGetPayload<S extends boolean | null | undefined | PostFacebookDefaultArgs> = $Result.GetResult<Prisma.$PostFacebookPayload, S>
 
-  type FacebookPostCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<FacebookPostFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: FacebookPostCountAggregateInputType | true
+  type PostFacebookCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PostFacebookFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PostFacebookCountAggregateInputType | true
     }
 
-  export interface FacebookPostDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FacebookPost'], meta: { name: 'FacebookPost' } }
+  export interface PostFacebookDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PostFacebook'], meta: { name: 'PostFacebook' } }
     /**
-     * Find zero or one FacebookPost that matches the filter.
-     * @param {FacebookPostFindUniqueArgs} args - Arguments to find a FacebookPost
+     * Find zero or one PostFacebook that matches the filter.
+     * @param {PostFacebookFindUniqueArgs} args - Arguments to find a PostFacebook
      * @example
-     * // Get one FacebookPost
-     * const facebookPost = await prisma.facebookPost.findUnique({
+     * // Get one PostFacebook
+     * const postFacebook = await prisma.postFacebook.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends FacebookPostFindUniqueArgs>(args: SelectSubset<T, FacebookPostFindUniqueArgs<ExtArgs>>): Prisma__FacebookPostClient<$Result.GetResult<Prisma.$FacebookPostPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends PostFacebookFindUniqueArgs>(args: SelectSubset<T, PostFacebookFindUniqueArgs<ExtArgs>>): Prisma__PostFacebookClient<$Result.GetResult<Prisma.$PostFacebookPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one FacebookPost that matches the filter or throw an error with `error.code='P2025'`
+     * Find one PostFacebook that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {FacebookPostFindUniqueOrThrowArgs} args - Arguments to find a FacebookPost
+     * @param {PostFacebookFindUniqueOrThrowArgs} args - Arguments to find a PostFacebook
      * @example
-     * // Get one FacebookPost
-     * const facebookPost = await prisma.facebookPost.findUniqueOrThrow({
+     * // Get one PostFacebook
+     * const postFacebook = await prisma.postFacebook.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends FacebookPostFindUniqueOrThrowArgs>(args: SelectSubset<T, FacebookPostFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FacebookPostClient<$Result.GetResult<Prisma.$FacebookPostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends PostFacebookFindUniqueOrThrowArgs>(args: SelectSubset<T, PostFacebookFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PostFacebookClient<$Result.GetResult<Prisma.$PostFacebookPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first FacebookPost that matches the filter.
+     * Find the first PostFacebook that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FacebookPostFindFirstArgs} args - Arguments to find a FacebookPost
+     * @param {PostFacebookFindFirstArgs} args - Arguments to find a PostFacebook
      * @example
-     * // Get one FacebookPost
-     * const facebookPost = await prisma.facebookPost.findFirst({
+     * // Get one PostFacebook
+     * const postFacebook = await prisma.postFacebook.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends FacebookPostFindFirstArgs>(args?: SelectSubset<T, FacebookPostFindFirstArgs<ExtArgs>>): Prisma__FacebookPostClient<$Result.GetResult<Prisma.$FacebookPostPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends PostFacebookFindFirstArgs>(args?: SelectSubset<T, PostFacebookFindFirstArgs<ExtArgs>>): Prisma__PostFacebookClient<$Result.GetResult<Prisma.$PostFacebookPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first FacebookPost that matches the filter or
+     * Find the first PostFacebook that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FacebookPostFindFirstOrThrowArgs} args - Arguments to find a FacebookPost
+     * @param {PostFacebookFindFirstOrThrowArgs} args - Arguments to find a PostFacebook
      * @example
-     * // Get one FacebookPost
-     * const facebookPost = await prisma.facebookPost.findFirstOrThrow({
+     * // Get one PostFacebook
+     * const postFacebook = await prisma.postFacebook.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends FacebookPostFindFirstOrThrowArgs>(args?: SelectSubset<T, FacebookPostFindFirstOrThrowArgs<ExtArgs>>): Prisma__FacebookPostClient<$Result.GetResult<Prisma.$FacebookPostPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends PostFacebookFindFirstOrThrowArgs>(args?: SelectSubset<T, PostFacebookFindFirstOrThrowArgs<ExtArgs>>): Prisma__PostFacebookClient<$Result.GetResult<Prisma.$PostFacebookPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more FacebookPosts that matches the filter.
+     * Find zero or more PostFacebooks that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FacebookPostFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {PostFacebookFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all FacebookPosts
-     * const facebookPosts = await prisma.facebookPost.findMany()
+     * // Get all PostFacebooks
+     * const postFacebooks = await prisma.postFacebook.findMany()
      * 
-     * // Get first 10 FacebookPosts
-     * const facebookPosts = await prisma.facebookPost.findMany({ take: 10 })
+     * // Get first 10 PostFacebooks
+     * const postFacebooks = await prisma.postFacebook.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const facebookPostWithIdOnly = await prisma.facebookPost.findMany({ select: { id: true } })
+     * const postFacebookWithIdOnly = await prisma.postFacebook.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends FacebookPostFindManyArgs>(args?: SelectSubset<T, FacebookPostFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FacebookPostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends PostFacebookFindManyArgs>(args?: SelectSubset<T, PostFacebookFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostFacebookPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a FacebookPost.
-     * @param {FacebookPostCreateArgs} args - Arguments to create a FacebookPost.
+     * Create a PostFacebook.
+     * @param {PostFacebookCreateArgs} args - Arguments to create a PostFacebook.
      * @example
-     * // Create one FacebookPost
-     * const FacebookPost = await prisma.facebookPost.create({
+     * // Create one PostFacebook
+     * const PostFacebook = await prisma.postFacebook.create({
      *   data: {
-     *     // ... data to create a FacebookPost
+     *     // ... data to create a PostFacebook
      *   }
      * })
      * 
      */
-    create<T extends FacebookPostCreateArgs>(args: SelectSubset<T, FacebookPostCreateArgs<ExtArgs>>): Prisma__FacebookPostClient<$Result.GetResult<Prisma.$FacebookPostPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends PostFacebookCreateArgs>(args: SelectSubset<T, PostFacebookCreateArgs<ExtArgs>>): Prisma__PostFacebookClient<$Result.GetResult<Prisma.$PostFacebookPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many FacebookPosts.
-     * @param {FacebookPostCreateManyArgs} args - Arguments to create many FacebookPosts.
+     * Create many PostFacebooks.
+     * @param {PostFacebookCreateManyArgs} args - Arguments to create many PostFacebooks.
      * @example
-     * // Create many FacebookPosts
-     * const facebookPost = await prisma.facebookPost.createMany({
+     * // Create many PostFacebooks
+     * const postFacebook = await prisma.postFacebook.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends FacebookPostCreateManyArgs>(args?: SelectSubset<T, FacebookPostCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends PostFacebookCreateManyArgs>(args?: SelectSubset<T, PostFacebookCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a FacebookPost.
-     * @param {FacebookPostDeleteArgs} args - Arguments to delete one FacebookPost.
+     * Delete a PostFacebook.
+     * @param {PostFacebookDeleteArgs} args - Arguments to delete one PostFacebook.
      * @example
-     * // Delete one FacebookPost
-     * const FacebookPost = await prisma.facebookPost.delete({
+     * // Delete one PostFacebook
+     * const PostFacebook = await prisma.postFacebook.delete({
      *   where: {
-     *     // ... filter to delete one FacebookPost
+     *     // ... filter to delete one PostFacebook
      *   }
      * })
      * 
      */
-    delete<T extends FacebookPostDeleteArgs>(args: SelectSubset<T, FacebookPostDeleteArgs<ExtArgs>>): Prisma__FacebookPostClient<$Result.GetResult<Prisma.$FacebookPostPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends PostFacebookDeleteArgs>(args: SelectSubset<T, PostFacebookDeleteArgs<ExtArgs>>): Prisma__PostFacebookClient<$Result.GetResult<Prisma.$PostFacebookPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one FacebookPost.
-     * @param {FacebookPostUpdateArgs} args - Arguments to update one FacebookPost.
+     * Update one PostFacebook.
+     * @param {PostFacebookUpdateArgs} args - Arguments to update one PostFacebook.
      * @example
-     * // Update one FacebookPost
-     * const facebookPost = await prisma.facebookPost.update({
+     * // Update one PostFacebook
+     * const postFacebook = await prisma.postFacebook.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9267,30 +9274,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends FacebookPostUpdateArgs>(args: SelectSubset<T, FacebookPostUpdateArgs<ExtArgs>>): Prisma__FacebookPostClient<$Result.GetResult<Prisma.$FacebookPostPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends PostFacebookUpdateArgs>(args: SelectSubset<T, PostFacebookUpdateArgs<ExtArgs>>): Prisma__PostFacebookClient<$Result.GetResult<Prisma.$PostFacebookPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more FacebookPosts.
-     * @param {FacebookPostDeleteManyArgs} args - Arguments to filter FacebookPosts to delete.
+     * Delete zero or more PostFacebooks.
+     * @param {PostFacebookDeleteManyArgs} args - Arguments to filter PostFacebooks to delete.
      * @example
-     * // Delete a few FacebookPosts
-     * const { count } = await prisma.facebookPost.deleteMany({
+     * // Delete a few PostFacebooks
+     * const { count } = await prisma.postFacebook.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends FacebookPostDeleteManyArgs>(args?: SelectSubset<T, FacebookPostDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends PostFacebookDeleteManyArgs>(args?: SelectSubset<T, PostFacebookDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more FacebookPosts.
+     * Update zero or more PostFacebooks.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FacebookPostUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {PostFacebookUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many FacebookPosts
-     * const facebookPost = await prisma.facebookPost.updateMany({
+     * // Update many PostFacebooks
+     * const postFacebook = await prisma.postFacebook.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9300,79 +9307,79 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends FacebookPostUpdateManyArgs>(args: SelectSubset<T, FacebookPostUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends PostFacebookUpdateManyArgs>(args: SelectSubset<T, PostFacebookUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one FacebookPost.
-     * @param {FacebookPostUpsertArgs} args - Arguments to update or create a FacebookPost.
+     * Create or update one PostFacebook.
+     * @param {PostFacebookUpsertArgs} args - Arguments to update or create a PostFacebook.
      * @example
-     * // Update or create a FacebookPost
-     * const facebookPost = await prisma.facebookPost.upsert({
+     * // Update or create a PostFacebook
+     * const postFacebook = await prisma.postFacebook.upsert({
      *   create: {
-     *     // ... data to create a FacebookPost
+     *     // ... data to create a PostFacebook
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the FacebookPost we want to update
+     *     // ... the filter for the PostFacebook we want to update
      *   }
      * })
      */
-    upsert<T extends FacebookPostUpsertArgs>(args: SelectSubset<T, FacebookPostUpsertArgs<ExtArgs>>): Prisma__FacebookPostClient<$Result.GetResult<Prisma.$FacebookPostPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends PostFacebookUpsertArgs>(args: SelectSubset<T, PostFacebookUpsertArgs<ExtArgs>>): Prisma__PostFacebookClient<$Result.GetResult<Prisma.$PostFacebookPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more FacebookPosts that matches the filter.
-     * @param {FacebookPostFindRawArgs} args - Select which filters you would like to apply.
+     * Find zero or more PostFacebooks that matches the filter.
+     * @param {PostFacebookFindRawArgs} args - Select which filters you would like to apply.
      * @example
-     * const facebookPost = await prisma.facebookPost.findRaw({
+     * const postFacebook = await prisma.postFacebook.findRaw({
      *   filter: { age: { $gt: 25 } }
      * })
      */
-    findRaw(args?: FacebookPostFindRawArgs): Prisma.PrismaPromise<JsonObject>
+    findRaw(args?: PostFacebookFindRawArgs): Prisma.PrismaPromise<JsonObject>
 
     /**
-     * Perform aggregation operations on a FacebookPost.
-     * @param {FacebookPostAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * Perform aggregation operations on a PostFacebook.
+     * @param {PostFacebookAggregateRawArgs} args - Select which aggregations you would like to apply.
      * @example
-     * const facebookPost = await prisma.facebookPost.aggregateRaw({
+     * const postFacebook = await prisma.postFacebook.aggregateRaw({
      *   pipeline: [
      *     { $match: { status: "registered" } },
      *     { $group: { _id: "$country", total: { $sum: 1 } } }
      *   ]
      * })
      */
-    aggregateRaw(args?: FacebookPostAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+    aggregateRaw(args?: PostFacebookAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
 
 
     /**
-     * Count the number of FacebookPosts.
+     * Count the number of PostFacebooks.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FacebookPostCountArgs} args - Arguments to filter FacebookPosts to count.
+     * @param {PostFacebookCountArgs} args - Arguments to filter PostFacebooks to count.
      * @example
-     * // Count the number of FacebookPosts
-     * const count = await prisma.facebookPost.count({
+     * // Count the number of PostFacebooks
+     * const count = await prisma.postFacebook.count({
      *   where: {
-     *     // ... the filter for the FacebookPosts we want to count
+     *     // ... the filter for the PostFacebooks we want to count
      *   }
      * })
     **/
-    count<T extends FacebookPostCountArgs>(
-      args?: Subset<T, FacebookPostCountArgs>,
+    count<T extends PostFacebookCountArgs>(
+      args?: Subset<T, PostFacebookCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], FacebookPostCountAggregateOutputType>
+          : GetScalarType<T['select'], PostFacebookCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a FacebookPost.
+     * Allows you to perform aggregations operations on a PostFacebook.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FacebookPostAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {PostFacebookAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -9392,13 +9399,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends FacebookPostAggregateArgs>(args: Subset<T, FacebookPostAggregateArgs>): Prisma.PrismaPromise<GetFacebookPostAggregateType<T>>
+    aggregate<T extends PostFacebookAggregateArgs>(args: Subset<T, PostFacebookAggregateArgs>): Prisma.PrismaPromise<GetPostFacebookAggregateType<T>>
 
     /**
-     * Group by FacebookPost.
+     * Group by PostFacebook.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FacebookPostGroupByArgs} args - Group by arguments.
+     * @param {PostFacebookGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -9413,14 +9420,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends FacebookPostGroupByArgs,
+      T extends PostFacebookGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: FacebookPostGroupByArgs['orderBy'] }
-        : { orderBy?: FacebookPostGroupByArgs['orderBy'] },
+        ? { orderBy: PostFacebookGroupByArgs['orderBy'] }
+        : { orderBy?: PostFacebookGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -9469,20 +9476,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, FacebookPostGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFacebookPostGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, PostFacebookGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPostFacebookGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the FacebookPost model
+   * Fields of the PostFacebook model
    */
-  readonly fields: FacebookPostFieldRefs;
+  readonly fields: PostFacebookFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for FacebookPost.
+   * The delegate class that acts as a "Promise-like" for PostFacebook.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__FacebookPostClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__PostFacebookClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -9511,373 +9518,373 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the FacebookPost model
+   * Fields of the PostFacebook model
    */
-  interface FacebookPostFieldRefs {
-    readonly id: FieldRef<"FacebookPost", 'String'>
-    readonly userId: FieldRef<"FacebookPost", 'String'>
-    readonly title: FieldRef<"FacebookPost", 'String'>
-    readonly description: FieldRef<"FacebookPost", 'String'>
-    readonly thumbnailUrl: FieldRef<"FacebookPost", 'String'>
-    readonly imageUrl: FieldRef<"FacebookPost", 'String'>
-    readonly videoUrl: FieldRef<"FacebookPost", 'String'>
-    readonly videoType: FieldRef<"FacebookPost", 'VideoType'>
-    readonly processStatus: FieldRef<"FacebookPost", 'PostStatus'>
-    readonly status: FieldRef<"FacebookPost", 'Status'>
-    readonly scheduledAt: FieldRef<"FacebookPost", 'DateTime'>
-    readonly publishedAt: FieldRef<"FacebookPost", 'DateTime'>
-    readonly views: FieldRef<"FacebookPost", 'Int'>
-    readonly likes: FieldRef<"FacebookPost", 'Int'>
-    readonly comments: FieldRef<"FacebookPost", 'Int'>
-    readonly tags: FieldRef<"FacebookPost", 'String[]'>
-    readonly facebookPostId: FieldRef<"FacebookPost", 'String'>
-    readonly createdAt: FieldRef<"FacebookPost", 'DateTime'>
-    readonly updatedAt: FieldRef<"FacebookPost", 'DateTime'>
+  interface PostFacebookFieldRefs {
+    readonly id: FieldRef<"PostFacebook", 'String'>
+    readonly userId: FieldRef<"PostFacebook", 'String'>
+    readonly channelId: FieldRef<"PostFacebook", 'String'>
+    readonly title: FieldRef<"PostFacebook", 'String'>
+    readonly description: FieldRef<"PostFacebook", 'String'>
+    readonly thumbnailUrl: FieldRef<"PostFacebook", 'String'>
+    readonly uploadedUrls: FieldRef<"PostFacebook", 'String[]'>
+    readonly videoType: FieldRef<"PostFacebook", 'VideoType'>
+    readonly processStatus: FieldRef<"PostFacebook", 'PostStatus'>
+    readonly status: FieldRef<"PostFacebook", 'Status'>
+    readonly scheduledAt: FieldRef<"PostFacebook", 'DateTime'>
+    readonly publishedAt: FieldRef<"PostFacebook", 'DateTime'>
+    readonly views: FieldRef<"PostFacebook", 'Int'>
+    readonly likes: FieldRef<"PostFacebook", 'Int'>
+    readonly comments: FieldRef<"PostFacebook", 'Int'>
+    readonly tags: FieldRef<"PostFacebook", 'String[]'>
+    readonly facebookPostId: FieldRef<"PostFacebook", 'String'>
+    readonly createdAt: FieldRef<"PostFacebook", 'DateTime'>
+    readonly updatedAt: FieldRef<"PostFacebook", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * FacebookPost findUnique
+   * PostFacebook findUnique
    */
-  export type FacebookPostFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
+    include?: PostFacebookInclude<ExtArgs> | null
     /**
-     * Filter, which FacebookPost to fetch.
+     * Filter, which PostFacebook to fetch.
      */
-    where: FacebookPostWhereUniqueInput
+    where: PostFacebookWhereUniqueInput
   }
 
   /**
-   * FacebookPost findUniqueOrThrow
+   * PostFacebook findUniqueOrThrow
    */
-  export type FacebookPostFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
+    include?: PostFacebookInclude<ExtArgs> | null
     /**
-     * Filter, which FacebookPost to fetch.
+     * Filter, which PostFacebook to fetch.
      */
-    where: FacebookPostWhereUniqueInput
+    where: PostFacebookWhereUniqueInput
   }
 
   /**
-   * FacebookPost findFirst
+   * PostFacebook findFirst
    */
-  export type FacebookPostFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
+    include?: PostFacebookInclude<ExtArgs> | null
     /**
-     * Filter, which FacebookPost to fetch.
+     * Filter, which PostFacebook to fetch.
      */
-    where?: FacebookPostWhereInput
+    where?: PostFacebookWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of FacebookPosts to fetch.
+     * Determine the order of PostFacebooks to fetch.
      */
-    orderBy?: FacebookPostOrderByWithRelationInput | FacebookPostOrderByWithRelationInput[]
+    orderBy?: PostFacebookOrderByWithRelationInput | PostFacebookOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for FacebookPosts.
+     * Sets the position for searching for PostFacebooks.
      */
-    cursor?: FacebookPostWhereUniqueInput
+    cursor?: PostFacebookWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` FacebookPosts from the position of the cursor.
+     * Take `±n` PostFacebooks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` FacebookPosts.
+     * Skip the first `n` PostFacebooks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of FacebookPosts.
+     * Filter by unique combinations of PostFacebooks.
      */
-    distinct?: FacebookPostScalarFieldEnum | FacebookPostScalarFieldEnum[]
+    distinct?: PostFacebookScalarFieldEnum | PostFacebookScalarFieldEnum[]
   }
 
   /**
-   * FacebookPost findFirstOrThrow
+   * PostFacebook findFirstOrThrow
    */
-  export type FacebookPostFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
+    include?: PostFacebookInclude<ExtArgs> | null
     /**
-     * Filter, which FacebookPost to fetch.
+     * Filter, which PostFacebook to fetch.
      */
-    where?: FacebookPostWhereInput
+    where?: PostFacebookWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of FacebookPosts to fetch.
+     * Determine the order of PostFacebooks to fetch.
      */
-    orderBy?: FacebookPostOrderByWithRelationInput | FacebookPostOrderByWithRelationInput[]
+    orderBy?: PostFacebookOrderByWithRelationInput | PostFacebookOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for FacebookPosts.
+     * Sets the position for searching for PostFacebooks.
      */
-    cursor?: FacebookPostWhereUniqueInput
+    cursor?: PostFacebookWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` FacebookPosts from the position of the cursor.
+     * Take `±n` PostFacebooks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` FacebookPosts.
+     * Skip the first `n` PostFacebooks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of FacebookPosts.
+     * Filter by unique combinations of PostFacebooks.
      */
-    distinct?: FacebookPostScalarFieldEnum | FacebookPostScalarFieldEnum[]
+    distinct?: PostFacebookScalarFieldEnum | PostFacebookScalarFieldEnum[]
   }
 
   /**
-   * FacebookPost findMany
+   * PostFacebook findMany
    */
-  export type FacebookPostFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
+    include?: PostFacebookInclude<ExtArgs> | null
     /**
-     * Filter, which FacebookPosts to fetch.
+     * Filter, which PostFacebooks to fetch.
      */
-    where?: FacebookPostWhereInput
+    where?: PostFacebookWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of FacebookPosts to fetch.
+     * Determine the order of PostFacebooks to fetch.
      */
-    orderBy?: FacebookPostOrderByWithRelationInput | FacebookPostOrderByWithRelationInput[]
+    orderBy?: PostFacebookOrderByWithRelationInput | PostFacebookOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing FacebookPosts.
+     * Sets the position for listing PostFacebooks.
      */
-    cursor?: FacebookPostWhereUniqueInput
+    cursor?: PostFacebookWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` FacebookPosts from the position of the cursor.
+     * Take `±n` PostFacebooks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` FacebookPosts.
+     * Skip the first `n` PostFacebooks.
      */
     skip?: number
-    distinct?: FacebookPostScalarFieldEnum | FacebookPostScalarFieldEnum[]
+    distinct?: PostFacebookScalarFieldEnum | PostFacebookScalarFieldEnum[]
   }
 
   /**
-   * FacebookPost create
+   * PostFacebook create
    */
-  export type FacebookPostCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
+    include?: PostFacebookInclude<ExtArgs> | null
     /**
-     * The data needed to create a FacebookPost.
+     * The data needed to create a PostFacebook.
      */
-    data: XOR<FacebookPostCreateInput, FacebookPostUncheckedCreateInput>
+    data: XOR<PostFacebookCreateInput, PostFacebookUncheckedCreateInput>
   }
 
   /**
-   * FacebookPost createMany
+   * PostFacebook createMany
    */
-  export type FacebookPostCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many FacebookPosts.
+     * The data used to create many PostFacebooks.
      */
-    data: FacebookPostCreateManyInput | FacebookPostCreateManyInput[]
+    data: PostFacebookCreateManyInput | PostFacebookCreateManyInput[]
   }
 
   /**
-   * FacebookPost update
+   * PostFacebook update
    */
-  export type FacebookPostUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
+    include?: PostFacebookInclude<ExtArgs> | null
     /**
-     * The data needed to update a FacebookPost.
+     * The data needed to update a PostFacebook.
      */
-    data: XOR<FacebookPostUpdateInput, FacebookPostUncheckedUpdateInput>
+    data: XOR<PostFacebookUpdateInput, PostFacebookUncheckedUpdateInput>
     /**
-     * Choose, which FacebookPost to update.
+     * Choose, which PostFacebook to update.
      */
-    where: FacebookPostWhereUniqueInput
+    where: PostFacebookWhereUniqueInput
   }
 
   /**
-   * FacebookPost updateMany
+   * PostFacebook updateMany
    */
-  export type FacebookPostUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update FacebookPosts.
+     * The data used to update PostFacebooks.
      */
-    data: XOR<FacebookPostUpdateManyMutationInput, FacebookPostUncheckedUpdateManyInput>
+    data: XOR<PostFacebookUpdateManyMutationInput, PostFacebookUncheckedUpdateManyInput>
     /**
-     * Filter which FacebookPosts to update
+     * Filter which PostFacebooks to update
      */
-    where?: FacebookPostWhereInput
+    where?: PostFacebookWhereInput
     /**
-     * Limit how many FacebookPosts to update.
+     * Limit how many PostFacebooks to update.
      */
     limit?: number
   }
 
   /**
-   * FacebookPost upsert
+   * PostFacebook upsert
    */
-  export type FacebookPostUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
+    include?: PostFacebookInclude<ExtArgs> | null
     /**
-     * The filter to search for the FacebookPost to update in case it exists.
+     * The filter to search for the PostFacebook to update in case it exists.
      */
-    where: FacebookPostWhereUniqueInput
+    where: PostFacebookWhereUniqueInput
     /**
-     * In case the FacebookPost found by the `where` argument doesn't exist, create a new FacebookPost with this data.
+     * In case the PostFacebook found by the `where` argument doesn't exist, create a new PostFacebook with this data.
      */
-    create: XOR<FacebookPostCreateInput, FacebookPostUncheckedCreateInput>
+    create: XOR<PostFacebookCreateInput, PostFacebookUncheckedCreateInput>
     /**
-     * In case the FacebookPost was found with the provided `where` argument, update it with this data.
+     * In case the PostFacebook was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<FacebookPostUpdateInput, FacebookPostUncheckedUpdateInput>
+    update: XOR<PostFacebookUpdateInput, PostFacebookUncheckedUpdateInput>
   }
 
   /**
-   * FacebookPost delete
+   * PostFacebook delete
    */
-  export type FacebookPostDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
+    include?: PostFacebookInclude<ExtArgs> | null
     /**
-     * Filter which FacebookPost to delete.
+     * Filter which PostFacebook to delete.
      */
-    where: FacebookPostWhereUniqueInput
+    where: PostFacebookWhereUniqueInput
   }
 
   /**
-   * FacebookPost deleteMany
+   * PostFacebook deleteMany
    */
-  export type FacebookPostDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which FacebookPosts to delete
+     * Filter which PostFacebooks to delete
      */
-    where?: FacebookPostWhereInput
+    where?: PostFacebookWhereInput
     /**
-     * Limit how many FacebookPosts to delete.
+     * Limit how many PostFacebooks to delete.
      */
     limit?: number
   }
 
   /**
-   * FacebookPost findRaw
+   * PostFacebook findRaw
    */
-  export type FacebookPostFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
      */
@@ -9889,9 +9896,9 @@ export namespace Prisma {
   }
 
   /**
-   * FacebookPost aggregateRaw
+   * PostFacebook aggregateRaw
    */
-  export type FacebookPostAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
      */
@@ -9903,21 +9910,21 @@ export namespace Prisma {
   }
 
   /**
-   * FacebookPost without action
+   * PostFacebook without action
    */
-  export type FacebookPostDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PostFacebookDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FacebookPost
+     * Select specific fields to fetch from the PostFacebook
      */
-    select?: FacebookPostSelect<ExtArgs> | null
+    select?: PostFacebookSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FacebookPost
+     * Omit specific fields from the PostFacebook
      */
-    omit?: FacebookPostOmit<ExtArgs> | null
+    omit?: PostFacebookOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FacebookPostInclude<ExtArgs> | null
+    include?: PostFacebookInclude<ExtArgs> | null
   }
 
 
@@ -16405,6 +16412,7 @@ export namespace Prisma {
     likes: 'likes',
     comments: 'comments',
     tags: 'tags',
+    channelId: 'channelId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -16412,14 +16420,14 @@ export namespace Prisma {
   export type PostYoutubeScalarFieldEnum = (typeof PostYoutubeScalarFieldEnum)[keyof typeof PostYoutubeScalarFieldEnum]
 
 
-  export const FacebookPostScalarFieldEnum: {
+  export const PostFacebookScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
+    channelId: 'channelId',
     title: 'title',
     description: 'description',
     thumbnailUrl: 'thumbnailUrl',
-    imageUrl: 'imageUrl',
-    videoUrl: 'videoUrl',
+    uploadedUrls: 'uploadedUrls',
     videoType: 'videoType',
     processStatus: 'processStatus',
     status: 'status',
@@ -16434,7 +16442,7 @@ export namespace Prisma {
     updatedAt: 'updatedAt'
   };
 
-  export type FacebookPostScalarFieldEnum = (typeof FacebookPostScalarFieldEnum)[keyof typeof FacebookPostScalarFieldEnum]
+  export type PostFacebookScalarFieldEnum = (typeof PostFacebookScalarFieldEnum)[keyof typeof PostFacebookScalarFieldEnum]
 
 
   export const TrendingVideoScalarFieldEnum: {
@@ -16727,7 +16735,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenListRelationFilter
     pricingHistory?: PricingPlanHistoryListRelationFilter
     generateHistory?: GenerateHistoryListRelationFilter
-    facebookPosts?: FacebookPostListRelationFilter
+    facebookPosts?: PostFacebookListRelationFilter
     pricingPlan?: XOR<PricingPlanNullableScalarRelationFilter, PricingPlanWhereInput> | null
   }
 
@@ -16755,7 +16763,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenOrderByRelationAggregateInput
     pricingHistory?: PricingPlanHistoryOrderByRelationAggregateInput
     generateHistory?: GenerateHistoryOrderByRelationAggregateInput
-    facebookPosts?: FacebookPostOrderByRelationAggregateInput
+    facebookPosts?: PostFacebookOrderByRelationAggregateInput
     pricingPlan?: PricingPlanOrderByWithRelationInput
   }
 
@@ -16786,7 +16794,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenListRelationFilter
     pricingHistory?: PricingPlanHistoryListRelationFilter
     generateHistory?: GenerateHistoryListRelationFilter
-    facebookPosts?: FacebookPostListRelationFilter
+    facebookPosts?: PostFacebookListRelationFilter
     pricingPlan?: XOR<PricingPlanNullableScalarRelationFilter, PricingPlanWhereInput> | null
   }, "id" | "email">
 
@@ -17150,6 +17158,7 @@ export namespace Prisma {
     likes?: IntFilter<"PostYoutube"> | number
     comments?: IntFilter<"PostYoutube"> | number
     tags?: StringNullableListFilter<"PostYoutube">
+    channelId?: StringNullableFilter<"PostYoutube"> | string | null
     createdAt?: DateTimeFilter<"PostYoutube"> | Date | string
     updatedAt?: DateTimeFilter<"PostYoutube"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -17171,6 +17180,7 @@ export namespace Prisma {
     likes?: SortOrder
     comments?: SortOrder
     tags?: SortOrder
+    channelId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -17195,6 +17205,7 @@ export namespace Prisma {
     likes?: IntFilter<"PostYoutube"> | number
     comments?: IntFilter<"PostYoutube"> | number
     tags?: StringNullableListFilter<"PostYoutube">
+    channelId?: StringNullableFilter<"PostYoutube"> | string | null
     createdAt?: DateTimeFilter<"PostYoutube"> | Date | string
     updatedAt?: DateTimeFilter<"PostYoutube"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -17216,6 +17227,7 @@ export namespace Prisma {
     likes?: SortOrder
     comments?: SortOrder
     tags?: SortOrder
+    channelId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PostYoutubeCountOrderByAggregateInput
@@ -17244,44 +17256,45 @@ export namespace Prisma {
     likes?: IntWithAggregatesFilter<"PostYoutube"> | number
     comments?: IntWithAggregatesFilter<"PostYoutube"> | number
     tags?: StringNullableListFilter<"PostYoutube">
+    channelId?: StringNullableWithAggregatesFilter<"PostYoutube"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"PostYoutube"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"PostYoutube"> | Date | string
   }
 
-  export type FacebookPostWhereInput = {
-    AND?: FacebookPostWhereInput | FacebookPostWhereInput[]
-    OR?: FacebookPostWhereInput[]
-    NOT?: FacebookPostWhereInput | FacebookPostWhereInput[]
-    id?: StringFilter<"FacebookPost"> | string
-    userId?: StringFilter<"FacebookPost"> | string
-    title?: StringFilter<"FacebookPost"> | string
-    description?: StringNullableFilter<"FacebookPost"> | string | null
-    thumbnailUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    imageUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    videoUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    videoType?: EnumVideoTypeNullableFilter<"FacebookPost"> | $Enums.VideoType | null
-    processStatus?: EnumPostStatusFilter<"FacebookPost"> | $Enums.PostStatus
-    status?: EnumStatusFilter<"FacebookPost"> | $Enums.Status
-    scheduledAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
-    publishedAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
-    views?: IntFilter<"FacebookPost"> | number
-    likes?: IntFilter<"FacebookPost"> | number
-    comments?: IntFilter<"FacebookPost"> | number
-    tags?: StringNullableListFilter<"FacebookPost">
-    facebookPostId?: StringNullableFilter<"FacebookPost"> | string | null
-    createdAt?: DateTimeFilter<"FacebookPost"> | Date | string
-    updatedAt?: DateTimeFilter<"FacebookPost"> | Date | string
+  export type PostFacebookWhereInput = {
+    AND?: PostFacebookWhereInput | PostFacebookWhereInput[]
+    OR?: PostFacebookWhereInput[]
+    NOT?: PostFacebookWhereInput | PostFacebookWhereInput[]
+    id?: StringFilter<"PostFacebook"> | string
+    userId?: StringFilter<"PostFacebook"> | string
+    channelId?: StringNullableFilter<"PostFacebook"> | string | null
+    title?: StringFilter<"PostFacebook"> | string
+    description?: StringNullableFilter<"PostFacebook"> | string | null
+    thumbnailUrl?: StringNullableFilter<"PostFacebook"> | string | null
+    uploadedUrls?: StringNullableListFilter<"PostFacebook">
+    videoType?: EnumVideoTypeNullableFilter<"PostFacebook"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFilter<"PostFacebook"> | $Enums.PostStatus
+    status?: EnumStatusFilter<"PostFacebook"> | $Enums.Status
+    scheduledAt?: DateTimeNullableFilter<"PostFacebook"> | Date | string | null
+    publishedAt?: DateTimeNullableFilter<"PostFacebook"> | Date | string | null
+    views?: IntFilter<"PostFacebook"> | number
+    likes?: IntFilter<"PostFacebook"> | number
+    comments?: IntFilter<"PostFacebook"> | number
+    tags?: StringNullableListFilter<"PostFacebook">
+    facebookPostId?: StringNullableFilter<"PostFacebook"> | string | null
+    createdAt?: DateTimeFilter<"PostFacebook"> | Date | string
+    updatedAt?: DateTimeFilter<"PostFacebook"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type FacebookPostOrderByWithRelationInput = {
+  export type PostFacebookOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
+    channelId?: SortOrder
     title?: SortOrder
     description?: SortOrder
     thumbnailUrl?: SortOrder
-    imageUrl?: SortOrder
-    videoUrl?: SortOrder
+    uploadedUrls?: SortOrder
     videoType?: SortOrder
     processStatus?: SortOrder
     status?: SortOrder
@@ -17297,40 +17310,40 @@ export namespace Prisma {
     user?: UserOrderByWithRelationInput
   }
 
-  export type FacebookPostWhereUniqueInput = Prisma.AtLeast<{
+  export type PostFacebookWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: FacebookPostWhereInput | FacebookPostWhereInput[]
-    OR?: FacebookPostWhereInput[]
-    NOT?: FacebookPostWhereInput | FacebookPostWhereInput[]
-    userId?: StringFilter<"FacebookPost"> | string
-    title?: StringFilter<"FacebookPost"> | string
-    description?: StringNullableFilter<"FacebookPost"> | string | null
-    thumbnailUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    imageUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    videoUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    videoType?: EnumVideoTypeNullableFilter<"FacebookPost"> | $Enums.VideoType | null
-    processStatus?: EnumPostStatusFilter<"FacebookPost"> | $Enums.PostStatus
-    status?: EnumStatusFilter<"FacebookPost"> | $Enums.Status
-    scheduledAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
-    publishedAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
-    views?: IntFilter<"FacebookPost"> | number
-    likes?: IntFilter<"FacebookPost"> | number
-    comments?: IntFilter<"FacebookPost"> | number
-    tags?: StringNullableListFilter<"FacebookPost">
-    facebookPostId?: StringNullableFilter<"FacebookPost"> | string | null
-    createdAt?: DateTimeFilter<"FacebookPost"> | Date | string
-    updatedAt?: DateTimeFilter<"FacebookPost"> | Date | string
+    AND?: PostFacebookWhereInput | PostFacebookWhereInput[]
+    OR?: PostFacebookWhereInput[]
+    NOT?: PostFacebookWhereInput | PostFacebookWhereInput[]
+    userId?: StringFilter<"PostFacebook"> | string
+    channelId?: StringNullableFilter<"PostFacebook"> | string | null
+    title?: StringFilter<"PostFacebook"> | string
+    description?: StringNullableFilter<"PostFacebook"> | string | null
+    thumbnailUrl?: StringNullableFilter<"PostFacebook"> | string | null
+    uploadedUrls?: StringNullableListFilter<"PostFacebook">
+    videoType?: EnumVideoTypeNullableFilter<"PostFacebook"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFilter<"PostFacebook"> | $Enums.PostStatus
+    status?: EnumStatusFilter<"PostFacebook"> | $Enums.Status
+    scheduledAt?: DateTimeNullableFilter<"PostFacebook"> | Date | string | null
+    publishedAt?: DateTimeNullableFilter<"PostFacebook"> | Date | string | null
+    views?: IntFilter<"PostFacebook"> | number
+    likes?: IntFilter<"PostFacebook"> | number
+    comments?: IntFilter<"PostFacebook"> | number
+    tags?: StringNullableListFilter<"PostFacebook">
+    facebookPostId?: StringNullableFilter<"PostFacebook"> | string | null
+    createdAt?: DateTimeFilter<"PostFacebook"> | Date | string
+    updatedAt?: DateTimeFilter<"PostFacebook"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
-  export type FacebookPostOrderByWithAggregationInput = {
+  export type PostFacebookOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
+    channelId?: SortOrder
     title?: SortOrder
     description?: SortOrder
     thumbnailUrl?: SortOrder
-    imageUrl?: SortOrder
-    videoUrl?: SortOrder
+    uploadedUrls?: SortOrder
     videoType?: SortOrder
     processStatus?: SortOrder
     status?: SortOrder
@@ -17343,36 +17356,36 @@ export namespace Prisma {
     facebookPostId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: FacebookPostCountOrderByAggregateInput
-    _avg?: FacebookPostAvgOrderByAggregateInput
-    _max?: FacebookPostMaxOrderByAggregateInput
-    _min?: FacebookPostMinOrderByAggregateInput
-    _sum?: FacebookPostSumOrderByAggregateInput
+    _count?: PostFacebookCountOrderByAggregateInput
+    _avg?: PostFacebookAvgOrderByAggregateInput
+    _max?: PostFacebookMaxOrderByAggregateInput
+    _min?: PostFacebookMinOrderByAggregateInput
+    _sum?: PostFacebookSumOrderByAggregateInput
   }
 
-  export type FacebookPostScalarWhereWithAggregatesInput = {
-    AND?: FacebookPostScalarWhereWithAggregatesInput | FacebookPostScalarWhereWithAggregatesInput[]
-    OR?: FacebookPostScalarWhereWithAggregatesInput[]
-    NOT?: FacebookPostScalarWhereWithAggregatesInput | FacebookPostScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"FacebookPost"> | string
-    userId?: StringWithAggregatesFilter<"FacebookPost"> | string
-    title?: StringWithAggregatesFilter<"FacebookPost"> | string
-    description?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
-    thumbnailUrl?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
-    imageUrl?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
-    videoUrl?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
-    videoType?: EnumVideoTypeNullableWithAggregatesFilter<"FacebookPost"> | $Enums.VideoType | null
-    processStatus?: EnumPostStatusWithAggregatesFilter<"FacebookPost"> | $Enums.PostStatus
-    status?: EnumStatusWithAggregatesFilter<"FacebookPost"> | $Enums.Status
-    scheduledAt?: DateTimeNullableWithAggregatesFilter<"FacebookPost"> | Date | string | null
-    publishedAt?: DateTimeNullableWithAggregatesFilter<"FacebookPost"> | Date | string | null
-    views?: IntWithAggregatesFilter<"FacebookPost"> | number
-    likes?: IntWithAggregatesFilter<"FacebookPost"> | number
-    comments?: IntWithAggregatesFilter<"FacebookPost"> | number
-    tags?: StringNullableListFilter<"FacebookPost">
-    facebookPostId?: StringNullableWithAggregatesFilter<"FacebookPost"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"FacebookPost"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"FacebookPost"> | Date | string
+  export type PostFacebookScalarWhereWithAggregatesInput = {
+    AND?: PostFacebookScalarWhereWithAggregatesInput | PostFacebookScalarWhereWithAggregatesInput[]
+    OR?: PostFacebookScalarWhereWithAggregatesInput[]
+    NOT?: PostFacebookScalarWhereWithAggregatesInput | PostFacebookScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PostFacebook"> | string
+    userId?: StringWithAggregatesFilter<"PostFacebook"> | string
+    channelId?: StringNullableWithAggregatesFilter<"PostFacebook"> | string | null
+    title?: StringWithAggregatesFilter<"PostFacebook"> | string
+    description?: StringNullableWithAggregatesFilter<"PostFacebook"> | string | null
+    thumbnailUrl?: StringNullableWithAggregatesFilter<"PostFacebook"> | string | null
+    uploadedUrls?: StringNullableListFilter<"PostFacebook">
+    videoType?: EnumVideoTypeNullableWithAggregatesFilter<"PostFacebook"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusWithAggregatesFilter<"PostFacebook"> | $Enums.PostStatus
+    status?: EnumStatusWithAggregatesFilter<"PostFacebook"> | $Enums.Status
+    scheduledAt?: DateTimeNullableWithAggregatesFilter<"PostFacebook"> | Date | string | null
+    publishedAt?: DateTimeNullableWithAggregatesFilter<"PostFacebook"> | Date | string | null
+    views?: IntWithAggregatesFilter<"PostFacebook"> | number
+    likes?: IntWithAggregatesFilter<"PostFacebook"> | number
+    comments?: IntWithAggregatesFilter<"PostFacebook"> | number
+    tags?: StringNullableListFilter<"PostFacebook">
+    facebookPostId?: StringNullableWithAggregatesFilter<"PostFacebook"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"PostFacebook"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PostFacebook"> | Date | string
   }
 
   export type TrendingVideoWhereInput = {
@@ -17906,7 +17919,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookCreateNestedManyWithoutUserInput
     pricingPlan?: PricingPlanCreateNestedOneWithoutUsersInput
   }
 
@@ -17934,7 +17947,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryUncheckedCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -17959,7 +17972,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUpdateManyWithoutUserNestedInput
     pricingPlan?: PricingPlanUpdateOneWithoutUsersNestedInput
   }
 
@@ -17986,7 +17999,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUncheckedUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -18365,6 +18378,7 @@ export namespace Prisma {
     likes?: number
     comments?: number
     tags?: PostYoutubeCreatetagsInput | string[]
+    channelId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutYoutubePostsInput
@@ -18386,6 +18400,7 @@ export namespace Prisma {
     likes?: number
     comments?: number
     tags?: PostYoutubeCreatetagsInput | string[]
+    channelId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18404,6 +18419,7 @@ export namespace Prisma {
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
     tags?: PostYoutubeUpdatetagsInput | string[]
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutYoutubePostsNestedInput
@@ -18424,6 +18440,7 @@ export namespace Prisma {
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
     tags?: PostYoutubeUpdatetagsInput | string[]
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18444,6 +18461,7 @@ export namespace Prisma {
     likes?: number
     comments?: number
     tags?: PostYoutubeCreatetagsInput | string[]
+    channelId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18462,6 +18480,7 @@ export namespace Prisma {
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
     tags?: PostYoutubeUpdatetagsInput | string[]
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18481,17 +18500,18 @@ export namespace Prisma {
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
     tags?: PostYoutubeUpdatetagsInput | string[]
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FacebookPostCreateInput = {
+  export type PostFacebookCreateInput = {
     id?: string
+    channelId?: string | null
     title: string
     description?: string | null
     thumbnailUrl?: string | null
-    imageUrl?: string | null
-    videoUrl?: string | null
+    uploadedUrls?: PostFacebookCreateuploadedUrlsInput | string[]
     videoType?: $Enums.VideoType | null
     processStatus?: $Enums.PostStatus
     status?: $Enums.Status
@@ -18500,21 +18520,21 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: FacebookPostCreatetagsInput | string[]
+    tags?: PostFacebookCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutFacebookPostsInput
   }
 
-  export type FacebookPostUncheckedCreateInput = {
+  export type PostFacebookUncheckedCreateInput = {
     id?: string
     userId: string
+    channelId?: string | null
     title: string
     description?: string | null
     thumbnailUrl?: string | null
-    imageUrl?: string | null
-    videoUrl?: string | null
+    uploadedUrls?: PostFacebookCreateuploadedUrlsInput | string[]
     videoType?: $Enums.VideoType | null
     processStatus?: $Enums.PostStatus
     status?: $Enums.Status
@@ -18523,18 +18543,18 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: FacebookPostCreatetagsInput | string[]
+    tags?: PostFacebookCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type FacebookPostUpdateInput = {
+  export type PostFacebookUpdateInput = {
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    uploadedUrls?: PostFacebookUpdateuploadedUrlsInput | string[]
     videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
     processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -18543,20 +18563,20 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: FacebookPostUpdatetagsInput | string[]
+    tags?: PostFacebookUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFacebookPostsNestedInput
   }
 
-  export type FacebookPostUncheckedUpdateInput = {
+  export type PostFacebookUncheckedUpdateInput = {
     userId?: StringFieldUpdateOperationsInput | string
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    uploadedUrls?: PostFacebookUpdateuploadedUrlsInput | string[]
     videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
     processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -18565,20 +18585,20 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: FacebookPostUpdatetagsInput | string[]
+    tags?: PostFacebookUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FacebookPostCreateManyInput = {
+  export type PostFacebookCreateManyInput = {
     id?: string
     userId: string
+    channelId?: string | null
     title: string
     description?: string | null
     thumbnailUrl?: string | null
-    imageUrl?: string | null
-    videoUrl?: string | null
+    uploadedUrls?: PostFacebookCreateuploadedUrlsInput | string[]
     videoType?: $Enums.VideoType | null
     processStatus?: $Enums.PostStatus
     status?: $Enums.Status
@@ -18587,18 +18607,18 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: FacebookPostCreatetagsInput | string[]
+    tags?: PostFacebookCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type FacebookPostUpdateManyMutationInput = {
+  export type PostFacebookUpdateManyMutationInput = {
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    uploadedUrls?: PostFacebookUpdateuploadedUrlsInput | string[]
     videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
     processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -18607,19 +18627,19 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: FacebookPostUpdatetagsInput | string[]
+    tags?: PostFacebookUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FacebookPostUncheckedUpdateManyInput = {
+  export type PostFacebookUncheckedUpdateManyInput = {
     userId?: StringFieldUpdateOperationsInput | string
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    uploadedUrls?: PostFacebookUpdateuploadedUrlsInput | string[]
     videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
     processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -18628,7 +18648,7 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: FacebookPostUpdatetagsInput | string[]
+    tags?: PostFacebookUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -19300,10 +19320,10 @@ export namespace Prisma {
     none?: GenerateHistoryWhereInput
   }
 
-  export type FacebookPostListRelationFilter = {
-    every?: FacebookPostWhereInput
-    some?: FacebookPostWhereInput
-    none?: FacebookPostWhereInput
+  export type PostFacebookListRelationFilter = {
+    every?: PostFacebookWhereInput
+    some?: PostFacebookWhereInput
+    none?: PostFacebookWhereInput
   }
 
   export type PricingPlanNullableScalarRelationFilter = {
@@ -19343,7 +19363,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type FacebookPostOrderByRelationAggregateInput = {
+  export type PostFacebookOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19745,6 +19765,7 @@ export namespace Prisma {
     likes?: SortOrder
     comments?: SortOrder
     tags?: SortOrder
+    channelId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19770,6 +19791,7 @@ export namespace Prisma {
     views?: SortOrder
     likes?: SortOrder
     comments?: SortOrder
+    channelId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19789,6 +19811,7 @@ export namespace Prisma {
     views?: SortOrder
     likes?: SortOrder
     comments?: SortOrder
+    channelId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19820,14 +19843,14 @@ export namespace Prisma {
     _max?: NestedEnumPostStatusFilter<$PrismaModel>
   }
 
-  export type FacebookPostCountOrderByAggregateInput = {
+  export type PostFacebookCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    channelId?: SortOrder
     title?: SortOrder
     description?: SortOrder
     thumbnailUrl?: SortOrder
-    imageUrl?: SortOrder
-    videoUrl?: SortOrder
+    uploadedUrls?: SortOrder
     videoType?: SortOrder
     processStatus?: SortOrder
     status?: SortOrder
@@ -19842,20 +19865,19 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type FacebookPostAvgOrderByAggregateInput = {
+  export type PostFacebookAvgOrderByAggregateInput = {
     views?: SortOrder
     likes?: SortOrder
     comments?: SortOrder
   }
 
-  export type FacebookPostMaxOrderByAggregateInput = {
+  export type PostFacebookMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    channelId?: SortOrder
     title?: SortOrder
     description?: SortOrder
     thumbnailUrl?: SortOrder
-    imageUrl?: SortOrder
-    videoUrl?: SortOrder
     videoType?: SortOrder
     processStatus?: SortOrder
     status?: SortOrder
@@ -19869,14 +19891,13 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type FacebookPostMinOrderByAggregateInput = {
+  export type PostFacebookMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    channelId?: SortOrder
     title?: SortOrder
     description?: SortOrder
     thumbnailUrl?: SortOrder
-    imageUrl?: SortOrder
-    videoUrl?: SortOrder
     videoType?: SortOrder
     processStatus?: SortOrder
     status?: SortOrder
@@ -19890,7 +19911,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type FacebookPostSumOrderByAggregateInput = {
+  export type PostFacebookSumOrderByAggregateInput = {
     views?: SortOrder
     likes?: SortOrder
     comments?: SortOrder
@@ -20303,11 +20324,11 @@ export namespace Prisma {
     connect?: GenerateHistoryWhereUniqueInput | GenerateHistoryWhereUniqueInput[]
   }
 
-  export type FacebookPostCreateNestedManyWithoutUserInput = {
-    create?: XOR<FacebookPostCreateWithoutUserInput, FacebookPostUncheckedCreateWithoutUserInput> | FacebookPostCreateWithoutUserInput[] | FacebookPostUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FacebookPostCreateOrConnectWithoutUserInput | FacebookPostCreateOrConnectWithoutUserInput[]
-    createMany?: FacebookPostCreateManyUserInputEnvelope
-    connect?: FacebookPostWhereUniqueInput | FacebookPostWhereUniqueInput[]
+  export type PostFacebookCreateNestedManyWithoutUserInput = {
+    create?: XOR<PostFacebookCreateWithoutUserInput, PostFacebookUncheckedCreateWithoutUserInput> | PostFacebookCreateWithoutUserInput[] | PostFacebookUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PostFacebookCreateOrConnectWithoutUserInput | PostFacebookCreateOrConnectWithoutUserInput[]
+    createMany?: PostFacebookCreateManyUserInputEnvelope
+    connect?: PostFacebookWhereUniqueInput | PostFacebookWhereUniqueInput[]
   }
 
   export type PricingPlanCreateNestedOneWithoutUsersInput = {
@@ -20372,11 +20393,11 @@ export namespace Prisma {
     connect?: GenerateHistoryWhereUniqueInput | GenerateHistoryWhereUniqueInput[]
   }
 
-  export type FacebookPostUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<FacebookPostCreateWithoutUserInput, FacebookPostUncheckedCreateWithoutUserInput> | FacebookPostCreateWithoutUserInput[] | FacebookPostUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FacebookPostCreateOrConnectWithoutUserInput | FacebookPostCreateOrConnectWithoutUserInput[]
-    createMany?: FacebookPostCreateManyUserInputEnvelope
-    connect?: FacebookPostWhereUniqueInput | FacebookPostWhereUniqueInput[]
+  export type PostFacebookUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PostFacebookCreateWithoutUserInput, PostFacebookUncheckedCreateWithoutUserInput> | PostFacebookCreateWithoutUserInput[] | PostFacebookUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PostFacebookCreateOrConnectWithoutUserInput | PostFacebookCreateOrConnectWithoutUserInput[]
+    createMany?: PostFacebookCreateManyUserInputEnvelope
+    connect?: PostFacebookWhereUniqueInput | PostFacebookWhereUniqueInput[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -20521,18 +20542,18 @@ export namespace Prisma {
     deleteMany?: GenerateHistoryScalarWhereInput | GenerateHistoryScalarWhereInput[]
   }
 
-  export type FacebookPostUpdateManyWithoutUserNestedInput = {
-    create?: XOR<FacebookPostCreateWithoutUserInput, FacebookPostUncheckedCreateWithoutUserInput> | FacebookPostCreateWithoutUserInput[] | FacebookPostUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FacebookPostCreateOrConnectWithoutUserInput | FacebookPostCreateOrConnectWithoutUserInput[]
-    upsert?: FacebookPostUpsertWithWhereUniqueWithoutUserInput | FacebookPostUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: FacebookPostCreateManyUserInputEnvelope
-    set?: FacebookPostWhereUniqueInput | FacebookPostWhereUniqueInput[]
-    disconnect?: FacebookPostWhereUniqueInput | FacebookPostWhereUniqueInput[]
-    delete?: FacebookPostWhereUniqueInput | FacebookPostWhereUniqueInput[]
-    connect?: FacebookPostWhereUniqueInput | FacebookPostWhereUniqueInput[]
-    update?: FacebookPostUpdateWithWhereUniqueWithoutUserInput | FacebookPostUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: FacebookPostUpdateManyWithWhereWithoutUserInput | FacebookPostUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: FacebookPostScalarWhereInput | FacebookPostScalarWhereInput[]
+  export type PostFacebookUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PostFacebookCreateWithoutUserInput, PostFacebookUncheckedCreateWithoutUserInput> | PostFacebookCreateWithoutUserInput[] | PostFacebookUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PostFacebookCreateOrConnectWithoutUserInput | PostFacebookCreateOrConnectWithoutUserInput[]
+    upsert?: PostFacebookUpsertWithWhereUniqueWithoutUserInput | PostFacebookUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PostFacebookCreateManyUserInputEnvelope
+    set?: PostFacebookWhereUniqueInput | PostFacebookWhereUniqueInput[]
+    disconnect?: PostFacebookWhereUniqueInput | PostFacebookWhereUniqueInput[]
+    delete?: PostFacebookWhereUniqueInput | PostFacebookWhereUniqueInput[]
+    connect?: PostFacebookWhereUniqueInput | PostFacebookWhereUniqueInput[]
+    update?: PostFacebookUpdateWithWhereUniqueWithoutUserInput | PostFacebookUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PostFacebookUpdateManyWithWhereWithoutUserInput | PostFacebookUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PostFacebookScalarWhereInput | PostFacebookScalarWhereInput[]
   }
 
   export type PricingPlanUpdateOneWithoutUsersNestedInput = {
@@ -20657,18 +20678,18 @@ export namespace Prisma {
     deleteMany?: GenerateHistoryScalarWhereInput | GenerateHistoryScalarWhereInput[]
   }
 
-  export type FacebookPostUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<FacebookPostCreateWithoutUserInput, FacebookPostUncheckedCreateWithoutUserInput> | FacebookPostCreateWithoutUserInput[] | FacebookPostUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FacebookPostCreateOrConnectWithoutUserInput | FacebookPostCreateOrConnectWithoutUserInput[]
-    upsert?: FacebookPostUpsertWithWhereUniqueWithoutUserInput | FacebookPostUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: FacebookPostCreateManyUserInputEnvelope
-    set?: FacebookPostWhereUniqueInput | FacebookPostWhereUniqueInput[]
-    disconnect?: FacebookPostWhereUniqueInput | FacebookPostWhereUniqueInput[]
-    delete?: FacebookPostWhereUniqueInput | FacebookPostWhereUniqueInput[]
-    connect?: FacebookPostWhereUniqueInput | FacebookPostWhereUniqueInput[]
-    update?: FacebookPostUpdateWithWhereUniqueWithoutUserInput | FacebookPostUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: FacebookPostUpdateManyWithWhereWithoutUserInput | FacebookPostUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: FacebookPostScalarWhereInput | FacebookPostScalarWhereInput[]
+  export type PostFacebookUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PostFacebookCreateWithoutUserInput, PostFacebookUncheckedCreateWithoutUserInput> | PostFacebookCreateWithoutUserInput[] | PostFacebookUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PostFacebookCreateOrConnectWithoutUserInput | PostFacebookCreateOrConnectWithoutUserInput[]
+    upsert?: PostFacebookUpsertWithWhereUniqueWithoutUserInput | PostFacebookUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PostFacebookCreateManyUserInputEnvelope
+    set?: PostFacebookWhereUniqueInput | PostFacebookWhereUniqueInput[]
+    disconnect?: PostFacebookWhereUniqueInput | PostFacebookWhereUniqueInput[]
+    delete?: PostFacebookWhereUniqueInput | PostFacebookWhereUniqueInput[]
+    connect?: PostFacebookWhereUniqueInput | PostFacebookWhereUniqueInput[]
+    update?: PostFacebookUpdateWithWhereUniqueWithoutUserInput | PostFacebookUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PostFacebookUpdateManyWithWhereWithoutUserInput | PostFacebookUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PostFacebookScalarWhereInput | PostFacebookScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutAccountsInput = {
@@ -20754,7 +20775,11 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutYoutubePostsInput, UserUpdateWithoutYoutubePostsInput>, UserUncheckedUpdateWithoutYoutubePostsInput>
   }
 
-  export type FacebookPostCreatetagsInput = {
+  export type PostFacebookCreateuploadedUrlsInput = {
+    set: string[]
+  }
+
+  export type PostFacebookCreatetagsInput = {
     set: string[]
   }
 
@@ -20764,7 +20789,12 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type FacebookPostUpdatetagsInput = {
+  export type PostFacebookUpdateuploadedUrlsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type PostFacebookUpdatetagsInput = {
     set?: string[]
     push?: string | string[]
   }
@@ -21337,6 +21367,7 @@ export namespace Prisma {
     likes?: number
     comments?: number
     tags?: PostYoutubeCreatetagsInput | string[]
+    channelId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21356,6 +21387,7 @@ export namespace Prisma {
     likes?: number
     comments?: number
     tags?: PostYoutubeCreatetagsInput | string[]
+    channelId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21534,13 +21566,13 @@ export namespace Prisma {
     data: GenerateHistoryCreateManyUserInput | GenerateHistoryCreateManyUserInput[]
   }
 
-  export type FacebookPostCreateWithoutUserInput = {
+  export type PostFacebookCreateWithoutUserInput = {
     id?: string
+    channelId?: string | null
     title: string
     description?: string | null
     thumbnailUrl?: string | null
-    imageUrl?: string | null
-    videoUrl?: string | null
+    uploadedUrls?: PostFacebookCreateuploadedUrlsInput | string[]
     videoType?: $Enums.VideoType | null
     processStatus?: $Enums.PostStatus
     status?: $Enums.Status
@@ -21549,19 +21581,19 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: FacebookPostCreatetagsInput | string[]
+    tags?: PostFacebookCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type FacebookPostUncheckedCreateWithoutUserInput = {
+  export type PostFacebookUncheckedCreateWithoutUserInput = {
     id?: string
+    channelId?: string | null
     title: string
     description?: string | null
     thumbnailUrl?: string | null
-    imageUrl?: string | null
-    videoUrl?: string | null
+    uploadedUrls?: PostFacebookCreateuploadedUrlsInput | string[]
     videoType?: $Enums.VideoType | null
     processStatus?: $Enums.PostStatus
     status?: $Enums.Status
@@ -21570,19 +21602,19 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: FacebookPostCreatetagsInput | string[]
+    tags?: PostFacebookCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type FacebookPostCreateOrConnectWithoutUserInput = {
-    where: FacebookPostWhereUniqueInput
-    create: XOR<FacebookPostCreateWithoutUserInput, FacebookPostUncheckedCreateWithoutUserInput>
+  export type PostFacebookCreateOrConnectWithoutUserInput = {
+    where: PostFacebookWhereUniqueInput
+    create: XOR<PostFacebookCreateWithoutUserInput, PostFacebookUncheckedCreateWithoutUserInput>
   }
 
-  export type FacebookPostCreateManyUserInputEnvelope = {
-    data: FacebookPostCreateManyUserInput | FacebookPostCreateManyUserInput[]
+  export type PostFacebookCreateManyUserInputEnvelope = {
+    data: PostFacebookCreateManyUserInput | PostFacebookCreateManyUserInput[]
   }
 
   export type PricingPlanCreateWithoutUsersInput = {
@@ -21719,6 +21751,7 @@ export namespace Prisma {
     likes?: IntFilter<"PostYoutube"> | number
     comments?: IntFilter<"PostYoutube"> | number
     tags?: StringNullableListFilter<"PostYoutube">
+    channelId?: StringNullableFilter<"PostYoutube"> | string | null
     createdAt?: DateTimeFilter<"PostYoutube"> | Date | string
     updatedAt?: DateTimeFilter<"PostYoutube"> | Date | string
   }
@@ -21883,45 +21916,45 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"GenerateHistory"> | Date | string
   }
 
-  export type FacebookPostUpsertWithWhereUniqueWithoutUserInput = {
-    where: FacebookPostWhereUniqueInput
-    update: XOR<FacebookPostUpdateWithoutUserInput, FacebookPostUncheckedUpdateWithoutUserInput>
-    create: XOR<FacebookPostCreateWithoutUserInput, FacebookPostUncheckedCreateWithoutUserInput>
+  export type PostFacebookUpsertWithWhereUniqueWithoutUserInput = {
+    where: PostFacebookWhereUniqueInput
+    update: XOR<PostFacebookUpdateWithoutUserInput, PostFacebookUncheckedUpdateWithoutUserInput>
+    create: XOR<PostFacebookCreateWithoutUserInput, PostFacebookUncheckedCreateWithoutUserInput>
   }
 
-  export type FacebookPostUpdateWithWhereUniqueWithoutUserInput = {
-    where: FacebookPostWhereUniqueInput
-    data: XOR<FacebookPostUpdateWithoutUserInput, FacebookPostUncheckedUpdateWithoutUserInput>
+  export type PostFacebookUpdateWithWhereUniqueWithoutUserInput = {
+    where: PostFacebookWhereUniqueInput
+    data: XOR<PostFacebookUpdateWithoutUserInput, PostFacebookUncheckedUpdateWithoutUserInput>
   }
 
-  export type FacebookPostUpdateManyWithWhereWithoutUserInput = {
-    where: FacebookPostScalarWhereInput
-    data: XOR<FacebookPostUpdateManyMutationInput, FacebookPostUncheckedUpdateManyWithoutUserInput>
+  export type PostFacebookUpdateManyWithWhereWithoutUserInput = {
+    where: PostFacebookScalarWhereInput
+    data: XOR<PostFacebookUpdateManyMutationInput, PostFacebookUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type FacebookPostScalarWhereInput = {
-    AND?: FacebookPostScalarWhereInput | FacebookPostScalarWhereInput[]
-    OR?: FacebookPostScalarWhereInput[]
-    NOT?: FacebookPostScalarWhereInput | FacebookPostScalarWhereInput[]
-    id?: StringFilter<"FacebookPost"> | string
-    userId?: StringFilter<"FacebookPost"> | string
-    title?: StringFilter<"FacebookPost"> | string
-    description?: StringNullableFilter<"FacebookPost"> | string | null
-    thumbnailUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    imageUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    videoUrl?: StringNullableFilter<"FacebookPost"> | string | null
-    videoType?: EnumVideoTypeNullableFilter<"FacebookPost"> | $Enums.VideoType | null
-    processStatus?: EnumPostStatusFilter<"FacebookPost"> | $Enums.PostStatus
-    status?: EnumStatusFilter<"FacebookPost"> | $Enums.Status
-    scheduledAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
-    publishedAt?: DateTimeNullableFilter<"FacebookPost"> | Date | string | null
-    views?: IntFilter<"FacebookPost"> | number
-    likes?: IntFilter<"FacebookPost"> | number
-    comments?: IntFilter<"FacebookPost"> | number
-    tags?: StringNullableListFilter<"FacebookPost">
-    facebookPostId?: StringNullableFilter<"FacebookPost"> | string | null
-    createdAt?: DateTimeFilter<"FacebookPost"> | Date | string
-    updatedAt?: DateTimeFilter<"FacebookPost"> | Date | string
+  export type PostFacebookScalarWhereInput = {
+    AND?: PostFacebookScalarWhereInput | PostFacebookScalarWhereInput[]
+    OR?: PostFacebookScalarWhereInput[]
+    NOT?: PostFacebookScalarWhereInput | PostFacebookScalarWhereInput[]
+    id?: StringFilter<"PostFacebook"> | string
+    userId?: StringFilter<"PostFacebook"> | string
+    channelId?: StringNullableFilter<"PostFacebook"> | string | null
+    title?: StringFilter<"PostFacebook"> | string
+    description?: StringNullableFilter<"PostFacebook"> | string | null
+    thumbnailUrl?: StringNullableFilter<"PostFacebook"> | string | null
+    uploadedUrls?: StringNullableListFilter<"PostFacebook">
+    videoType?: EnumVideoTypeNullableFilter<"PostFacebook"> | $Enums.VideoType | null
+    processStatus?: EnumPostStatusFilter<"PostFacebook"> | $Enums.PostStatus
+    status?: EnumStatusFilter<"PostFacebook"> | $Enums.Status
+    scheduledAt?: DateTimeNullableFilter<"PostFacebook"> | Date | string | null
+    publishedAt?: DateTimeNullableFilter<"PostFacebook"> | Date | string | null
+    views?: IntFilter<"PostFacebook"> | number
+    likes?: IntFilter<"PostFacebook"> | number
+    comments?: IntFilter<"PostFacebook"> | number
+    tags?: StringNullableListFilter<"PostFacebook">
+    facebookPostId?: StringNullableFilter<"PostFacebook"> | string | null
+    createdAt?: DateTimeFilter<"PostFacebook"> | Date | string
+    updatedAt?: DateTimeFilter<"PostFacebook"> | Date | string
   }
 
   export type PricingPlanUpsertWithoutUsersInput = {
@@ -21987,7 +22020,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookCreateNestedManyWithoutUserInput
     pricingPlan?: PricingPlanCreateNestedOneWithoutUsersInput
   }
 
@@ -22014,7 +22047,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryUncheckedCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -22054,7 +22087,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUpdateManyWithoutUserNestedInput
     pricingPlan?: PricingPlanUpdateOneWithoutUsersNestedInput
   }
 
@@ -22080,7 +22113,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUncheckedUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -22105,7 +22138,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookCreateNestedManyWithoutUserInput
     pricingPlan?: PricingPlanCreateNestedOneWithoutUsersInput
   }
 
@@ -22132,7 +22165,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryUncheckedCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -22172,7 +22205,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUpdateManyWithoutUserNestedInput
     pricingPlan?: PricingPlanUpdateOneWithoutUsersNestedInput
   }
 
@@ -22198,7 +22231,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUncheckedUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutChannelsInput = {
@@ -22223,7 +22256,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookCreateNestedManyWithoutUserInput
     pricingPlan?: PricingPlanCreateNestedOneWithoutUsersInput
   }
 
@@ -22250,7 +22283,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryUncheckedCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutChannelsInput = {
@@ -22290,7 +22323,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUpdateManyWithoutUserNestedInput
     pricingPlan?: PricingPlanUpdateOneWithoutUsersNestedInput
   }
 
@@ -22316,7 +22349,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUncheckedUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutYoutubePostsInput = {
@@ -22341,7 +22374,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookCreateNestedManyWithoutUserInput
     pricingPlan?: PricingPlanCreateNestedOneWithoutUsersInput
   }
 
@@ -22368,7 +22401,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryUncheckedCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutYoutubePostsInput = {
@@ -22408,7 +22441,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUpdateManyWithoutUserNestedInput
     pricingPlan?: PricingPlanUpdateOneWithoutUsersNestedInput
   }
 
@@ -22434,7 +22467,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUncheckedUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutFacebookPostsInput = {
@@ -22577,7 +22610,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookCreateNestedManyWithoutUserInput
     pricingPlan?: PricingPlanCreateNestedOneWithoutUsersInput
   }
 
@@ -22604,7 +22637,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryUncheckedCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutKeywordsInput = {
@@ -22644,7 +22677,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUpdateManyWithoutUserNestedInput
     pricingPlan?: PricingPlanUpdateOneWithoutUsersNestedInput
   }
 
@@ -22670,7 +22703,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUncheckedUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutRefreshTokensInput = {
@@ -22695,7 +22728,7 @@ export namespace Prisma {
     keywords?: KeywordCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookCreateNestedManyWithoutUserInput
     pricingPlan?: PricingPlanCreateNestedOneWithoutUsersInput
   }
 
@@ -22722,7 +22755,7 @@ export namespace Prisma {
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryUncheckedCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutRefreshTokensInput = {
@@ -22762,7 +22795,7 @@ export namespace Prisma {
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUpdateManyWithoutUserNestedInput
     pricingPlan?: PricingPlanUpdateOneWithoutUsersNestedInput
   }
 
@@ -22788,7 +22821,7 @@ export namespace Prisma {
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUncheckedUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutPricingPlanInput = {
@@ -22814,7 +22847,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutPricingPlanInput = {
@@ -22840,7 +22873,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryUncheckedCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPricingPlanInput = {
@@ -22968,7 +23001,7 @@ export namespace Prisma {
     keywords?: KeywordCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookCreateNestedManyWithoutUserInput
     pricingPlan?: PricingPlanCreateNestedOneWithoutUsersInput
   }
 
@@ -22995,7 +23028,7 @@ export namespace Prisma {
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     generateHistory?: GenerateHistoryUncheckedCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPricingHistoryInput = {
@@ -23072,7 +23105,7 @@ export namespace Prisma {
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUpdateManyWithoutUserNestedInput
     pricingPlan?: PricingPlanUpdateOneWithoutUsersNestedInput
   }
 
@@ -23098,7 +23131,7 @@ export namespace Prisma {
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUncheckedUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type PricingPlanUpsertWithoutHistoriesInput = {
@@ -23164,7 +23197,7 @@ export namespace Prisma {
     keywords?: KeywordCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookCreateNestedManyWithoutUserInput
     pricingPlan?: PricingPlanCreateNestedOneWithoutUsersInput
   }
 
@@ -23191,7 +23224,7 @@ export namespace Prisma {
     keywords?: KeywordUncheckedCreateNestedManyWithoutUserInput
     refreshTokens?: RefreshTokenUncheckedCreateNestedManyWithoutUserInput
     pricingHistory?: PricingPlanHistoryUncheckedCreateNestedManyWithoutUserInput
-    facebookPosts?: FacebookPostUncheckedCreateNestedManyWithoutUserInput
+    facebookPosts?: PostFacebookUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutGenerateHistoryInput = {
@@ -23231,7 +23264,7 @@ export namespace Prisma {
     keywords?: KeywordUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUpdateManyWithoutUserNestedInput
     pricingPlan?: PricingPlanUpdateOneWithoutUsersNestedInput
   }
 
@@ -23257,7 +23290,7 @@ export namespace Prisma {
     keywords?: KeywordUncheckedUpdateManyWithoutUserNestedInput
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type AccountCreateManyUserInput = {
@@ -23297,6 +23330,7 @@ export namespace Prisma {
     likes?: number
     comments?: number
     tags?: PostYoutubeCreatetagsInput | string[]
+    channelId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -23361,13 +23395,13 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type FacebookPostCreateManyUserInput = {
+  export type PostFacebookCreateManyUserInput = {
     id?: string
+    channelId?: string | null
     title: string
     description?: string | null
     thumbnailUrl?: string | null
-    imageUrl?: string | null
-    videoUrl?: string | null
+    uploadedUrls?: PostFacebookCreateuploadedUrlsInput | string[]
     videoType?: $Enums.VideoType | null
     processStatus?: $Enums.PostStatus
     status?: $Enums.Status
@@ -23376,7 +23410,7 @@ export namespace Prisma {
     views?: number
     likes?: number
     comments?: number
-    tags?: FacebookPostCreatetagsInput | string[]
+    tags?: PostFacebookCreatetagsInput | string[]
     facebookPostId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -23456,6 +23490,7 @@ export namespace Prisma {
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
     tags?: PostYoutubeUpdatetagsInput | string[]
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23474,6 +23509,7 @@ export namespace Prisma {
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
     tags?: PostYoutubeUpdatetagsInput | string[]
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23492,6 +23528,7 @@ export namespace Prisma {
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
     tags?: PostYoutubeUpdatetagsInput | string[]
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23661,12 +23698,12 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FacebookPostUpdateWithoutUserInput = {
+  export type PostFacebookUpdateWithoutUserInput = {
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    uploadedUrls?: PostFacebookUpdateuploadedUrlsInput | string[]
     videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
     processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -23675,18 +23712,18 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: FacebookPostUpdatetagsInput | string[]
+    tags?: PostFacebookUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FacebookPostUncheckedUpdateWithoutUserInput = {
+  export type PostFacebookUncheckedUpdateWithoutUserInput = {
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    uploadedUrls?: PostFacebookUpdateuploadedUrlsInput | string[]
     videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
     processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -23695,18 +23732,18 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: FacebookPostUpdatetagsInput | string[]
+    tags?: PostFacebookUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FacebookPostUncheckedUpdateManyWithoutUserInput = {
+  export type PostFacebookUncheckedUpdateManyWithoutUserInput = {
+    channelId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    uploadedUrls?: PostFacebookUpdateuploadedUrlsInput | string[]
     videoType?: NullableEnumVideoTypeFieldUpdateOperationsInput | $Enums.VideoType | null
     processStatus?: EnumPostStatusFieldUpdateOperationsInput | $Enums.PostStatus
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -23715,7 +23752,7 @@ export namespace Prisma {
     views?: IntFieldUpdateOperationsInput | number
     likes?: IntFieldUpdateOperationsInput | number
     comments?: IntFieldUpdateOperationsInput | number
-    tags?: FacebookPostUpdatetagsInput | string[]
+    tags?: PostFacebookUpdatetagsInput | string[]
     facebookPostId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -23776,7 +23813,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPricingPlanInput = {
@@ -23801,7 +23838,7 @@ export namespace Prisma {
     refreshTokens?: RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
     pricingHistory?: PricingPlanHistoryUncheckedUpdateManyWithoutUserNestedInput
     generateHistory?: GenerateHistoryUncheckedUpdateManyWithoutUserNestedInput
-    facebookPosts?: FacebookPostUncheckedUpdateManyWithoutUserNestedInput
+    facebookPosts?: PostFacebookUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutPricingPlanInput = {
